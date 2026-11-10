@@ -33,7 +33,7 @@ function WorkpieceView({
   pose: MutableRefObject<MotionPose>;
   run: ProcessRun;
 }) {
-  const observe = useFactory((s) => s.select);
+  const observe = useFactory((s) => s.observe);
   const phase = motionPose(run, run.devices.cnc.endsWith("01") ? "A" : "B");
   return (
     <group name={`workpiece-${id}`}>
@@ -41,7 +41,7 @@ function WorkpieceView({
         pose={pose}
         holes={phase.holes}
         deburred={phase.deburred}
-        onClick={() => observe(run.devices.cnc)}
+        onClick={() => observe(run.devices.cnc, run.status === "complete" ? run.workpieceId : undefined)}
       />
     </group>
   );

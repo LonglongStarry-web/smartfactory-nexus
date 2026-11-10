@@ -34,6 +34,8 @@ interface Store {
   s: SimulationState;
   page: string;
   selected: string;
+  observation: { deviceId: string; runId?: string } | null;
+  observe: (deviceId: string, runId?: string) => void;
   toast: string;
   theme: ThemeMode;
   accent: Accent;
@@ -107,6 +109,11 @@ export const useFactory = create<Store>()(
       s: initialState(),
       page: location.hash.slice(1) || "dashboard",
       selected: "CNC-01",
+      observation: null,
+      observe: (deviceId, runId) => {
+        get().nav("twin");
+        set({ selected: deviceId, observation: { deviceId, runId } });
+      },
       toast: "",
       theme: "dark",
       accent: "cyan",

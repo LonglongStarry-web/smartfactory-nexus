@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Focus, RotateCcw, Tags, ChevronRight } from "lucide-react";
 import { useFactory } from "../store/useFactory";
 import Twin from "../features/digital-twin/Twin";
+import Observation from "../features/digital-twin/Observation";
+import type { SceneView } from "../features/digital-twin/FactoryWorld";
 import DeviceDetail from "../components/DeviceDetail";
 export default function TwinPage() {
   const f = useFactory();
+  const [view,setView]=useState<SceneView>({});
   const labels = f.preferences.showLabels,
     low = f.preferences.lowQuality;
   const [preset, setPreset] = useState(0),
@@ -53,7 +56,7 @@ export default function TwinPage() {
               <Focus size={16} /> 聚焦设备
             </button>
           </div>
-          <Twin labels={labels} low={low} preset={preset} focus={focus} />
+          <Twin labels={f.observation ? false : labels} low={low} preset={preset} focus={focus} view={view} />
           <div className="scene-hint">
             拖动旋转 · 右键平移 · 滚轮缩放 · 点击设备查看详情
           </div>
@@ -73,7 +76,7 @@ export default function TwinPage() {
               ))}
             </select>
           </label>
-          <DeviceDetail />
+          {f.observation ? <Observation onView={setView}/> : <DeviceDetail />}
         </aside>
       </div>
     </>

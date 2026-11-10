@@ -85,6 +85,7 @@ export default function DeviceDetail() {
           <dd>{d.energy.toFixed(3)} kWh</dd>
         </div>
       </dl>
+      {["cnc", "robot", "qc"].includes(d.kind) && <button className="primary" onClick={() => f.observe(d.id)}>观察加工</button>}
       <section
         className="stack"
         aria-label="工件流转"

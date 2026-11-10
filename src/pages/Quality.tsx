@@ -209,6 +209,7 @@ export default function Quality() {
               </div>
             )}
           </div>
+          {f.s.flow.runs[selected.workpieceId] && <button className="primary" onClick={()=>f.observe(selected.deviceId,selected.workpieceId)}>查看加工过程</button>}
           <dl>
             {[
               ["产品", selected.workpieceId],
