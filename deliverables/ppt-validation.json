@@ -1,0 +1,913 @@
+﻿{
+    "font":  "Microsoft YaHei",
+    "method":  "Native PowerPoint COM and per-slide PNG export",
+    "slideCount":  16,
+    "checks":  [
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "01 / 16",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "智造未来",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "基于数字孪生与增强现实的\n智能柔性制造车间协同管控系统",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "工业智能制造系统设计与初步验证\n课程交互原型 / 2026.11",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  1
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "02 / 16",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "项目背景",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "柔性制造中的信息协同",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "多产品、小批量订单需要动态排产",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设备异常会影响交付、质量与能源消耗",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程以可交互原型验证业务联动",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  2
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "03 / 16",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "现状与问题",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "故障信息与生产任务容易分离",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "01",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "状态分散",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设备、订单与告警缺少统一关联",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "02",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "任务冲突",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "插单与故障改变可用加工资源",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "03",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "维护断点",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "恢复动作需要留下可核对的记录",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  3
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  4
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "04 / 16",
+                       "slide":  4
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "需求分析",
+                       "slide":  4
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "围绕可重复的课堂演示定义需求",
+                       "slide":  4
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  4
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "05 / 16",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "系统建设目标",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "一个动作在全部业务视图中一致反映",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "完整演示生产、插单、故障与恢复",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "保留事件证据并导出报告",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "明确模拟与实机验证边界",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  5
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "06 / 16",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "总体技术架构",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "统一状态连接界面、模拟与设备视图",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "React 业务页面与 ECharts",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "Zustand 统一状态",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "模拟引擎与规则调度",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "R3F 三维车间",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "MindAR 独立渲染",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "本地持久化与 CSV / JSON / HTML 导出",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  6
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "07 / 16",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "系统功能结构",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "八个模块共享设备、订单与模拟时间",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "同一设备 / 订单 / 事件 / 模拟时间",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "智能驾驶舱",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "数字孪生车间",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "生产调度",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "质量检测",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设备健康",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "能耗管理",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "AR 智能巡检",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "数据分析与报告",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  7
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "08 / 16",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "UI 与交互设计",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "工业控制台的统一视觉语言",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "深色蓝灰、青色重点与语义状态色",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "统一参数口径与控件规范",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "手机收起侧栏，表格在局部滚动",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  8
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "09 / 16",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "三维数字孪生车间",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "程序化设备与业务状态联动",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "两条产线、CNC、机械臂、检测站与仓库",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设备选择、平滑聚焦、视角预设与低画质",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设备时间驱动动画，故障停止该线",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  9
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "10 / 16",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "智能生产调度",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "同一约束下比较两种可解释规则",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "FCFS 按创建时间，紧急优先按优先级",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "甘特图、设备负载、ETA 与延期同步计算",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "故障产线退出候选资源，剩余任务重分配",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  10
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "11 / 16",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "故障诊断与维护",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "异常注入触发可追溯的维修闭环",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "温度超 80°C 或振动超 5 mm/s 为演示阈值",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "故障同步影响颜色、告警、动画与排产",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "三步检查后恢复，保留历史",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  11
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "12 / 16",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "AR 智能巡检",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "真实图像识别实现与明确的降级入口",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "MindAR 1.2.5 与本地 PNG / .mind 资源",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "桌面合成视频流已验证目标识别",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "普通三维回退可完成同一维修工单",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "手机识别与跟踪效果：待实机验证",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  12
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "13 / 16",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "完整业务演示",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "约 7 分钟展示一次生产异常恢复",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "01",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "正常生产",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "02",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "紧急插单",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "03",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "注入故障",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "04",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "巡检维修",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "05",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "恢复生产",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "06",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "导出报告",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  13
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "14 / 16",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "系统测试与初步评估",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "自动化结果与待验证事项分别陈述",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "自动化验收",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "8 项引擎单元测试\n4 项浏览器流程测试\n桌面合成视频流识别成功\n8 页桌面与手机尺寸截图",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "待开展的实证",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "Android / iOS 真实目标识别\n工厂现场接口与工艺精度\n真实用户任务完成率与满意度",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "测试记录随项目交付；浏览器手机尺寸不代表手机实机。",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  14
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "15 / 16",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "设计特点与局限性",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "可解释的协同闭环形成可核验的课程成果",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "统一事件驱动业务页面和三维设备",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "能耗积分、规则排产与维修步骤可复现",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "未接 PLC，未训练 AI，未校验物理精度",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "手机实测与用户研究仍待开展",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  15
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "SMARTFACTORY NEXUS",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "16 / 16",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "总结与展望",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "交互原型已经形成，工业有效性仍需实证",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "下一步接入真实设备接口与权限模型",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "扩展多工序、换型和有限缓冲约束",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "完成 Android / iOS 实机测试与用户评估",
+                       "slide":  16
+                   },
+                   {
+                       "outOfSlide":  false,
+                       "overflow":  false,
+                       "text":  "课程模拟原型 · 未连接真实设备 · AR 待手机实机验证",
+                       "slide":  16
+                   }
+               ]
+}

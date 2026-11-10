@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8" /><title>MindAR target compiler</title>
+  <script type="importmap">
+    { "imports": { "three": "./three.module.js" } }
+  </script>
+  <canvas id="target" width="700" height="900"></canvas>
+  <p id="progress">Starting</p>
+  <script type="module">
+    import { Compiler } from "./mindar-image.prod.js";
+    const canvas = document.querySelector("canvas"),
+      c = canvas.getContext("2d");
+    let seed = 42;
+    const random = () => {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      return seed / 4294967296;
+    };
+    c.fillStyle = "#f2f5f3";
+    c.fillRect(0, 0, 700, 900);
+    c.fillStyle = "#132735";
+    c.fillRect(0, 0, 700, 140);
+    c.fillStyle = "#22d3ee";
+    c.font = "bold 48px sans-serif";
+    c.fillText("NEXUS / CNC-01", 38, 70);
+    c.fillStyle = "#fff";
+    c.font = "20px sans-serif";
+    c.fillText("EQUIPMENT INSPECTION TARGET", 40, 108);
+    for (let i = 0; i < 170; i++) {
+      const x = 30 + random() * 640,
+        y = 160 + random() * 640,
+        r = 4 + random() * 18;
+      c.fillStyle = ["#142f42", "#607e8a", "#bd983e", "#248394"][i % 4];
+      c.save();
+      c.translate(x, y);
+      c.rotate(random() * 3);
+      if (i % 3 === 0) {
+        c.beginPath();
+        c.arc(0, 0, r, 0, Math.PI * 1.7);
+        c.strokeStyle = c.fillStyle;
+        c.lineWidth = 3;
+        c.stroke();
+      } else c.fillRect(-r / 2, -r / 2, r, r * 0.7);
+      c.restore();
+    }
+    c.fillStyle = "#d8e0e2";
+    c.fillRect(170, 280, 350, 330);
+    c.strokeStyle = "#163949";
+    c.lineWidth = 9;
+    c.strokeRect(170, 280, 350, 330);
+    c.fillStyle = "#2d5b6a";
+    c.fillRect(205, 350, 225, 205);
+    c.strokeStyle = "#c2d4d9";
+    c.lineWidth = 5;
+    c.strokeRect(205, 350, 225, 205);
+    c.fillStyle = "#e3b047";
+    c.fillRect(450, 345, 50, 100);
+    c.fillStyle = "#152c3c";
+    c.font = "bold 44px monospace";
+    c.fillText("CNC-01", 210, 335);
+    c.fillStyle = "#132735";
+    c.fillRect(0, 815, 700, 85);
+    c.fillStyle = "#fff";
+    c.font = "22px monospace";
+    c.fillText("SMARTFACTORY NEXUS / LAB 2026", 35, 853);
+    c.font = "15px sans-serif";
+    c.fillText("IMAGE TRACKING TARGET  /  PRINT WITHOUT CROPPING", 35, 884);
+    window.targetPNG = canvas.toDataURL("image/png");
+    try {
+      const compiler = new Compiler();
+      const image = new Image();
+      image.src = window.targetPNG;
+      await image.decode();
+      await compiler.compileImageTargets(
+        [image],
+        (p) =>
+          (document.querySelector("#progress").textContent =
+            Math.round(p) + "%"),
+      );
+      window.targetMind = Array.from(
+        new Uint8Array(await compiler.exportData()),
+      );
+      window.compiled = true;
+      document.querySelector("#progress").textContent = "Compiled";
+    } catch (e) {
+      window.compileError = e.message;
+      document.querySelector("#progress").textContent = e.stack;
+    }
+  </script>
+</html>

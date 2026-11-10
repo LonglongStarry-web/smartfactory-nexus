@@ -1,0 +1,2062 @@
+{
+  "scope": {
+    "from": 0,
+    "to": 120
+  },
+  "state": {
+    "version": 1,
+    "time": 120,
+    "running": false,
+    "speed": 5,
+    "mode": "standard",
+    "algorithm": "PRIORITY",
+    "seq": 148,
+    "seed": 1045952340,
+    "devices": [
+      {
+        "id": "CNC-01",
+        "name": "精密加工中心 01",
+        "kind": "cnc",
+        "line": "A",
+        "position": [
+          -4,
+          0,
+          -2
+        ],
+        "power": 8,
+        "status": "idle",
+        "temperature": 38,
+        "vibration": 0.8,
+        "load": 0,
+        "health": 98,
+        "runtime": 120,
+        "available": 120,
+        "energy": 0.26666666666666605,
+        "produced": 12,
+        "ideal": 11.999999999999973,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 52.6272438633047,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 52.3460343492023,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 51.9592107183541,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 51.703397974798726,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 51.7296483158169,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 52.03418742554526,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 52.45920874786304,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.763466099829785,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.732103069526936,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 52.277969510373815,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 51.49001398055047,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 50.606810320693604,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-000120"
+      },
+      {
+        "id": "ARM-01",
+        "name": "六轴协作机械臂 01",
+        "kind": "robot",
+        "line": "A",
+        "position": [
+          0,
+          0,
+          -2
+        ],
+        "power": 3,
+        "status": "idle",
+        "temperature": 49.923206906403394,
+        "vibration": 1.3682864590002175,
+        "load": 64.00007834759437,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.10000000000000016,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 51.48596873015134,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 51.36651588184981,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 51.560903681131286,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 52.05686758928877,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 52.68352988723865,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 53.180004561595716,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 53.306293357245245,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.94907497040672,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.17675375389195,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 51.21947673491941,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 50.38165132047736,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 49.923206906403394,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-000120"
+      },
+      {
+        "id": "CNC-02",
+        "name": "精密加工中心 02",
+        "kind": "cnc",
+        "line": "B",
+        "position": [
+          -4,
+          0,
+          3
+        ],
+        "power": 8,
+        "status": "idle",
+        "temperature": 50.606810320693604,
+        "vibration": 1.3682864590002175,
+        "load": 69.69677346667947,
+        "health": 98,
+        "runtime": 120,
+        "available": 120,
+        "energy": 0.26666666666666605,
+        "produced": 12,
+        "ideal": 11.999999999999973,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 52.6272438633047,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 52.3460343492023,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 51.9592107183541,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 51.703397974798726,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 51.7296483158169,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 52.03418742554526,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 52.45920874786304,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.763466099829785,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.732103069526936,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 52.277969510373815,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 51.49001398055047,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 50.606810320693604,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-002"
+      },
+      {
+        "id": "ARM-02",
+        "name": "六轴协作机械臂 02",
+        "kind": "robot",
+        "line": "B",
+        "position": [
+          0,
+          0,
+          3
+        ],
+        "power": 3,
+        "status": "idle",
+        "temperature": 49.923206906403394,
+        "vibration": 1.3682864590002175,
+        "load": 64.00007834759437,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.10000000000000016,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 51.48596873015134,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 51.36651588184981,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 51.560903681131286,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 52.05686758928877,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 52.68352988723865,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 53.180004561595716,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 53.306293357245245,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.94907497040672,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.17675375389195,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 51.21947673491941,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 50.38165132047736,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 49.923206906403394,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-002"
+      },
+      {
+        "id": "QC-01",
+        "name": "视觉检测工作站",
+        "kind": "qc",
+        "line": "A",
+        "position": [
+          4,
+          0,
+          -2
+        ],
+        "power": 2,
+        "status": "idle",
+        "temperature": 50.36093723823827,
+        "vibration": 1.3682864590002175,
+        "load": 67.64783111288504,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.06666666666666651,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 52.406176418366535,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 52.07542455870927,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 51.754940589312284,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 51.6529411809493,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 51.85461174184689,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 52.28105854855471,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 52.7222710630867,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.93006962146987,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.730903924818314,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 52.10948120363305,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 51.226387497544216,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 50.36093723823827,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-000120"
+      },
+      {
+        "id": "ASRS-01",
+        "name": "自动化立体仓库",
+        "kind": "warehouse",
+        "line": "B",
+        "position": [
+          6.5,
+          0,
+          3
+        ],
+        "power": 4,
+        "status": "idle",
+        "temperature": 50.36808750341165,
+        "vibration": 1.3682864590002175,
+        "load": 67.70741665599652,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.13333333333333303,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 51.00819797638214,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 51.47757358716486,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 52.21323210653693,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 52.97112308271168,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 53.46820495258582,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 53.49908134358413,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 53.023135048246864,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.18493717276837,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 51.25885974160607,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 50.54089211055993,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 50.232963309476794,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 50.36808750341165,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-002"
+      },
+      {
+        "id": "AGV-01",
+        "name": "物流机器人 01",
+        "kind": "agv",
+        "line": "A",
+        "position": [
+          1,
+          0,
+          -5
+        ],
+        "power": 1.2,
+        "status": "idle",
+        "temperature": 51.09717182222831,
+        "vibration": 1.3682864590002175,
+        "load": 73.78311931280199,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.04000000000000001,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 52.885481484781145,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 52.806952057375575,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 52.42543180711742,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 51.97527469535475,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 51.69075612942717,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 51.70118095733434,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 51.97468985200618,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.33491811232149,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.543041157355056,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 52.40935480133408,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 51.88558394556065,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 51.09717182222831,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-000120"
+      },
+      {
+        "id": "AGV-02",
+        "name": "物流机器人 02",
+        "kind": "agv",
+        "line": "B",
+        "position": [
+          1,
+          0,
+          6
+        ],
+        "power": 1.2,
+        "status": "idle",
+        "temperature": 51.09717182222831,
+        "vibration": 1.3682864590002175,
+        "load": 73.78311931280199,
+        "health": 98,
+        "runtime": 120,
+        "available": 0,
+        "energy": 0.04000000000000001,
+        "produced": 0,
+        "ideal": 0,
+        "history": [
+          {
+            "time": 10,
+            "temperature": 52.885481484781145,
+            "vibration": 1.5207354924039485
+          },
+          {
+            "time": 20,
+            "temperature": 52.806952057375575,
+            "vibration": 1.554648713412841
+          },
+          {
+            "time": 30,
+            "temperature": 52.42543180711742,
+            "vibration": 1.1705600040299338
+          },
+          {
+            "time": 40,
+            "temperature": 51.97527469535475,
+            "vibration": 1.4784012476539643
+          },
+          {
+            "time": 50,
+            "temperature": 51.69075612942717,
+            "vibration": 1.5794621373315694
+          },
+          {
+            "time": 60,
+            "temperature": 51.70118095733434,
+            "vibration": 1.239707749099463
+          },
+          {
+            "time": 70,
+            "temperature": 51.97468985200618,
+            "vibration": 1.4284932993593946
+          },
+          {
+            "time": 80,
+            "temperature": 52.33491811232149,
+            "vibration": 1.594679123311691
+          },
+          {
+            "time": 90,
+            "temperature": 52.543041157355056,
+            "vibration": 1.3060592426208784
+          },
+          {
+            "time": 100,
+            "temperature": 52.40935480133408,
+            "vibration": 1.3720105554446849
+          },
+          {
+            "time": 110,
+            "temperature": 51.88558394556065,
+            "vibration": 1.5999951032753519
+          },
+          {
+            "time": 120,
+            "temperature": 51.09717182222831,
+            "vibration": 1.3682864590002175
+          }
+        ],
+        "task": "ORD-002"
+      }
+    ],
+    "lines": [
+      {
+        "id": "A",
+        "name": "A 线 · 精密零件",
+        "deviceIds": [
+          "CNC-01",
+          "ARM-01",
+          "QC-01",
+          "AGV-01"
+        ]
+      },
+      {
+        "id": "B",
+        "name": "B 线 · 柔性装配",
+        "deviceIds": [
+          "CNC-02",
+          "ARM-02",
+          "ASRS-01",
+          "AGV-02"
+        ]
+      }
+    ],
+    "orders": [
+      {
+        "id": "ORD-001",
+        "product": "精密法兰 A-320",
+        "quantity": 120,
+        "completed": 12,
+        "priority": 2,
+        "created": 0,
+        "planned": 0,
+        "due": 2400,
+        "cancelled": false
+      },
+      {
+        "id": "ORD-002",
+        "product": "伺服壳体 S-180",
+        "quantity": 90,
+        "completed": 12,
+        "priority": 1,
+        "created": 1,
+        "planned": 0,
+        "due": 1800,
+        "cancelled": false
+      },
+      {
+        "id": "ORD-003",
+        "product": "连接组件 C-60",
+        "quantity": 160,
+        "completed": 0,
+        "priority": 2,
+        "created": 2,
+        "planned": 120,
+        "due": 4200,
+        "cancelled": false
+      },
+      {
+        "product": "应急法兰 U-01",
+        "quantity": 30,
+        "priority": 0,
+        "planned": 120,
+        "due": 570,
+        "id": "ORD-000120",
+        "completed": 0,
+        "created": 120,
+        "cancelled": false
+      }
+    ],
+    "workpieces": [
+      {
+        "id": "WP-000011",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 10,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000015",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 10,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000020",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 20,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000024",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 20,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000029",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 30,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000033",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 30,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000038",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 40,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000042",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 40,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000047",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 50,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000051",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 50,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000056",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 60,
+        "batch": "B-ORD-002",
+        "result": "fail"
+      },
+      {
+        "id": "WP-000060",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 60,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000066",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 70,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000070",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 70,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000075",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 80,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000079",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 80,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000084",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 90,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000088",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 90,
+        "batch": "B-ORD-001",
+        "result": "fail"
+      },
+      {
+        "id": "WP-000093",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 100,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000097",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 100,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000102",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 110,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000106",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 110,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000111",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "time": 120,
+        "batch": "B-ORD-002",
+        "result": "pass"
+      },
+      {
+        "id": "WP-000115",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "time": 120,
+        "batch": "B-ORD-001",
+        "result": "pass"
+      }
+    ],
+    "inspections": [
+      {
+        "id": "QI-000116",
+        "workpieceId": "WP-000115",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 120,
+        "result": "pass",
+        "x": 30.868731543887407,
+        "y": 37.176487827673554
+      },
+      {
+        "id": "QI-000112",
+        "workpieceId": "WP-000111",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 120,
+        "result": "pass",
+        "x": 40.333229675889015,
+        "y": 30.92965780524537
+      },
+      {
+        "id": "QI-000107",
+        "workpieceId": "WP-000106",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 110,
+        "result": "pass",
+        "x": 65.28675438603386,
+        "y": 46.647811657749116
+      },
+      {
+        "id": "QI-000103",
+        "workpieceId": "WP-000102",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 110,
+        "result": "pass",
+        "x": 73.9985090913251,
+        "y": 30.14863656135276
+      },
+      {
+        "id": "QI-000098",
+        "workpieceId": "WP-000097",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 100,
+        "result": "pass",
+        "x": 41.83405410731211,
+        "y": 40.7163723371923
+      },
+      {
+        "id": "QI-000094",
+        "workpieceId": "WP-000093",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 100,
+        "result": "pass",
+        "x": 34.63492994196713,
+        "y": 68.56505147879943
+      },
+      {
+        "id": "QI-000089",
+        "workpieceId": "WP-000088",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 90,
+        "result": "fail",
+        "defect": "尺寸异常",
+        "x": 41.698416869621724,
+        "y": 69.14330574218184
+      },
+      {
+        "id": "QI-000085",
+        "workpieceId": "WP-000084",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 90,
+        "result": "pass",
+        "x": 35.78845424344763,
+        "y": 38.60297331120819
+      },
+      {
+        "id": "QI-000080",
+        "workpieceId": "WP-000079",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 80,
+        "result": "pass",
+        "x": 54.68602359760553,
+        "y": 65.23220298113301
+      },
+      {
+        "id": "QI-000076",
+        "workpieceId": "WP-000075",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 80,
+        "result": "pass",
+        "x": 47.368930804077536,
+        "y": 31.350055802613497
+      },
+      {
+        "id": "QI-000071",
+        "workpieceId": "WP-000070",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 70,
+        "result": "pass",
+        "x": 47.48764247633517,
+        "y": 29.89632043754682
+      },
+      {
+        "id": "QI-000067",
+        "workpieceId": "WP-000066",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 70,
+        "result": "pass",
+        "x": 60.568269703071564,
+        "y": 60.93090383801609
+      },
+      {
+        "id": "QI-000061",
+        "workpieceId": "WP-000060",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 60,
+        "result": "pass",
+        "x": 44.03790419455618,
+        "y": 54.282842262182385
+      },
+      {
+        "id": "QI-000057",
+        "workpieceId": "WP-000056",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 60,
+        "result": "fail",
+        "defect": "孔洞",
+        "x": 66.4980132249184,
+        "y": 67.26660593412817
+      },
+      {
+        "id": "QI-000052",
+        "workpieceId": "WP-000051",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 50,
+        "result": "pass",
+        "x": 48.346114496234804,
+        "y": 28.03524388000369
+      },
+      {
+        "id": "QI-000048",
+        "workpieceId": "WP-000047",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 50,
+        "result": "pass",
+        "x": 66.07504901476204,
+        "y": 32.7646954334341
+      },
+      {
+        "id": "QI-000043",
+        "workpieceId": "WP-000042",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 40,
+        "result": "pass",
+        "x": 52.504273678641766,
+        "y": 37.948339828290045
+      },
+      {
+        "id": "QI-000039",
+        "workpieceId": "WP-000038",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 40,
+        "result": "pass",
+        "x": 69.47344781365246,
+        "y": 52.52541849622503
+      },
+      {
+        "id": "QI-000034",
+        "workpieceId": "WP-000033",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 30,
+        "result": "pass",
+        "x": 32.01048990013078,
+        "y": 72.5044138263911
+      },
+      {
+        "id": "QI-000030",
+        "workpieceId": "WP-000029",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 30,
+        "result": "pass",
+        "x": 68.07280937209725,
+        "y": 54.82348882360384
+      },
+      {
+        "id": "QI-000025",
+        "workpieceId": "WP-000024",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 20,
+        "result": "pass",
+        "x": 67.66013618325815,
+        "y": 49.9838364077732
+      },
+      {
+        "id": "QI-000021",
+        "workpieceId": "WP-000020",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 20,
+        "result": "pass",
+        "x": 30.92300018761307,
+        "y": 68.69068528758362
+      },
+      {
+        "id": "QI-000016",
+        "workpieceId": "WP-000015",
+        "orderId": "ORD-001",
+        "deviceId": "CNC-02",
+        "batch": "B-ORD-001",
+        "time": 10,
+        "result": "pass",
+        "x": 43.78300985554233,
+        "y": 26.28319524228573
+      },
+      {
+        "id": "QI-000012",
+        "workpieceId": "WP-000011",
+        "orderId": "ORD-002",
+        "deviceId": "CNC-01",
+        "batch": "B-ORD-002",
+        "time": 10,
+        "result": "pass",
+        "x": 29.406252270564437,
+        "y": 53.86405991157517
+      }
+    ],
+    "alarms": [
+      {
+        "id": "AL-000131",
+        "deviceId": "CNC-01",
+        "kind": "温度异常",
+        "message": "温度超过 80°C 演示阈值，检查冷却液及散热回路",
+        "time": 120,
+        "resolved": true
+      }
+    ],
+    "maintenance": [
+      {
+        "id": "MW-000138",
+        "deviceId": "CNC-01",
+        "alarmId": "AL-000131",
+        "created": 120,
+        "steps": [
+          true,
+          true,
+          true
+        ],
+        "completed": 120
+      }
+    ],
+    "energy": [
+      {
+        "id": "EN-000018",
+        "time": 10,
+        "delta": 0.08444444444444443,
+        "total": 0.08444444444444443,
+        "output": 2,
+        "good": 2,
+        "lineA": 0.03944444444444445,
+        "lineB": 0.045000000000000005
+      },
+      {
+        "id": "EN-000027",
+        "time": 20,
+        "delta": 0.08444444444444443,
+        "total": 0.16888888888888887,
+        "output": 4,
+        "good": 4,
+        "lineA": 0.0788888888888889,
+        "lineB": 0.09000000000000001
+      },
+      {
+        "id": "EN-000036",
+        "time": 30,
+        "delta": 0.08444444444444443,
+        "total": 0.2533333333333333,
+        "output": 6,
+        "good": 6,
+        "lineA": 0.1183333333333333,
+        "lineB": 0.13499999999999998
+      },
+      {
+        "id": "EN-000045",
+        "time": 40,
+        "delta": 0.08444444444444438,
+        "total": 0.3377777777777777,
+        "output": 8,
+        "good": 8,
+        "lineA": 0.15777777777777777,
+        "lineB": 0.18
+      },
+      {
+        "id": "EN-000054",
+        "time": 50,
+        "delta": 0.08444444444444449,
+        "total": 0.42222222222222217,
+        "output": 10,
+        "good": 10,
+        "lineA": 0.1972222222222222,
+        "lineB": 0.22499999999999995
+      },
+      {
+        "id": "EN-000063",
+        "time": 60,
+        "delta": 0.08444444444444432,
+        "total": 0.5066666666666665,
+        "output": 12,
+        "good": 11,
+        "lineA": 0.23666666666666658,
+        "lineB": 0.2699999999999999
+      },
+      {
+        "id": "EN-000073",
+        "time": 70,
+        "delta": 0.08444444444444399,
+        "total": 0.5911111111111105,
+        "output": 14,
+        "good": 13,
+        "lineA": 0.27611111111111086,
+        "lineB": 0.3149999999999997
+      },
+      {
+        "id": "EN-000082",
+        "time": 80,
+        "delta": 0.08444444444444432,
+        "total": 0.6755555555555548,
+        "output": 16,
+        "good": 15,
+        "lineA": 0.31555555555555515,
+        "lineB": 0.35999999999999954
+      },
+      {
+        "id": "EN-000091",
+        "time": 90,
+        "delta": 0.0844444444444441,
+        "total": 0.7599999999999989,
+        "output": 18,
+        "good": 16,
+        "lineA": 0.35499999999999954,
+        "lineB": 0.40499999999999936
+      },
+      {
+        "id": "EN-000100",
+        "time": 100,
+        "delta": 0.0844444444444441,
+        "total": 0.844444444444443,
+        "output": 20,
+        "good": 18,
+        "lineA": 0.3944444444444438,
+        "lineB": 0.44999999999999923
+      },
+      {
+        "id": "EN-000109",
+        "time": 110,
+        "delta": 0.08444444444444432,
+        "total": 0.9288888888888873,
+        "output": 22,
+        "good": 20,
+        "lineA": 0.43388888888888816,
+        "lineB": 0.49499999999999905
+      },
+      {
+        "id": "EN-000118",
+        "time": 120,
+        "delta": 0.08444444444444477,
+        "total": 1.013333333333332,
+        "output": 24,
+        "good": 22,
+        "lineA": 0.4733333333333327,
+        "lineB": 0.5399999999999993
+      }
+    ],
+    "events": [
+      {
+        "id": "EV-000148",
+        "time": 120,
+        "type": "分配任务",
+        "message": "AGV-02 分配至 ORD-002",
+        "deviceId": "AGV-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000147",
+        "time": 120,
+        "type": "分配任务",
+        "message": "AGV-01 分配至 ORD-000120",
+        "deviceId": "AGV-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000146",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ASRS-01 分配至 ORD-002",
+        "deviceId": "ASRS-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000145",
+        "time": 120,
+        "type": "分配任务",
+        "message": "QC-01 分配至 ORD-000120",
+        "deviceId": "QC-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000144",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ARM-02 分配至 ORD-002",
+        "deviceId": "ARM-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000143",
+        "time": 120,
+        "type": "分配任务",
+        "message": "CNC-02 分配至 ORD-002",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000142",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ARM-01 分配至 ORD-000120",
+        "deviceId": "ARM-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000141",
+        "time": 120,
+        "type": "分配任务",
+        "message": "CNC-01 分配至 ORD-000120",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000140",
+        "time": 120,
+        "type": "设备恢复",
+        "message": "CNC-01 维修完成，报警解除并恢复生产",
+        "deviceId": "CNC-01"
+      },
+      {
+        "id": "EV-000139",
+        "time": 120,
+        "type": "设备维修",
+        "message": "CNC-01 已创建维修工单",
+        "deviceId": "CNC-01"
+      },
+      {
+        "id": "EV-000137",
+        "time": 120,
+        "type": "分配任务",
+        "message": "AGV-02 分配至 ORD-000120",
+        "deviceId": "AGV-02",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000136",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ASRS-01 分配至 ORD-000120",
+        "deviceId": "ASRS-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000135",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ARM-02 分配至 ORD-000120",
+        "deviceId": "ARM-02",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000134",
+        "time": 120,
+        "type": "分配任务",
+        "message": "CNC-02 分配至 ORD-000120",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000133",
+        "time": 120,
+        "type": "设备停止",
+        "message": "CNC-01 已停止，规则调度重新计算",
+        "deviceId": "CNC-01"
+      },
+      {
+        "id": "EV-000132",
+        "time": 120,
+        "type": "设备报警",
+        "message": "CNC-01 温度异常 · 温度超过 80°C 演示阈值，检查冷却液及散热回路",
+        "deviceId": "CNC-01"
+      },
+      {
+        "id": "EV-000130",
+        "time": 120,
+        "type": "暂停",
+        "message": "生产模拟已暂停"
+      },
+      {
+        "id": "EV-000129",
+        "time": 120,
+        "type": "分配任务",
+        "message": "AGV-02 分配至 ORD-002",
+        "deviceId": "AGV-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000128",
+        "time": 120,
+        "type": "分配任务",
+        "message": "AGV-01 分配至 ORD-000120",
+        "deviceId": "AGV-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000127",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ASRS-01 分配至 ORD-002",
+        "deviceId": "ASRS-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000126",
+        "time": 120,
+        "type": "分配任务",
+        "message": "QC-01 分配至 ORD-000120",
+        "deviceId": "QC-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000125",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ARM-02 分配至 ORD-002",
+        "deviceId": "ARM-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000124",
+        "time": 120,
+        "type": "分配任务",
+        "message": "CNC-02 分配至 ORD-002",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000123",
+        "time": 120,
+        "type": "分配任务",
+        "message": "ARM-01 分配至 ORD-000120",
+        "deviceId": "ARM-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000122",
+        "time": 120,
+        "type": "分配任务",
+        "message": "CNC-01 分配至 ORD-000120",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000121",
+        "time": 120,
+        "type": "创建订单",
+        "message": "ORD-000120 应急法兰 U-01 × 30 · 紧急插单",
+        "orderId": "ORD-000120"
+      },
+      {
+        "id": "EV-000119",
+        "time": 120,
+        "type": "能耗记录",
+        "message": "累计耗电 1.013 kWh"
+      },
+      {
+        "id": "EV-000117",
+        "time": 120,
+        "type": "质检完成",
+        "message": "WP-000115 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000114",
+        "time": 120,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000113",
+        "time": 120,
+        "type": "质检完成",
+        "message": "WP-000111 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000110",
+        "time": 120,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000108",
+        "time": 110,
+        "type": "质检完成",
+        "message": "WP-000106 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000105",
+        "time": 110,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000104",
+        "time": 110,
+        "type": "质检完成",
+        "message": "WP-000102 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000101",
+        "time": 110,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000099",
+        "time": 100,
+        "type": "质检完成",
+        "message": "WP-000097 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000096",
+        "time": 100,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000095",
+        "time": 100,
+        "type": "质检完成",
+        "message": "WP-000093 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000092",
+        "time": 100,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000090",
+        "time": 90,
+        "type": "质检完成",
+        "message": "WP-000088 尺寸异常（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000087",
+        "time": 90,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000086",
+        "time": 90,
+        "type": "质检完成",
+        "message": "WP-000084 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000083",
+        "time": 90,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000081",
+        "time": 80,
+        "type": "质检完成",
+        "message": "WP-000079 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000078",
+        "time": 80,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000077",
+        "time": 80,
+        "type": "质检完成",
+        "message": "WP-000075 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000074",
+        "time": 80,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000072",
+        "time": 70,
+        "type": "质检完成",
+        "message": "WP-000070 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000069",
+        "time": 70,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000068",
+        "time": 70,
+        "type": "质检完成",
+        "message": "WP-000066 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000065",
+        "time": 70,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000064",
+        "time": 60,
+        "type": "能耗记录",
+        "message": "累计耗电 0.507 kWh"
+      },
+      {
+        "id": "EV-000062",
+        "time": 60,
+        "type": "质检完成",
+        "message": "WP-000060 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000059",
+        "time": 60,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000058",
+        "time": 60,
+        "type": "质检完成",
+        "message": "WP-000056 孔洞（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000055",
+        "time": 60,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000053",
+        "time": 50,
+        "type": "质检完成",
+        "message": "WP-000051 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000050",
+        "time": 50,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000049",
+        "time": 50,
+        "type": "质检完成",
+        "message": "WP-000047 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000046",
+        "time": 50,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000044",
+        "time": 40,
+        "type": "质检完成",
+        "message": "WP-000042 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000041",
+        "time": 40,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000040",
+        "time": 40,
+        "type": "质检完成",
+        "message": "WP-000038 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000037",
+        "time": 40,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000035",
+        "time": 30,
+        "type": "质检完成",
+        "message": "WP-000033 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000032",
+        "time": 30,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000031",
+        "time": 30,
+        "type": "质检完成",
+        "message": "WP-000029 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000028",
+        "time": 30,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000026",
+        "time": 20,
+        "type": "质检完成",
+        "message": "WP-000024 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000023",
+        "time": 20,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000022",
+        "time": 20,
+        "type": "质检完成",
+        "message": "WP-000020 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000019",
+        "time": 20,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000017",
+        "time": 10,
+        "type": "质检完成",
+        "message": "WP-000015 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000014",
+        "time": 10,
+        "type": "完成工序",
+        "message": "CNC-02 完成 1 件 精密法兰 A-320",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000013",
+        "time": 10,
+        "type": "质检完成",
+        "message": "WP-000011 检测合格（模拟视觉检测）",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000010",
+        "time": 10,
+        "type": "完成工序",
+        "message": "CNC-01 完成 1 件 伺服壳体 S-180",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000009",
+        "time": 1,
+        "type": "分配任务",
+        "message": "AGV-02 分配至 ORD-001",
+        "deviceId": "AGV-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000008",
+        "time": 1,
+        "type": "分配任务",
+        "message": "AGV-01 分配至 ORD-002",
+        "deviceId": "AGV-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000007",
+        "time": 1,
+        "type": "分配任务",
+        "message": "ASRS-01 分配至 ORD-001",
+        "deviceId": "ASRS-01",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000006",
+        "time": 1,
+        "type": "分配任务",
+        "message": "QC-01 分配至 ORD-002",
+        "deviceId": "QC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000005",
+        "time": 1,
+        "type": "分配任务",
+        "message": "ARM-02 分配至 ORD-001",
+        "deviceId": "ARM-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000004",
+        "time": 1,
+        "type": "分配任务",
+        "message": "CNC-02 分配至 ORD-001",
+        "deviceId": "CNC-02",
+        "orderId": "ORD-001"
+      },
+      {
+        "id": "EV-000003",
+        "time": 1,
+        "type": "分配任务",
+        "message": "ARM-01 分配至 ORD-002",
+        "deviceId": "ARM-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000002",
+        "time": 1,
+        "type": "分配任务",
+        "message": "CNC-01 分配至 ORD-002",
+        "deviceId": "CNC-01",
+        "orderId": "ORD-002"
+      },
+      {
+        "id": "EV-000001",
+        "time": 0,
+        "type": "初始化",
+        "message": "演示车间已就绪 · 固定种子 42"
+      }
+    ],
+    "carry": {
+      "CNC-01": 0,
+      "CNC-02": -1.3322676295501878e-15
+    }
+  },
+  "metrics": {
+    "output": 24,
+    "good": 22,
+    "total": 24,
+    "energy": 1.013333333333332,
+    "availability": 1,
+    "performance": 1,
+    "quality": 0.9166666666666666,
+    "oee": 0.9166666666666666,
+    "runRate": 0,
+    "alarms": 0,
+    "unit": 0.04222222222222217,
+    "plan": 400,
+    "completion": 0
+  }
+}

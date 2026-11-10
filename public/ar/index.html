@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><style>
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
+      font: 13px sans-serif;
+    }
+    #ar {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    #state {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+      background: #102032;
+      color: #e8eef7;
+      border: 1px solid #557185;
+      border-radius: 4px;
+      padding: 10px 14px;
+    }
+    video {
+      object-fit: cover;
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./three.module.js",
+        "three/addons/renderers/CSS3DRenderer.js": "./CSS3DRenderer.js"
+      }
+    }
+  </script>
+  <div id="ar"></div>
+  <div id="state">正在初始化摄像头…</div>
+  <script type="module">
+    import { MindARThree } from "./mindar-image-three.prod.js";
+    import * as THREE from "three";
+    const q = new URLSearchParams(location.search);
+    let device = {
+      id: q.get("device") || "CNC-01",
+      status: q.get("status") || "idle",
+    };
+    let ar,
+      stopped = false;
+    const label = document.querySelector("#state");
+    const color = () =>
+      device.status === "fault"
+        ? 0xfb7185
+        : device.status === "maintenance"
+          ? 0xfbbf24
+          : device.status === "running"
+            ? 0x34d399
+            : 0x8192a6;
+    const send = (type, message) =>
+      parent.postMessage({ type, message }, location.origin);
+    function status(text) {
+      label.textContent = device.id + " · " + text;
+      send("ar-status", text);
+    }
+    function stop() {
+      stopped = true;
+      if (ar) {
+        ar.renderer.setAnimationLoop(null);
+        ar.controller?.stopProcessVideo();
+        ar.scene.traverse((o) => {
+          o.geometry?.dispose();
+          if (o.material)
+            (Array.isArray(o.material) ? o.material : [o.material]).forEach(
+              (m) => m.dispose(),
+            );
+        });
+        ar.renderer.dispose();
+      }
+      document.querySelectorAll("video").forEach((v) => {
+        v.srcObject?.getTracks().forEach((t) => t.stop());
+        v.srcObject = null;
+      });
+      status("摄像头已关闭");
+    }
+    window.addEventListener("pagehide", stop);
+    window.addEventListener("message", (e) => {
+      if (e.origin !== location.origin || e.source !== parent) return;
+      if (e.data.type === "stop-ar") stop();
+      if (e.data.type === "device-state") {
+        device = e.data.device;
+        indicator.material.color.setHex(color());
+      }
+    });
+    const indicator = new THREE.Mesh(
+      new THREE.SphereGeometry(0.045, 12, 12),
+      new THREE.MeshStandardMaterial({ color: color() }),
+    );
+    try {
+      const probe = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment" },
+        audio: false,
+      });
+      probe.getTracks().forEach((t) => t.stop());
+      if (stopped) throw Error("已取消摄像头启动");
+      ar = new MindARThree({
+        container: document.querySelector("#ar"),
+        imageTargetSrc: "/ar-targets/equipment.mind",
+        uiScanning: true,
+        uiLoading: true,
+      });
+      const anchor = ar.addAnchor(0);
+      const model = new THREE.Group();
+      function box(x, y, z, w, h, d, c) {
+        const m = new THREE.Mesh(
+          new THREE.BoxGeometry(w, h, d),
+          new THREE.MeshStandardMaterial({ color: c, roughness: 0.5 }),
+        );
+        m.position.set(x, y, z);
+        model.add(m);
+      }
+      box(0, 0, 0.05, 0.75, 0.5, 0.1, 0x4c6478);
+      box(-0.3, 0, 0.27, 0.15, 0.5, 0.45, 0xbdcbd5);
+      box(0.3, 0, 0.27, 0.15, 0.5, 0.45, 0xbdcbd5);
+      box(0, 0.2, 0.27, 0.6, 0.1, 0.45, 0xbdcbd5);
+      box(0, 0, 0.45, 0.42, 0.3, 0.04, 0x214a5e);
+      box(0.45, 0, 0.3, 0.18, 0.2, 0.06, 0x22a5b7);
+      indicator.position.set(0.28, 0.3, 0.45);
+      model.add(indicator);
+      model.scale.setScalar(0.55);
+      model.rotation.x = -0.25;
+      anchor.group.add(model);
+      ar.scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.4));
+      const light = new THREE.DirectionalLight(0xffffff, 1.5);
+      light.position.set(1, 2, 2);
+      ar.scene.add(light);
+      anchor.onTargetFound = () => status("已识别目标 · 设备模型已叠加");
+      anchor.onTargetLost = () => status("目标丢失 · 请重新对准识别图");
+      await ar.start();
+      if (stopped) stop();
+      else {
+        status("摄像头已启动 · 请对准设备识别图");
+        ar.renderer.setAnimationLoop(() =>
+          ar.renderer.render(ar.scene, ar.camera),
+        );
+      }
+    } catch (e) {
+      stop();
+      send(
+        "ar-error",
+        e?.name === "NotAllowedError"
+          ? "摄像头权限被拒绝，请在浏览器设置中允许摄像头。"
+          : e?.name === "NotFoundError"
+            ? "未找到可用摄像头。"
+            : "AR 启动失败：" + (e?.message || "摄像头或图像识别初始化失败"),
+      );
+    }
+  </script>
+</html>

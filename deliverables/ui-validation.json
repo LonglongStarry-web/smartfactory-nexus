@@ -1,0 +1,1913 @@
+{
+ "url": "http://127.0.0.1:4173/",
+ "at": "2026-11-09T14:16:59.867Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.69,
+    0.79
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1219,
+     "screens": 1.4,
+     "words": 176,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 27,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [
+     {
+      "text": "0.0%",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.04,
+      "top": 248,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0/ 370 件",
+      "words": 3,
+      "chars": 8,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.05,
+      "top": 248,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 248,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—kWh/件",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.04,
+      "top": 248,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.93,
+       "mono": false
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.06,
+       "mono": true
+      },
+      {
+       "family": "Consolas",
+       "share": 0,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      19,
+      21,
+      22,
+      25,
+      29
+     ],
+     "sizeCount": 9,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "text": "0.0"
+     },
+     "monoShare": 0.07,
+     "monoProseShare": 0.07,
+     "monoFamilies": [
+      "IBM Plex Mono",
+      "Consolas"
+     ],
+     "monoSamples": [
+      "08:00:00",
+      "0",
+      "0.0",
+      "%",
+      "0",
+      "/ 370 件"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.031,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.15,
+     "smallText": 16
+    },
+    "eyebrows": [
+     {
+      "text": "车间已就绪，生产、设备与物流在此协同",
+      "above": "0.0%",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 162
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.8
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.19
+      },
+      {
+       "color": "#d7e9f5",
+       "share": 0.01
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 4,
+     "radius": 5,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "智能驾驶舱",
+      "开始生产",
+      "重置演示",
+      "运营报告"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 5,
+     "hairlineSamples": [
+      "aside.sidebar 216px",
+      "header.topbar 1224px",
+      "header.panel-head 746px",
+      "div.scene-footer 746px",
+      "div.mini-kpis 366px"
+     ],
+     "outlinedBoxes": 7,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 347
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1219,
+    "margins": {
+     "left": 244,
+     "right": 28
+    },
+    "sections": [
+     {
+      "sel": "div.kpi-strip",
+      "tag": "div",
+      "top": 205,
+      "height": 122,
+      "words": 29,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "0.0",
+       "size": 29,
+       "tag": "strong"
+      },
+      "left": 245,
+      "right": 29,
+      "textLeft": 265,
+      "textRight": 206,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.dashboard-grid",
+      "tag": "div",
+      "top": 347,
+      "height": 819,
+      "words": 67,
+      "media": 2,
+      "middle": 36,
+      "heading": {
+       "text": "车间数字孪生",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 245,
+      "right": 47,
+      "textLeft": 263,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能制造驾驶舱",
+      "size": 25,
+      "top": 119,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 263,
+      "n": 3
+     },
+     {
+      "x": 1027,
+      "n": 3
+     },
+     {
+      "x": 244,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.04,
+    "voidBox": {
+     "x": 180,
+     "y": 780,
+     "w": 840,
+     "h": 60
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 216,
+     "tag": "aside",
+     "links": 9,
+     "share": 0.15
+    },
+    "topbar": {
+     "h": 70
+    },
+    "canvas": {
+     "left": 28,
+     "right": 28
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 2,
+    "layout": {
+     "panels": 7,
+     "firstScreen": 5,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 78,
+       "at": 845,
+       "panel": "事件与告警"
+      },
+      {
+       "gap": 76,
+       "at": 770,
+       "panel": "生产节拍"
+      },
+      {
+       "gap": 53,
+       "at": 647,
+       "panel": "设备运行概况"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       7
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 21
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.92,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      19,
+      25,
+      29
+     ]
+    },
+    "title": {
+     "text": "智能制造驾驶舱",
+     "size": 25,
+     "top": 119
+    },
+    "colourShare": 0.002
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.75,
+    0.7
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1256,
+     "screens": 1.2,
+     "words": 171,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 27,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.94,
+       "mono": false
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.05,
+       "mono": true
+      },
+      {
+       "family": "Consolas",
+       "share": 0,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      14,
+      19,
+      21,
+      24,
+      25
+     ],
+     "sizeCount": 7,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 3.3,
+      "font": "Public Sans",
+      "text": "智能制造驾驶舱"
+     },
+     "monoShare": 0.06,
+     "monoProseShare": 0.06,
+     "monoFamilies": [
+      "Consolas",
+      "IBM Plex Mono"
+     ],
+     "monoSamples": [
+      "0",
+      "0.0",
+      "%",
+      "0",
+      "/ 370 件",
+      "—"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.033,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.15,
+     "smallText": 16
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.8
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.18
+      },
+      {
+       "color": "#d7e9f5",
+       "share": 0.01
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 4,
+     "radius": 5,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "智能驾驶舱",
+      "开始生产",
+      "重置演示",
+      "运营报告"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 4,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 768px",
+      "header.panel-head 440px",
+      "div.scene-footer 440px"
+     ],
+     "outlinedBoxes": 7,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 344
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.16
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1256,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "div.kpi-strip",
+      "tag": "div",
+      "top": 193,
+      "height": 131,
+      "words": 29,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "0.0",
+       "size": 25,
+       "tag": "strong"
+      },
+      "left": 21,
+      "right": 21,
+      "textLeft": 37,
+      "textRight": 92,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.dashboard-grid",
+      "tag": "div",
+      "top": 344,
+      "height": 859,
+      "words": 66,
+      "media": 2,
+      "middle": 32,
+      "heading": {
+       "text": "车间数字孪生",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 35,
+      "textLeft": 35,
+      "textRight": 35,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能制造驾驶舱",
+      "size": 25,
+      "top": 111,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 3
+     },
+     {
+      "x": 493,
+      "n": 3
+     },
+     {
+      "x": 20,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 240,
+     "tag": "aside",
+     "links": 9,
+     "share": 0.31
+    },
+    "topbar": {
+     "h": 62
+    },
+    "canvas": {
+     "left": 76,
+     "right": 20
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 2,
+    "layout": {
+     "panels": 7,
+     "firstScreen": 5,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 78,
+       "at": 882,
+       "panel": "事件与告警"
+      },
+      {
+       "gap": 69,
+       "at": 668,
+       "panel": "设备运行概况"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       7
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 21
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.91,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      19,
+      25
+     ]
+    },
+    "title": {
+     "text": "智能制造驾驶舱",
+     "size": 25,
+     "top": 111
+    },
+    "colourShare": 0.005
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.68,
+    0.9,
+    0.82
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2185,
+     "screens": 2.6,
+     "words": 169,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 27,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "lines": 1,
+     "size": 22,
+     "font": "Public Sans"
+    },
+    "headings": [
+     {
+      "text": "智能制造驾驶舱",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Public Sans",
+      "weight": 600,
+      "tracking": -0.032,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.51,
+      "top": 105,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "0.0%",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 274,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0/ 370 件",
+      "words": 3,
+      "chars": 8,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.18,
+      "top": 283,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.05,
+      "top": 404,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—kWh/件",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.14,
+      "top": 404,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "IBM Plex Mono",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 995,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "8",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "IBM Plex Mono",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 995,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "IBM Plex Mono",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 995,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "IBM Plex Mono",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 995,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.05,
+       "mono": true
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      14,
+      19,
+      21,
+      22,
+      24,
+      25
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "text": "0.0"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "IBM Plex Mono"
+     ],
+     "monoSamples": [
+      "0.0",
+      "%",
+      "0",
+      "/ 370 件",
+      "—",
+      "—"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.033,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.07,
+     "centerShare": 0.15,
+     "smallText": 16
+    },
+    "eyebrows": [
+     {
+      "text": "运营中心 车间总览",
+      "above": "智能制造驾驶舱",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 82
+     },
+     {
+      "text": "运行中",
+      "above": "0",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 967
+     },
+     {
+      "text": "待机",
+      "above": "8",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 967
+     },
+     {
+      "text": "故障",
+      "above": "0",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 967
+     },
+     {
+      "text": "维修中",
+      "above": "0",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 967
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#111c2e",
+       "top": 493,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.81
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.18
+      },
+      {
+       "color": "#d7e9f5",
+       "share": 0.01
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": 5,
+     "height": 47,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "智能驾驶舱",
+      "开始生产",
+      "运营报告"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 5,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 390px",
+      "header.panel-head 356px",
+      "div.scene-footer 356px",
+      "div.mini-kpis 320px"
+     ],
+     "outlinedBoxes": 7,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.29
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 844,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2185,
+    "margins": {
+     "left": 16,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "div.page-heading",
+      "tag": "div",
+      "top": 82,
+      "height": 131,
+      "words": 5,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "智能制造驾驶舱",
+       "size": 22,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 147,
+      "textLeft": 16,
+      "textRight": 176,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.kpi-strip",
+      "tag": "div",
+      "top": 233,
+      "height": 244,
+      "words": 29,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "0.0",
+       "size": 25,
+       "tag": "strong"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel.twin-panel",
+      "tag": "section",
+      "top": 493,
+      "height": 382,
+      "words": 14,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "车间数字孪生",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 891,
+      "height": 339,
+      "words": 17,
+      "media": 0,
+      "middle": 46,
+      "heading": {
+       "text": "设备运行概况",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1245,
+      "height": 214,
+      "words": 5,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "生产节拍",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 78,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1475,
+      "height": 147,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "事件与告警",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 31,
+      "textLeft": 31,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1638,
+      "height": 224,
+      "words": 4,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "能耗趋势",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 273,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1877,
+      "height": 232,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "订单与故障分布",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 31,
+      "right": 124,
+      "textLeft": 31,
+      "textRight": 124,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能制造驾驶舱",
+      "size": 22,
+      "top": 105,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 6
+     },
+     {
+      "x": 16,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 7,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": null,
+    "topbar": {
+     "h": 80
+    },
+    "canvas": {
+     "left": 16,
+     "right": 16
+    },
+    "hero": {
+     "text": "智能制造驾驶舱",
+     "words": 1,
+     "chars": 7,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 2,
+    "layout": {
+     "panels": 7,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 80,
+       "at": 1300,
+       "panel": "生产节拍"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       7
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 21
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.86,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      19,
+      22,
+      25
+     ]
+    },
+    "title": {
+     "text": "智能制造驾驶舱",
+     "size": 22,
+     "top": 105
+    },
+    "colourShare": 0.007
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "2 tiny uppercase letter-spaced label(s): \"SMARTFACTORY\", \"NEXUS LAB\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-fallback",
+   "width": 1440,
+   "message": "Typeface(s) declared but not loaded, so a fallback is rendering: Consolas",
+   "fix": "Fix the font URL / family name, or the screenshots you are judging are not the design.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "tiny-text",
+   "width": 1440,
+   "message": "92% of the text is under 13px.",
+   "fix": "Data and labels read at 13–14px; keep 11–12px for sublines and axis ticks.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "panel-void",
+   "width": 1440,
+   "message": "3 card(s) hold a blank band inside: 78px in \"事件与告警\", 76px in \"生产节拍\", 53px in \"设备运行概况\".",
+   "fix": "A card stretches to its neighbour only when it has content to fill. Keep a legend or a note directly under its chart (only an action or a total may sit at a stretched card's foot), let a short card keep its own height (align-items: start), and let a filtered block shrink to its rows."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\desktop-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\tablet-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\mobile-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\work\\visual-audit-final\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
