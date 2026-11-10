@@ -1,3 +1,4 @@
+import {recipeSeconds} from "../src/simulation/process";
 import { describe, it, expect } from "vitest";
 import {
   initialState,
@@ -73,7 +74,7 @@ describe("统一制造模拟引擎", () => {
     expect(s.alarms[0].resolved).toBe(true);
     expect(s.maintenance[0].completed).toBe(0);
     expect(s.events.some((e) => e.type === "设备恢复")).toBe(true);
-    tick(s, 40);
+    tick(s, 6 + Math.max(...s.orders.map(o=>recipeSeconds(o.recipeId))));
     expect(s.devices[0].produced).toBeGreaterThan(0);
   });
   it("能耗积分符合功率与模拟时间；高性能比节能更快且耗电更多", () => {

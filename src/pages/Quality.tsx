@@ -90,7 +90,7 @@ export default function Quality() {
               ))}
             </div>
             <span className="part-caption">
-              FLANGE A-320 / VISUAL INSPECTION DEMO
+              法兰工件 · 工艺检测示意
             </span>
           </div>
         </Panel>

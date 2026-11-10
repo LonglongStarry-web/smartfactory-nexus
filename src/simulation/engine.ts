@@ -109,6 +109,7 @@ export function initialState(): SimulationState {
       {
         id: "ORD-001",
         product: "精密法兰 A-320",
+        recipeId: "flange",
         quantity: 120,
         completed: 0,
         priority: 2,
@@ -119,7 +120,8 @@ export function initialState(): SimulationState {
       },
       {
         id: "ORD-002",
-        product: "伺服壳体 S-180",
+        product: "安装支架板 B-210",
+        recipeId: "plate",
         quantity: 90,
         completed: 0,
         priority: 1,
@@ -130,7 +132,8 @@ export function initialState(): SimulationState {
       },
       {
         id: "ORD-003",
-        product: "连接组件 C-60",
+        product: "连接法兰 C-60",
+        recipeId: "flange",
         quantity: 160,
         completed: 0,
         priority: 2,

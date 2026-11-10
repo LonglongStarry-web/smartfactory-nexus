@@ -10,7 +10,7 @@ export default defineConfig({
     ["json", { outputFile: "test-results/results.json" }],
   ],
   use: {
-    baseURL: "http://127.0.0.1:5174",
+    baseURL: "http://127.0.0.1:5184",
     viewport: { width: 1440, height: 1000 },
     launchOptions: {
       executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
@@ -25,8 +25,8 @@ export default defineConfig({
     screenshot: "only-on-failure",
   },
   webServer: {
-    command: "npm run dev -- --port 5174 --strictPort",
-    url: "http://127.0.0.1:5174",
-    reuseExistingServer: true,
+    command: "npm run dev -- --port 5184 --strictPort",
+    url: "http://127.0.0.1:5184",
+    reuseExistingServer: false,
   },
 });
