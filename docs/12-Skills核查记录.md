@@ -49,4 +49,4 @@ quality-nonconformance 和 production-scheduling 的上游属于综合技能库�
 
 官方 curated 列表通过本机 skill-installer 的 list-skills.py 实时读取，确认包括 playwright 与 playwright-interactive。官方列表没有上述专用 Three.js 或制造过程条目；社区来源另行核查，不能将其误称为官方提供。
 
-当前动作边界：本轮已完成目录检索、源文件查阅、兼容性核对和计划编写；社区候选技能尚未安装或用于实际功能开发，未对其作项目验收通过的声明。
+初次核查时仅完成目录检索、源文件查阅、兼容性核对和计划编写。历史版本上传后，已将 state-machine-design 固定到上述提交并安装至当前任务的工作区技能目录，开始用于 v1.2 工序基础；具体使用与验证见《13-v1.2工序基础.md》。其余社区候选仍待按阶段接入验证。
