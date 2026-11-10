@@ -53,6 +53,7 @@ export interface Workpiece {
   storedAt?: number;
   scrappedAt?: number;
   cancelledAt?: number;
+  bufferSlot?: number;
 }
 export interface QualityInspection {
   id: string;

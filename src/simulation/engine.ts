@@ -7,6 +7,7 @@ import type {
   Algorithm,
 } from "../domain/types";
 import { event, uid } from "./journal";
+import { factoryLayout } from "../domain/layout";
 import {
   advanceFlow,
   assignFlow,
@@ -77,7 +78,7 @@ export function initialState(): SimulationState {
       name,
       kind,
       line,
-      position,
+      position: factoryLayout[id] ? [...factoryLayout[id]] : position,
       power,
       status: "idle",
       temperature: 36,

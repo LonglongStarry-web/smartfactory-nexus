@@ -56,7 +56,7 @@ export default function App() {
   const Page = pages[f.page as keyof typeof pages] || pages.dashboard;
   const alarms = f.s.alarms.filter((a) => !a.resolved).length;
   useEffect(() => {
-    const interval = setInterval(() => useFactory.getState().step(), 1000);
+    const interval = setInterval(() => useFactory.getState().step(0.1), 100);
     function change() {
       const page = location.hash.slice(1) || "dashboard";
       useFactory.setState({ page });

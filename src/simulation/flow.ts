@@ -134,6 +134,9 @@ function requires(run: ProcessRun) {
       ...holds(run),
       run.devices[step.role],
       ...(step.id === "place-inspection" ? [run.devices.qc] : []),
+      ...(step.id === "inspect" && run.stepElapsed / step.duration < 0.45
+        ? [run.devices.robot]
+        : []),
     ]),
   ];
 }
@@ -237,10 +240,29 @@ export function assignFlow(s: SimulationState) {
     else if (run.status === "fault")
       cell.waitingReason = run.fault ?? "工序故障";
     else {
+      if (step?.id === "sort") {
+        const part = s.workpieces.find((w) => w.id === run.workpieceId)!;
+        if (part.bufferSlot === undefined) {
+          const occupied = cell[
+            run.inspection?.result === "pass" ? "good" : "reject"
+          ].map(
+            (id, i) => s.workpieces.find((w) => w.id === id)?.bufferSlot ?? i,
+          );
+          part.bufferSlot =
+            Array.from({ length: flow.outputCapacity }, (_, i) => i).find(
+              (i) => !occupied.includes(i),
+            ) ?? 0;
+        }
+      }
       reserve(ids, run.workpieceId);
       if (s.running) {
         commandProcess(run, { type: "START" });
         if (step) operating.add(run.devices[step.role]);
+        if (
+          step?.id === "open-load-door" ||
+          (step?.id === "inspect" && run.stepElapsed / step.duration < 0.45)
+        )
+          operating.add(run.devices.robot);
       }
     }
     if (cell.waitingReason || !s.running)
@@ -273,6 +295,16 @@ export function nextFlowBoundary(s: SimulationState) {
   for (const cell of s.flow.cells) {
     if (!cell.activeId || cell.waitingReason) continue;
     const run = s.flow.runs[cell.activeId];
+    const step = run.recipe.steps[run.stepIndex];
+    if (
+      run.status === "running" &&
+      step?.id === "inspect" &&
+      run.stepElapsed < step.duration * 0.45 - epsilon
+    )
+      next = Math.min(
+        next,
+        (step.duration * 0.45 - run.stepElapsed) / modeRate[s.mode],
+      );
     if (run.status === "running")
       next = Math.min(
         next,

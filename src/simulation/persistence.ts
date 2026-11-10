@@ -2,6 +2,7 @@ import type { SimulationState } from "../domain/types";
 import { createFactoryFlow, assignFlow } from "./flow";
 import { restoreProcessRun } from "./process";
 import type { ProcessRecipe, ProcessRun } from "../domain/process";
+import { factoryLayout } from "../domain/layout";
 
 /** Deduplicate recipe definitions in storage, retaining per-piece parameters and traces. */
 export function serializeFactoryState(s: SimulationState) {
@@ -42,6 +43,9 @@ export function restoreFactoryState(input: unknown): SimulationState {
   )
     throw new Error("制造存档无效");
   s.running = false;
+  for (const device of s.devices)
+    if (factoryLayout[device.id])
+      device.position = [...factoryLayout[device.id]];
   if (s.version === 1) {
     s.version = 2;
     s.flow = createFactoryFlow();

@@ -1,5 +1,9 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import {
+  persist,
+  type PersistStorage,
+  type StorageValue,
+} from "zustand/middleware";
 import {
   defaults,
   type Preferences,
@@ -42,7 +46,7 @@ interface Store {
   nav: (p: string) => void;
   select: (id: string) => void;
   toggle: () => void;
-  step: () => void;
+  step: (seconds?: number) => void;
   reset: (scene?: string) => void;
   fault: (id: string, k: string) => void;
   repair: (id: string) => void;
@@ -58,6 +62,45 @@ interface Store {
   algorithm: (a: Algorithm) => void;
   setTheme: () => void;
 }
+type Saved = Pick<Store, "s" | "theme" | "accent" | "preferences">;
+let pending: { name: string; value: StorageValue<Saved> } | undefined;
+let saveTimer: ReturnType<typeof setTimeout> | undefined;
+function flushSave() {
+  clearTimeout(saveTimer);
+  saveTimer = undefined;
+  if (!pending) return;
+  const { name, value } = pending;
+  localStorage.setItem(
+    name,
+    JSON.stringify({
+      ...value,
+      state: { ...value.state, s: serializeFactoryState(value.state.s) },
+    }),
+  );
+  pending = undefined;
+}
+// Coalesce running snapshots before serialization. Pausing and preference changes
+// while paused are durable immediately; lifecycle events flush the latest snapshot.
+const storage: PersistStorage<Saved> = {
+  getItem: (name) => {
+    const value = localStorage.getItem(name);
+    return value ? JSON.parse(value) : null;
+  },
+  setItem: (name, value) => {
+    pending = { name, value };
+    if (!value.state.s.running) flushSave();
+    else if (!saveTimer) saveTimer = setTimeout(flushSave, 1000);
+  },
+  removeItem: (name) => {
+    pending = undefined;
+    clearTimeout(saveTimer);
+    localStorage.removeItem(name);
+  },
+};
+window.addEventListener("pagehide", flushSave);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) flushSave();
+});
 export const useFactory = create<Store>()(
   persist(
     (set, get) => ({
@@ -110,8 +153,8 @@ export const useFactory = create<Store>()(
           );
           assign(s);
         }),
-      step: () => {
-        if (get().s.running) get().update((s) => tick(s, s.speed));
+      step: (seconds = 1) => {
+        if (get().s.running) get().update((s) => tick(s, s.speed * seconds));
       },
       reset: (scene = "normal") => {
         const s = initialState();
@@ -182,8 +225,9 @@ export const useFactory = create<Store>()(
     }),
     {
       name: "nexus-simulation-v1",
+      storage,
       partialize: (state) => ({
-        s: serializeFactoryState(state.s),
+        s: state.s,
         theme: state.theme,
         accent: state.accent,
         preferences: state.preferences,

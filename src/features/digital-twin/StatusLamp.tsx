@@ -3,7 +3,7 @@ const mounts: Record<
   Device["kind"],
   { at: [number, number, number]; stem: number }
 > = {
-  cnc: { at: [0.88, 2.675, -0.65], stem: 0.26 },
+  cnc: { at: [0.88, 2.78, -0.65], stem: 0.26 },
   robot: { at: [1.05, 0.65, -0.9], stem: 0.32 },
   qc: { at: [0.72, 2.375, 0.5], stem: 0.25 },
   warehouse: { at: [-1.4, 3.7, 0.6], stem: 0.34 },
