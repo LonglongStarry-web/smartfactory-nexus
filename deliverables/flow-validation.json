@@ -38,5 +38,7 @@
     "packedUtf16Bytes": 4036084,
     "restoredInChrome": true
   },
-  "scope": "Process engine, queues, resources, quality and persistence integrated. Detailed mechanical animation remains next."
+  "scope": "Process engine, queues, resources, quality and persistence integrated. Detailed mechanical animation remains next.",
+  "validatedFeatureCommit": "565f1650078fede2d0085383916b1c32a6b338be",
+  "repository": "https://github.com/LonglongStarry-web/smartfactory-nexus"
 }
