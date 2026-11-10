@@ -339,8 +339,14 @@ export function commandProcess(run: ProcessRun, command: ProcessCommand): void {
 }
 
 /** Pass simulated seconds, never a browser timer or a frame count. */
-export function advanceProcess(run: ProcessRun, seconds: number): void {
+export function advanceProcess(
+  run: ProcessRun,
+  seconds: number,
+  rate = 1,
+): void {
   finiteNonnegative(seconds, "推进时间");
+  if (!Number.isFinite(rate) || rate <= 0)
+    throw new Error("工序速率必须大于零");
   if (
     seconds === 0 ||
     ["ready", "paused", "complete", "cancelled"].includes(run.status)
@@ -366,9 +372,9 @@ export function advanceProcess(run: ProcessRun, seconds: number): void {
       continue;
     }
     const step = run.recipe.steps[run.stepIndex];
-    const remaining = step.duration - run.stepElapsed;
+    const remaining = (step.duration - run.stepElapsed) / rate;
     if (left < remaining - 1e-9) {
-      run.stepElapsed += left;
+      run.stepElapsed += left * rate;
       run.time += left;
       return;
     }

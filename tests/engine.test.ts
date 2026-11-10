@@ -17,10 +17,17 @@ describe("统一制造模拟引擎", () => {
     tick(a, 120);
     tick(b, 120);
     expect(a).toEqual(b);
-    expect(metrics(a).output).toBe(24);
+    expect(metrics(a).output).toBeGreaterThan(0);
+    expect(metrics(a).output).toBe(
+      Object.values(a.flow.runs).filter((r) =>
+        r.trace.some((t) => t.stepId === "tool-clear"),
+      ).length,
+    );
     expect(metrics(a).energy).toBeGreaterThan(0);
-    expect(a.workpieces.length).toBe(24);
-    expect(a.inspections.length).toBe(24);
+    expect(a.workpieces.length).toBeGreaterThan(metrics(a).output);
+    expect(a.inspections.length).toBe(
+      Object.values(a.flow.runs).filter((r) => r.inspection).length,
+    );
   });
   it("暂停时模拟状态不改变", () => {
     const a = initialState(),
@@ -45,13 +52,14 @@ describe("统一制造模拟引擎", () => {
     s.running = true;
     tick(s, 100);
     const output = s.devices[0].produced;
+    const other = s.devices[2].produced;
     inject(s, "CNC-01", "温度异常");
     expect(s.devices[0].status).toBe("fault");
     expect(s.alarms.filter((a) => !a.resolved)).toHaveLength(1);
     expect(schedule(s).every((x) => x.deviceId !== "CNC-01")).toBe(true);
     tick(s, 100);
     expect(s.devices[0].produced).toBe(output);
-    expect(metrics(s).output).toBe(30);
+    expect(s.devices[2].produced).toBeGreaterThan(other);
   });
   it("维修步骤不可跳过，完成后恢复且保留历史", () => {
     const s = initialState();
@@ -61,10 +69,12 @@ describe("统一制造模拟引擎", () => {
     expect(() => restore(s, "CNC-01")).toThrow();
     s.maintenance[0].steps = [true, true, true];
     restore(s, "CNC-01");
-    expect(s.devices[0].status).toBe("running");
+    expect(["idle", "running"]).toContain(s.devices[0].status);
     expect(s.alarms[0].resolved).toBe(true);
     expect(s.maintenance[0].completed).toBe(0);
     expect(s.events.some((e) => e.type === "设备恢复")).toBe(true);
+    tick(s, 40);
+    expect(s.devices[0].produced).toBeGreaterThan(0);
   });
   it("能耗积分符合功率与模拟时间；高性能比节能更快且耗电更多", () => {
     const a = initialState(),
@@ -76,7 +86,11 @@ describe("统一制造模拟引擎", () => {
     tick(b, 100);
     expect(metrics(a).output).toBeGreaterThan(metrics(b).output);
     expect(metrics(a).energy).toBeGreaterThan(metrics(b).energy);
-    expect(a.devices[0].energy).toBeCloseTo((8 * 1.55 * 100) / 3600, 8);
+    const active = a.devices[0].runtime;
+    expect(a.devices[0].energy).toBeCloseTo(
+      (8 * 1.55 * active + 8 * 0.12 * (100 - active)) / 3600,
+      8,
+    );
     expect(a.energy.at(-1)?.total).toBeCloseTo(metrics(a).energy, 8);
   });
   it("订单校验及事件唯一性", () => {

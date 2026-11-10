@@ -1,3 +1,5 @@
+import type { FactoryFlow } from "./flow";
+import type { ProcessMeasurement } from "./process";
 export type Status = "running" | "idle" | "fault" | "maintenance";
 export type Mode = "standard" | "performance" | "eco";
 export type Algorithm = "FCFS" | "PRIORITY";
@@ -37,6 +39,8 @@ export interface ProductionOrder {
   due: number;
   cancelled: boolean;
   completedAt?: number;
+  completionBasis?: "good-stored" | "legacy-machined";
+  legacyCompleted?: number;
 }
 export interface Workpiece {
   id: string;
@@ -44,7 +48,11 @@ export interface Workpiece {
   deviceId: string;
   time: number;
   batch: string;
-  result: "pass" | "fail";
+  result?: "pass" | "fail";
+  source?: "production" | "legacy";
+  storedAt?: number;
+  scrappedAt?: number;
+  cancelledAt?: number;
 }
 export interface QualityInspection {
   id: string;
@@ -57,6 +65,9 @@ export interface QualityInspection {
   defect?: string;
   x: number;
   y: number;
+  source?: "production" | "sample" | "legacy";
+  inspectorId?: string;
+  measurements?: ProcessMeasurement[];
 }
 export interface Alarm {
   id: string;
@@ -111,6 +122,8 @@ export interface SimulationState {
   energy: EnergyRecord[];
   events: SimulationEvent[];
   carry: Record<string, number>;
+  legacyCarry?: Record<string, number>;
+  flow: FactoryFlow;
 }
 export interface Slot {
   orderId: string;

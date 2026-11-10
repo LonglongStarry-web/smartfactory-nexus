@@ -1,0 +1,1330 @@
+{
+ "url": "http://127.0.0.1:5174/#twin",
+ "at": "2026-11-10T11:44:01.634Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.63,
+    0.65
+   ],
+   "motion": {
+    "elements": 9,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 9,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 929,
+     "screens": 1,
+     "words": 144,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 22,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.98,
+       "mono": false
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.02,
+       "mono": true
+      },
+      {
+       "family": "Consolas",
+       "share": 0,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      20,
+      25
+     ],
+     "sizeCount": 8,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 1.7,
+      "font": "Public Sans",
+      "text": "数字孪生车间"
+     },
+     "monoShare": 0.02,
+     "monoProseShare": 0.02,
+     "monoFamilies": [
+      "IBM Plex Mono",
+      "Consolas"
+     ],
+     "monoSamples": [
+      "08:00:00",
+      "0"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.041,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.17,
+     "centerShare": 0.29,
+     "smallText": 9
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#111c2e",
+       "top": 205,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.55
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.33
+      },
+      {
+       "color": "#b8c9d5",
+       "share": 0.06
+      },
+      {
+       "color": "#a3b2c3",
+       "share": 0.03
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 9,
+     "radius": 5,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "数字孪生车间",
+      "开始生产",
+      "重置演示",
+      "隐藏标签",
+      "标准画质"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "aside.sidebar 216px",
+      "header.topbar 1224px",
+      "div 252px",
+      "div 252px",
+      "div 252px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.43
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 929,
+    "margins": {
+     "left": 244,
+     "right": 28
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "数字孪生车间",
+      "size": 25,
+      "top": 119,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 244,
+      "n": 1
+     },
+     {
+      "x": 1141,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.03,
+    "voidBox": {
+     "x": 540,
+     "y": 120,
+     "w": 660,
+     "h": 60
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 216,
+     "tag": "aside",
+     "links": 10,
+     "share": 0.15
+    },
+    "topbar": {
+     "h": 70
+    },
+    "canvas": {
+     "left": 28,
+     "right": 28
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 2,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 2,
+     "radii": [
+      [
+       8,
+       2
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 11
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.74,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      20,
+      25
+     ]
+    },
+    "title": {
+     "text": "数字孪生车间",
+     "size": 25,
+     "top": 119
+    },
+    "colourShare": 0.011
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.55
+   ],
+   "motion": {
+    "elements": 9,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 9,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1024,
+     "screens": 1,
+     "words": 140,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 22,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 1,
+       "mono": false
+      },
+      {
+       "family": "Consolas",
+       "share": 0,
+       "mono": true
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      19,
+      20,
+      25
+     ],
+     "sizeCount": 7,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 3.3,
+      "font": "Public Sans",
+      "text": "数字孪生车间"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [
+      "Consolas"
+     ],
+     "monoSamples": [
+      "0"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.042,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.18,
+     "centerShare": 0.3,
+     "smallText": 9
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#111c2e",
+       "top": 193,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.55
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.33
+      },
+      {
+       "color": "#b8c9d5",
+       "share": 0.06
+      },
+      {
+       "color": "#a3b2c3",
+       "share": 0.03
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 9,
+     "radius": 5,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "数字孪生车间",
+      "开始生产",
+      "重置演示",
+      "隐藏标签",
+      "标准画质"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 768px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.33
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1024,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "数字孪生车间",
+      "size": 25,
+      "top": 111,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 20,
+      "n": 1
+     },
+     {
+      "x": 503,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 240,
+     "tag": "aside",
+     "links": 10,
+     "share": 0.31
+    },
+    "topbar": {
+     "h": 62
+    },
+    "canvas": {
+     "left": 59,
+     "right": 20
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 2,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 2,
+     "radii": [
+      [
+       8,
+       2
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 11
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.74,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      20,
+      25
+     ]
+    },
+    "title": {
+     "text": "数字孪生车间",
+     "size": 25,
+     "top": 111
+    },
+    "colourShare": 0.015
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.71,
+    0.69
+   ],
+   "motion": {
+    "elements": 9,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 9,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 1376,
+     "screens": 1.6,
+     "words": 130,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 22,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "lines": 1,
+     "size": 22,
+     "font": "Public Sans"
+    },
+    "headings": [
+     {
+      "text": "数字孪生车间",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Public Sans",
+      "weight": 600,
+      "tracking": -0.032,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.67,
+      "top": 105,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      18,
+      19,
+      22
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 22,
+      "vw": 5.6,
+      "font": "Public Sans",
+      "text": "数字孪生车间"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 2,
+     "microLabelShare": 0.044,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.18,
+     "centerShare": 0.27,
+     "smallText": 9
+    },
+    "eyebrows": [
+     {
+      "text": "空间管控 柔性制造实验车间",
+      "above": "数字孪生车间",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 82
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#111c2e",
+       "top": 233,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.57
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.33
+      },
+      {
+       "color": "#b8c9d5",
+       "share": 0.06
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.02
+      },
+      {
+       "color": "#fb7185",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#e8eef7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 8,
+     "inHero": 6,
+     "radius": 5,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "数字孪生车间",
+      "开始生产",
+      "隐藏标签",
+      "标准画质",
+      "切换工厂视角"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 6,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 390px",
+      "div 320px",
+      "div 320px",
+      "div 320px"
+     ],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 2,
+     "boxRadius": 8,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.45
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 844,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 1376,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "div.page-heading",
+      "tag": "div",
+      "top": 82,
+      "height": 131,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "数字孪生车间",
+       "size": 22,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 113,
+      "textLeft": 16,
+      "textRight": 113,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.twin-layout",
+      "tag": "div",
+      "top": 233,
+      "height": 1068,
+      "words": 50,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 31,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "数字孪生车间",
+      "size": 22,
+      "top": 105,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 1
+     },
+     {
+      "x": 31,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": null,
+    "topbar": {
+     "h": 80
+    },
+    "canvas": {
+     "left": 16,
+     "right": 16
+    },
+    "hero": {
+     "text": "数字孪生车间",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 2,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 2,
+     "radii": [
+      [
+       8,
+       2
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 1,
+     "hues": 1,
+     "samples": [
+      {
+       "hue": 215,
+       "size": 34,
+       "radius": "5px"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 1,
+     "tabularShare": 0,
+     "kpiMax": 11
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.66,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      19,
+      22
+     ]
+    },
+    "title": {
+     "text": "数字孪生车间",
+     "size": 22,
+     "top": 105
+    },
+    "colourShare": 0.015
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "2 tiny uppercase letter-spaced label(s): \"SMARTFACTORY\", \"NEXUS LAB\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-fallback",
+   "width": 1440,
+   "message": "Typeface(s) declared but not loaded, so a fallback is rendering: Consolas",
+   "fix": "Fix the font URL / family name, or the screenshots you are judging are not the design.",
+   "alsoAt": [
+    768
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "dev-server",
+   "width": 1440,
+   "message": "This page is served by a development server (Vite, webpack or Next in dev mode).",
+   "fix": "Run the last gate on the production build too (vite build && vite preview, next build && next start, or the built index.html): minifiers and bundlers change the CSS a visitor receives.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "tiny-text",
+   "width": 1440,
+   "message": "74% of the text is under 13px.",
+   "fix": "Data and labels read at 13–14px; keep 11–12px for sublines and axis ticks.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\desktop-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\tablet-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\mobile-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-flow\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

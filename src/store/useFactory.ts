@@ -22,6 +22,10 @@ import type {
   Mode,
   Algorithm,
 } from "../domain/types";
+import {
+  restoreFactoryState,
+  serializeFactoryState,
+} from "../simulation/persistence";
 interface Store {
   s: SimulationState;
   page: string;
@@ -179,16 +183,28 @@ export const useFactory = create<Store>()(
     {
       name: "nexus-simulation-v1",
       partialize: (state) => ({
-        s: { ...state.s, running: false },
+        s: serializeFactoryState(state.s),
         theme: state.theme,
         accent: state.accent,
         preferences: state.preferences,
       }),
       merge: (persisted, current) => {
         const saved = persisted as Partial<Store>;
+        let s = current.s;
+        let toast = "";
+        if (saved.s) {
+          try {
+            s = restoreFactoryState(saved.s);
+          } catch {
+            toast = "生产存档无法读取，已恢复初始场景；显示偏好已保留";
+          }
+        }
         return {
           ...current,
-          ...saved,
+          s,
+          toast,
+          theme: saved.theme ?? current.theme,
+          accent: saved.accent ?? current.accent,
           preferences: { ...defaults, ...saved.preferences },
         };
       },

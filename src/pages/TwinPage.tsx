@@ -17,7 +17,7 @@ export default function TwinPage() {
             空间管控 <ChevronRight size={12} /> 柔性制造实验车间
           </div>
           <h1>数字孪生车间</h1>
-          <p>程序化设备模型与实时业务状态联动 · 动画属于演示级运动</p>
+          <p>工件流转与实时工序已联动 · 机械模型仍为演示级运动</p>
         </div>
         <div className="toolbar">
           <button onClick={() => f.setPreferences({ showLabels: !labels })}>

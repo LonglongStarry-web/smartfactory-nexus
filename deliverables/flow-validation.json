@@ -1,0 +1,42 @@
+{
+  "branch": "develop/v1.2-process",
+  "status": "development checkpoint, not a v1.2 release",
+  "unit": {
+    "files": 5,
+    "passed": 44
+  },
+  "browser": {
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "build": "TypeScript and Vite production build passed",
+  "productionLayout": {
+    "failed": 0,
+    "warnings": [
+      "micro-label",
+      "font-fallback",
+      "tiny-text"
+    ],
+    "viewports": [
+      1440,
+      768,
+      390
+    ],
+    "horizontalOverflow": [
+      0,
+      0,
+      0
+    ]
+  },
+  "seededDemoBatch": {
+    "seed": 42,
+    "goodStored": 370,
+    "released": 389,
+    "rawUtf16Bytes": 5684558,
+    "packedUtf16Bytes": 4036084,
+    "restoredInChrome": true
+  },
+  "scope": "Process engine, queues, resources, quality and persistence integrated. Detailed mechanical animation remains next."
+}

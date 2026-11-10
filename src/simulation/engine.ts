@@ -6,6 +6,16 @@ import type {
   ProductionOrder,
   Algorithm,
 } from "../domain/types";
+import { event, uid } from "./journal";
+import {
+  advanceFlow,
+  assignFlow,
+  createFactoryFlow,
+  cncProcessSeconds,
+  nextFlowBoundary,
+  scheduleFlow,
+} from "./flow";
+export { event, uid } from "./journal";
 export const BASE = Date.parse("2026-11-09T08:00:00+08:00");
 export const modes: Record<
   Mode,
@@ -15,7 +25,14 @@ export const modes: Record<
   performance: { name: "高性能模式", rate: 1.3, power: 1.55 },
   eco: { name: "节能模式", rate: 0.75, power: 0.6 },
 };
-export const defects = ["表面划伤", "尺寸异常", "孔洞", "裂纹", "装配偏差"];
+export const defects = [
+  "孔位超差",
+  "表面划伤",
+  "尺寸异常",
+  "孔洞",
+  "裂纹",
+  "装配偏差",
+];
 export const statusText = {
   running: "运行中",
   idle: "待机",
@@ -27,30 +44,6 @@ export function stamp(t: number) {
     timeZone: "Asia/Shanghai",
     hour12: false,
   });
-}
-export function uid(s: SimulationState, prefix: string) {
-  return `${prefix}-${String(++s.seq).padStart(6, "0")}`;
-}
-export function event(
-  s: SimulationState,
-  type: string,
-  message: string,
-  deviceId?: string,
-  orderId?: string,
-) {
-  s.events.unshift({
-    id: uid(s, "EV"),
-    time: s.time,
-    type,
-    message,
-    deviceId,
-    orderId,
-  });
-  s.events = s.events.slice(0, 2000);
-}
-function rng(s: SimulationState) {
-  s.seed = (Math.imul(s.seed, 1664525) + 1013904223) >>> 0;
-  return s.seed / 4294967296;
 }
 export function initialState(): SimulationState {
   const spec: [
@@ -71,7 +64,7 @@ export function initialState(): SimulationState {
     ["AGV-02", "物流机器人 02", "agv", "B", [1, 0, 6], 1.2],
   ];
   const s: SimulationState = {
-    version: 1,
+    version: 2,
     time: 0,
     running: false,
     speed: 5,
@@ -119,7 +112,7 @@ export function initialState(): SimulationState {
         priority: 2,
         created: 0,
         planned: 0,
-        due: 2400,
+        due: 7200,
         cancelled: false,
       },
       {
@@ -130,7 +123,7 @@ export function initialState(): SimulationState {
         priority: 1,
         created: 1,
         planned: 0,
-        due: 1800,
+        due: 3600,
         cancelled: false,
       },
       {
@@ -141,7 +134,7 @@ export function initialState(): SimulationState {
         priority: 2,
         created: 2,
         planned: 120,
-        due: 4200,
+        due: 12600,
         cancelled: false,
       },
     ],
@@ -152,6 +145,7 @@ export function initialState(): SimulationState {
     energy: [],
     events: [],
     carry: {},
+    flow: createFactoryFlow(),
   };
   event(s, "初始化", "演示车间已就绪 · 固定种子 42");
   return s;
@@ -160,124 +154,57 @@ export function schedule(
   s: SimulationState,
   algorithm: Algorithm = s.algorithm,
 ): Slot[] {
-  const devices = s.devices.filter(
-    (d) =>
-      d.kind === "cnc" &&
-      d.status !== "fault" &&
-      d.status !== "maintenance" &&
-      !s.devices.some(
-        (x) =>
-          x.line === d.line &&
-          (x.status === "fault" || x.status === "maintenance"),
-      ),
-  );
-  if (!devices.length) return [];
-  const free = Object.fromEntries(devices.map((d) => [d.id, s.time]));
-  const slots: Slot[] = [];
-  const orders = s.orders
-    .filter((o) => !o.cancelled && o.completed < o.quantity)
-    .sort(
-      (a, b) =>
-        (algorithm === "PRIORITY" ? a.priority - b.priority : 0) ||
-        a.created - b.created,
-    );
-  for (const o of orders) {
-    // Preserve an in-progress assignment when the resource is equally available.
-    const earliest = Math.min(...devices.map((d) => free[d.id]));
-    const d =
-      devices.find(
-        (d) => d.task === o.id && Math.abs(free[d.id] - earliest) < 1e-6,
-      ) ?? devices.reduce((a, b) => (free[a.id] <= free[b.id] ? a : b));
-    const start = Math.max(free[d.id], o.planned);
-    const qty = o.quantity - o.completed;
-    const inProgress =
-      d.task === o.id && start <= s.time + 1e-6
-        ? Math.min(1, Math.max(0, s.carry[d.id] || 0))
-        : 0;
-    const end =
-      Math.round(
-        (start + ((qty - inProgress) * 10) / modes[s.mode].rate) * 1e6,
-      ) / 1e6;
-    slots.push({
-      orderId: o.id,
-      deviceId: d.id,
-      start,
-      end,
-      quantity: qty,
-      late: end > o.due,
-    });
-    free[d.id] = end;
-  }
-  return slots;
+  return scheduleFlow(s, algorithm);
 }
 export function assign(s: SimulationState) {
-  const slots = schedule(s);
-  for (const d of s.devices) {
-    const slot = slots.find(
-      (x) => x.deviceId === d.id && x.start <= s.time + 0.001,
-    );
-    const task =
-      d.kind === "cnc"
-        ? slot?.orderId
-        : slots.find(
-            (x) =>
-              s.devices.find((y) => y.id === x.deviceId)?.line === d.line &&
-              x.start <= s.time + 0.001,
-          )?.orderId;
-    if (d.task !== task && task)
-      event(s, "分配任务", `${d.id} 分配至 ${task}`, d.id, task);
-    // Partial work belongs to the old order; it cannot finish a newly assigned one.
-    if (d.kind === "cnc" && d.task !== task) s.carry[d.id] = 0;
-    d.task = task;
-    if (d.status !== "fault" && d.status !== "maintenance")
-      d.status = s.running && task ? "running" : "idle";
-  }
+  assignFlow(s);
 }
+
+/** A sample reuses an existing finished workpiece; it never creates production. */
 export function inspect(s: SimulationState, orderId: string, deviceId: string) {
-  const wp = uid(s, "WP");
-  const fail = rng(s) < 0.06;
-  const defect = fail
-    ? defects[Math.floor(rng(s) * defects.length)]
-    : undefined;
-  const batch = `B-${orderId}`;
-  s.workpieces.push({
-    id: wp,
-    orderId,
-    deviceId,
-    time: s.time,
-    batch,
-    result: fail ? "fail" : "pass",
-  });
+  const device = s.devices.find((d) => d.id === deviceId);
+  const part = s.workpieces
+    .slice()
+    .reverse()
+    .find(
+      (w) =>
+        w.orderId === orderId &&
+        w.result &&
+        (device?.kind === "qc" || w.deviceId === deviceId),
+    );
+  if (!part) return;
+  const original = s.inspections.find(
+    (q) => q.workpieceId === part.id && q.source !== "sample",
+  );
+  if (!original) return;
   const q = {
+    ...structuredClone(original),
     id: uid(s, "QI"),
-    workpieceId: wp,
-    orderId,
-    deviceId,
-    batch,
     time: s.time,
-    result: fail ? ("fail" as const) : ("pass" as const),
-    defect,
-    x: 25 + rng(s) * 50,
-    y: 25 + rng(s) * 50,
+    source: "sample" as const,
   };
   s.inspections.unshift(q);
   event(
     s,
-    "质检完成",
-    `${wp} ${fail ? defect : "检测合格"}（模拟视觉检测）`,
+    "工件抽检",
+    `${part.id} 复用已有工件的测量记录，不增加生产产量`,
     deviceId,
     orderId,
   );
+  return q;
 }
+
 export function tick(s: SimulationState, seconds: number) {
-  if (!s.running) return;
+  if (!Number.isFinite(seconds) || seconds < 0)
+    throw new Error("模拟时间必须是非负有限数");
+  if (!s.running || seconds === 0) return;
   let left = seconds;
-  while (left > 0) {
-    const dt = Math.min(1, left);
-    left -= dt;
+  while (left > 1e-8) {
     assign(s);
+    const nextSample = (Math.floor((s.time + 1e-7) / 10) + 1) * 10;
+    const dt = Math.min(left, nextFlowBoundary(s), nextSample - s.time);
     s.time += dt;
-    let delta = 0;
+    left -= dt;
     for (const d of s.devices) {
       const operating = d.status === "running";
       const power =
@@ -286,57 +213,28 @@ export function tick(s: SimulationState, seconds: number) {
           : operating
             ? d.power * modes[s.mode].power
             : d.power * 0.12;
-      const kwh = (power * dt) / 3600;
-      d.energy += kwh;
-      delta += kwh;
+      d.energy += (power * dt) / 3600;
       if (d.kind === "cnc") {
         d.available +=
           d.status === "fault" || d.status === "maintenance" ? 0 : dt;
-        d.ideal += operating ? (dt * modes[s.mode].rate) / 10 : 0;
+        d.ideal += operating
+          ? (dt * modes[s.mode].rate) / cncProcessSeconds
+          : 0;
       }
       if (operating) {
         d.runtime += dt;
         d.load = 72 + Math.sin(s.time / 15 + d.power) * 8;
         d.temperature = 43 + d.load * 0.12 + Math.sin(s.time / 30);
         d.vibration = 1.1 + Math.abs(Math.sin(s.time / 10)) * 0.5;
-        if (d.kind === "cnc" && d.task) {
-          s.carry[d.id] = (s.carry[d.id] || 0) + (dt * modes[s.mode].rate) / 10;
-          if (s.carry[d.id] >= 1 - 1e-9) {
-            s.carry[d.id] = Math.max(0, s.carry[d.id] - 1);
-            const order = s.orders.find((o) => o.id === d.task)!;
-            if (order.completed < order.quantity) {
-              order.completed++;
-              d.produced++;
-              event(
-                s,
-                "完成工序",
-                `${d.id} 完成 1 件 ${order.product}`,
-                d.id,
-                order.id,
-              );
-              inspect(s, order.id, d.id);
-              if (order.completed === order.quantity) {
-                order.completedAt = s.time;
-                event(
-                  s,
-                  "完成订单",
-                  `${order.id} 已完成 ${order.quantity} 件`,
-                  undefined,
-                  order.id,
-                );
-              }
-            }
-          }
-        }
       } else if (d.status === "idle") {
         d.load = 0;
         d.temperature = Math.max(30, d.temperature - dt * 0.03);
       }
     }
-    const prev = s.energy.at(-1);
-    if (Math.floor(s.time) % 10 === 0) {
+    advanceFlow(s, dt);
+    if (Math.abs(s.time - nextSample) < 1e-7) {
+      s.time = nextSample;
       for (const d of s.devices) {
-        d.history ??= [];
         d.history.push({
           time: s.time,
           temperature: d.temperature,
@@ -344,26 +242,25 @@ export function tick(s: SimulationState, seconds: number) {
         });
         d.history = d.history.slice(-180);
       }
+      const prev = s.energy.at(-1);
+      const total = s.devices.reduce((sum, d) => sum + d.energy, 0);
+      const m = metrics(s);
       s.energy.push({
         id: uid(s, "EN"),
         time: s.time,
-        delta: s.devices.reduce((a, d) => a + d.energy, 0) - (prev?.total || 0),
-        total: s.devices.reduce((a, d) => a + d.energy, 0),
-        output: s.orders.reduce((a, o) => a + o.completed, 0),
-        good: s.inspections.filter((q) => q.result === "pass").length,
+        delta: total - (prev?.total || 0),
+        total,
+        output: m.output,
+        good: m.good,
         lineA: s.devices
           .filter((d) => d.line === "A")
-          .reduce((a, d) => a + d.energy, 0),
+          .reduce((sum, d) => sum + d.energy, 0),
         lineB: s.devices
           .filter((d) => d.line === "B")
-          .reduce((a, d) => a + d.energy, 0),
+          .reduce((sum, d) => sum + d.energy, 0),
       });
       if (s.time % 60 === 0)
-        event(
-          s,
-          "能耗记录",
-          `累计耗电 ${s.devices.reduce((a, d) => a + d.energy, 0).toFixed(3)} kWh`,
-        );
+        event(s, "能耗记录", `累计耗电 ${total.toFixed(3)} kWh`);
     }
   }
   assign(s);
@@ -455,7 +352,7 @@ export function addOrder(
     created: s.time,
     cancelled: false,
   };
-  s.orders.push(o);
+  s.orders.push({ ...o, completionBasis: "good-stored" });
   event(
     s,
     "创建订单",
@@ -469,7 +366,9 @@ export function addOrder(
 export function metrics(s: SimulationState, line = "all") {
   const ds = s.devices.filter((d) => line === "all" || d.line === line);
   const cncs = ds.filter((d) => d.kind === "cnc");
-  const qs = s.inspections.filter((q) => ds.some((d) => d.id === q.deviceId));
+  const qs = s.inspections.filter(
+    (q) => q.source !== "sample" && ds.some((d) => d.id === q.deviceId),
+  );
   const output = ds
     .filter((d) => d.kind === "cnc")
     .reduce((a, d) => a + d.produced, 0);
@@ -484,6 +383,15 @@ export function metrics(s: SimulationState, line = "all") {
   const quality = total ? good / total : 0;
   return {
     output,
+    stored: s.workpieces.filter(
+      (w) => w.storedAt !== undefined && ds.some((d) => d.id === w.deviceId),
+    ).length,
+    wip: Object.values(s.flow.runs).filter(
+      (r) =>
+        r.status !== "complete" &&
+        r.status !== "cancelled" &&
+        ds.some((d) => d.id === r.devices.cnc),
+    ).length,
     good,
     total,
     energy,

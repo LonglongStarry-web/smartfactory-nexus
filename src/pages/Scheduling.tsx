@@ -3,6 +3,7 @@ import { Plus, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import { useFactory } from "../store/useFactory";
 import { schedule, stamp, event, assign } from "../simulation/engine";
 import { Panel, Modal, Empty } from "../components/UI";
+import { cycleSeconds, reservedForOrder } from "../simulation/flow";
 import type { ProductionOrder } from "../domain/types";
 export default function Scheduling() {
   const f = useFactory();
@@ -45,13 +46,16 @@ export default function Scheduling() {
     try {
       if (edit) {
         if (
-          input.quantity < edit.completed ||
+          input.quantity <
+            (f.s.orders.find((o) => o.id === edit.id)?.completed ??
+              edit.completed) +
+              reservedForOrder(f.s, edit.id) ||
           input.quantity < 1 ||
           !Number.isInteger(input.quantity) ||
           input.planned < 0 ||
           input.due <= input.planned
         )
-          throw Error("数量不能小于已完成数量，交期必须晚于计划开始");
+          throw Error("数量不能小于已完成与已投料总数，交期必须晚于计划开始");
         f.update((s) => {
           Object.assign(
             s.orders.find((o) => o.id === edit.id)!,
@@ -75,7 +79,7 @@ export default function Scheduling() {
         <div>
           <div className="breadcrumb">生产管理 / 规则调度</div>
           <h1>生产调度</h1>
-          <p>两台并行加工中心 · 同一工件仅分配一次 · 故障设备自动退出排产</p>
+          <p>两组加工单元 · 共享检测与入库资源 · 合格入库后完成订单</p>
         </div>
         <button className="primary" onClick={() => openOrder(null)}>
           <Plus size={16} /> 新增订单
@@ -124,7 +128,7 @@ export default function Scheduling() {
       </div>
       <Panel
         title="生产甘特图"
-        sub="相同订单、设备及速度约束 · 每件基础节拍 10 秒"
+        sub={`完整工艺基准 ${cycleSeconds} 秒/件；另计转运 · 估算未预知后续不良与资源等待`}
       >
         <div className="gantt">
           <div className="gantt-scale">
@@ -173,7 +177,7 @@ export default function Scheduling() {
       </Panel>
       <Panel
         title="生产订单"
-        sub={`${orders.length} 个订单 · 计划开始由订单指定；预计完工计入当前工件进度，受故障、插单和速度影响`}
+        sub={`${orders.length} 个订单 · 计划开始由订单指定；预计完工计入当前工件进度，受共享资源、转运、插单和速度影响；不预知未来不良`}
         action={
           <button className="text-button" onClick={() => setSort(!sort)}>
             <ArrowUpDown size={14} /> {sort ? "按优先级" : "按创建时间"}
@@ -187,7 +191,7 @@ export default function Scheduling() {
                 <th>订单 / 产品</th>
                 <th className="num">数量</th>
                 <th>优先级</th>
-                <th>进度</th>
+                <th>合格入库进度</th>
                 <th>计划开始</th>
                 <th>完工时间</th>
                 <th>交付期限</th>
@@ -197,7 +201,13 @@ export default function Scheduling() {
             </thead>
             <tbody>
               {orders.map((o) => {
-                const slot = slots.find((x) => x.orderId === o.id);
+                const orderSlots = slots.filter((x) => x.orderId === o.id);
+                const slot = orderSlots.length
+                  ? {
+                      ...orderSlots[0],
+                      end: Math.max(...orderSlots.map((x) => x.end)),
+                    }
+                  : undefined;
                 const completedAt =
                   o.completedAt ??
                   f.s.events.find(
@@ -234,6 +244,12 @@ export default function Scheduling() {
                         ? "已取消"
                         : `${o.completed} / ${o.quantity}`}
                       <progress max={o.quantity} value={o.completed} />
+                      {o.completionBasis === "legacy-machined" && (
+                        <small>
+                          旧版已完成 {o.legacyCompleted ?? 0}{" "}
+                          件；新增按合格入库计
+                        </small>
+                      )}
                     </td>
                     <td className="order-time">
                       <time>{stamp(o.planned)}</time>
@@ -267,7 +283,7 @@ export default function Scheduling() {
                       ) : (
                         <>
                           <span>待排产</span>
-                          <small>当前无可用设备</small>
+                          <small>当前工艺或物流路径受阻</small>
                         </>
                       )}
                     </td>

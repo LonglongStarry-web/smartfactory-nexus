@@ -56,10 +56,10 @@ export default function Dashboard() {
           onClick={() => f.nav("health")}
         />
         <Stat
-          label="累计产出 / 今日计划"
+          label="加工完成 / 订单需求"
           value={m.output}
           unit={`/ ${m.plan} 件`}
-          sub="完成加工的工件，含不合格品"
+          sub={`合格入库 ${m.stored} 件 · 在制 ${m.wip} 件；加工数含不合格品`}
           onClick={() => f.nav("scheduling")}
         />
         <Stat
@@ -191,7 +191,11 @@ export default function Dashboard() {
                         ? e.output
                         : f.s.workpieces.filter(
                             (w) =>
-                              w.time <= e.time &&
+                              (f.s.flow.runs[w.id]?.trace.find(
+                                (t) => t.stepId === "tool-clear",
+                              )?.completedAt ??
+                                (w.source === "legacy" ? w.time : Infinity)) <=
+                                e.time &&
                               devices.some(
                                 (d) => d.kind === "cnc" && d.id === w.deviceId,
                               ),
@@ -203,8 +207,9 @@ export default function Dashboard() {
                     values: history.map((e) =>
                       line === "all"
                         ? e.good
-                        : f.s.workpieces.filter(
+                        : f.s.inspections.filter(
                             (w) =>
+                              w.source !== "sample" &&
                               w.time <= e.time &&
                               w.result === "pass" &&
                               devices.some(

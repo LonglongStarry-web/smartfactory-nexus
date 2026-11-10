@@ -21,25 +21,29 @@ export default function Quality() {
           <div className="breadcrumb">质量管理 / 批次追溯</div>
           <h1>智能质量检测</h1>
           <p>
-            模拟视觉检测 ·
-            固定种子生成缺陷与人为标注位置，未运行真实图像检测模型
+            工艺规则仿真检测 ·
+            定位与尺寸参数对照规格判定；未运行真实图像检测模型
           </p>
         </div>
         <button
           className="primary"
           onClick={() => {
-            const o = f.s.orders.find((o) => !o.cancelled);
-            if (o) {
-              f.update((s) => inspect(s, o.id, "QC-01"));
-              f.notify("已生成模拟抽检记录");
-            } else f.notify("请先创建可追溯订单");
+            const part = f.s.workpieces
+              .slice()
+              .reverse()
+              .find((w) => w.result);
+            const o = f.s.orders.find((o) => o.id === part?.orderId);
+            if (o && part) {
+              f.update((s) => inspect(s, o.id, part.deviceId));
+              f.notify("已复检最近工件，不增加生产产量或生产良品率");
+            } else f.notify("请先完成一件产品的生产检测");
           }}
         >
-          模拟抽检一个产品
+          复检最近工件
         </button>
       </div>
       <div className="kpi-strip">
-        <Stat label="已检测产品" value={m.total} unit="件" />
+        <Stat label="生产已检产品" value={m.total} unit="件" />
         <Stat label="合格产品" value={m.good} unit="件" />
         <Stat label="不合格产品" value={m.total - m.good} unit="件" />
         <Stat
@@ -49,7 +53,10 @@ export default function Quality() {
         />
       </div>
       <div className="two-columns">
-        <Panel title="缺陷类型分布" sub="当前全部检测历史">
+        <Panel
+          title="缺陷类型分布"
+          sub="生产检测与抽检历史；生产良品率排除重复抽检"
+        >
           <Chart
             option={{
               grid: { left: 75, right: 20, top: 15, bottom: 20 },
@@ -94,7 +101,7 @@ export default function Quality() {
                 name: "检测良品率",
                 values: f.s.energy.map((e) => {
                   const records = f.s.inspections.filter(
-                    (q) => q.time <= e.time,
+                    (q) => q.source !== "sample" && q.time <= e.time,
                   );
                   return records.length
                     ? +(
@@ -144,6 +151,7 @@ export default function Quality() {
                 <th>产品编号</th>
                 <th>订单 / 批次</th>
                 <th>检测时间</th>
+                <th>记录类型</th>
                 <th>结果</th>
                 <th>缺陷类型</th>
                 <th>追溯</th>
@@ -158,6 +166,13 @@ export default function Quality() {
                     <small>{q.batch}</small>
                   </td>
                   <td>{stamp(q.time)}</td>
+                  <td>
+                    {q.source === "sample"
+                      ? "抽检复核"
+                      : q.source === "legacy"
+                        ? "历史记录"
+                        : "生产检测"}
+                  </td>
                   <td className={q.result === "fail" ? "red" : "green"}>
                     {q.result === "pass" ? "合格" : "不合格"}
                   </td>
@@ -176,7 +191,7 @@ export default function Quality() {
           </table>
         </div>
         {!qs.length && (
-          <Empty>没有匹配检测记录。开始生产或执行一次模拟抽检。</Empty>
+          <Empty>没有匹配检测记录。开始生产，工件完成加工后进入检测。</Empty>
         )}
       </Panel>
       {selected && (
@@ -202,7 +217,7 @@ export default function Quality() {
               ["时间", stamp(selected.time)],
               ["结果", selected.defect || "合格"],
               [
-                "标注位置",
+                "示意位置",
                 `x=${selected.x.toFixed(1)}%, y=${selected.y.toFixed(1)}%`,
               ],
             ].map(([k, v]) => (
@@ -212,6 +227,22 @@ export default function Quality() {
               </div>
             ))}
           </dl>
+          {selected.measurements && (
+            <div className="stack" aria-label="检测依据">
+              <strong>检测依据 · 工艺规则仿真</strong>
+              {selected.measurements.map((m) => (
+                <p key={m.featureId}>
+                  {m.label}：{m.actual} {m.unit}；允许 {m.lower}–{m.upper}{" "}
+                  {m.unit}；来源工序{" "}
+                  {m.sourceStepId === "drill"
+                    ? "钻孔"
+                    : m.sourceStepId === "contour"
+                      ? "轮廓加工"
+                      : "历史加工工序"}
+                </p>
+              ))}
+            </div>
+          )}
         </Modal>
       )}
     </>
