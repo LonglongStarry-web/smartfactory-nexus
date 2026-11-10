@@ -101,7 +101,28 @@ export function restoreFactoryState(input: unknown): SimulationState {
     for (const attempts of Object.values(s.flow.reworkArchive ?? {}))
       for (let i = 0; i < attempts.length; i++)
         attempts[i] = restoreProcessRun(attempts[i]);
+    s.flow.warehouseCapacity ??= 480;
+    if (
+      !Number.isInteger(s.flow.warehouseCapacity) ||
+      s.flow.warehouseCapacity < 1
+    )
+      throw new Error("仓储容量存档无效");
     const locations: string[] = [];
+    if (s.flow.reroute) {
+      const j = s.flow.reroute;
+      if (
+        !s.flow.runs[j.workpieceId] ||
+        s.flow.runs[j.workpieceId].status !== "ready" ||
+        !s.flow.cells.some((c) => c.id === j.from) ||
+        !s.flow.cells.some((c) => c.id === j.to) ||
+        !Number.isFinite(j.elapsed) ||
+        j.elapsed < 0 ||
+        j.elapsed >= j.duration
+      )
+        throw new Error("替代路线存档无效");
+      locations.push(j.workpieceId);
+    }
+
     for (const cell of s.flow.cells) {
       if (
         ![
@@ -117,6 +138,22 @@ export function restoreFactoryState(input: unknown): SimulationState {
         cell.reject.length > s.flow.outputCapacity
       )
         throw new Error("加工单元存档无效");
+      cell.capabilities ??= ["flange", "plate"];
+      cell.currentFamily ??= "flange";
+      if (
+        cell.capabilities.some((f) => !["flange", "plate"].includes(f)) ||
+        new Set(cell.capabilities).size !== cell.capabilities.length ||
+        (cell.setup &&
+          (!Number.isFinite(cell.setup.remaining) ||
+            cell.setup.remaining < 0 ||
+            cell.setup.remaining > 6))
+      )
+        throw new Error("换型能力存档无效");
+      for (const kind of ["good", "reject"] as const)
+        cell[kind].forEach((id, i) => {
+          const p = s.workpieces.find((w) => w.id === id);
+          if (p) p.bufferSlot ??= i;
+        });
       locations.push(
         ...cell.queue,
         ...cell.good,

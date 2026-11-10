@@ -7,7 +7,7 @@ import type { SceneView } from "../features/digital-twin/FactoryWorld";
 import DeviceDetail from "../components/DeviceDetail";
 export default function TwinPage() {
   const f = useFactory();
-  const [view,setView]=useState<SceneView>({});
+  const [view, setView] = useState<SceneView>({});
   const labels = f.preferences.showLabels,
     low = f.preferences.lowQuality;
   const [preset, setPreset] = useState(0),
@@ -37,6 +37,8 @@ export default function TwinPage() {
           <div className="scene-tools">
             <button
               onClick={() => {
+                useFactory.setState({ observation: null });
+                setView({});
                 setFocus(false);
                 setPreset(preset + 1);
               }}
@@ -45,6 +47,8 @@ export default function TwinPage() {
             </button>
             <button
               onClick={() => {
+                useFactory.setState({ observation: null });
+                setView({});
                 setFocus(false);
                 setPreset(preset + 3 - (preset % 3));
               }}
@@ -56,7 +60,13 @@ export default function TwinPage() {
               <Focus size={16} /> 聚焦设备
             </button>
           </div>
-          <Twin labels={f.observation ? false : labels} low={low} preset={preset} focus={focus} view={view} />
+          <Twin
+            labels={f.observation ? false : labels}
+            low={low}
+            preset={preset}
+            focus={focus}
+            view={view}
+          />
           <div className="scene-hint">
             拖动旋转 · 右键平移 · 滚轮缩放 · 点击设备查看详情
           </div>
@@ -67,7 +77,18 @@ export default function TwinPage() {
             <select
               aria-label="选择设备"
               value={f.selected}
-              onChange={(e) => f.select(e.target.value)}
+              onChange={(e) => {
+                const id = e.target.value;
+                f.select(id);
+                if (f.observation) {
+                  const d = f.s.devices.find((d) => d.id === id)!;
+                  if (["cnc", "robot", "qc"].includes(d.kind)) f.observe(id);
+                  else {
+                    useFactory.setState({ observation: null });
+                    setView({});
+                  }
+                }
+              }}
             >
               {f.s.devices.map((d) => (
                 <option key={d.id} value={d.id}>
@@ -76,7 +97,7 @@ export default function TwinPage() {
               ))}
             </select>
           </label>
-          {f.observation ? <Observation onView={setView}/> : <DeviceDetail />}
+          {f.observation ? <Observation onView={setView} /> : <DeviceDetail />}
         </aside>
       </div>
     </>

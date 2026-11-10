@@ -50,7 +50,9 @@ export interface ProcessStep {
   holderAfter: PartHolder | "quality-output";
 }
 
+export type RecipeFamily = "flange" | "plate";
 export interface ProcessRecipe {
+  family?: RecipeFamily;
   id: string;
   revision: number;
   product: string;
@@ -112,6 +114,12 @@ export interface ProcessRun {
   holder: PartHolder;
   trace: ProcessTraceEntry[];
   inspection: ProcessInspection | null;
+  moves?: {
+    from: string;
+    to: string;
+    startedAt: number;
+    completedAt: number;
+  }[];
   attempt?: number;
   reworkSlot?: number;
 }

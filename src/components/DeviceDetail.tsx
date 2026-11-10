@@ -1,3 +1,5 @@
+import { transportPose } from "../features/digital-twin/logistics";
+import { dispatchInventory } from "../simulation/flow";
 import { useFactory } from "../store/useFactory";
 import { Badge, Panel } from "./UI";
 export default function DeviceDetail() {
@@ -5,12 +7,16 @@ export default function DeviceDetail() {
   const d = f.s.devices.find((d) => d.id === f.selected)!;
   const a = f.s.alarms.find((a) => a.deviceId === d.id && !a.resolved);
   const transfer = f.s.flow.transfer;
-  const transportCell = transfer
-    ? f.s.flow.cells.find(
-        (c) =>
-          c.id === transfer.cellId && [c.agvId, c.warehouseId].includes(d.id),
-      )
-    : undefined;
+  const transport = transportPose(f.s);
+  const inventory = f.s.workpieces.filter(
+    (w) => w.storedAt !== undefined && w.dispatchedAt === undefined,
+  ).length;
+  const transportCell =
+    transport &&
+    [transport.cell.agvId, transport.cell.warehouseId].includes(d.id)
+      ? transport.cell
+      : undefined;
+  const movingId = transfer?.workpieceId ?? f.s.flow.reroute?.workpieceId;
   const cell =
     transportCell ??
     f.s.flow.cells.find(
@@ -20,22 +26,24 @@ export default function DeviceDetail() {
         (c.activeId && f.s.flow.occupancy[d.id] === c.activeId),
     );
   const run =
-    transportCell && transfer
-      ? f.s.flow.runs[transfer.workpieceId]
+    transportCell && movingId
+      ? f.s.flow.runs[movingId]
       : cell?.activeId
         ? f.s.flow.runs[cell.activeId]
         : undefined;
   const step = run?.recipe.steps[run.stepIndex];
   const phaseLabel = transportCell
-    ? transfer?.kind === "good"
-      ? "合格入库转运"
-      : "不合格品隔离转运"
+    ? f.s.flow.reroute
+      ? "未开工毛坯替代转运"
+      : transfer?.kind === "good"
+        ? "合格入库转运"
+        : "不合格品隔离转运"
     : step?.label;
   const duration = transportCell
-    ? f.s.flow.transferDuration
+    ? (f.s.flow.reroute?.duration ?? f.s.flow.transferDuration)
     : (step?.duration ?? 1);
   const elapsed = transportCell
-    ? (transfer?.elapsed ?? 0)
+    ? (transfer?.elapsed ?? f.s.flow.reroute?.elapsed ?? 0)
     : (run?.stepElapsed ?? 0);
   return (
     <Panel title={d.id} sub={d.name} action={<Badge status={d.status} />}>
@@ -67,6 +75,32 @@ export default function DeviceDetail() {
           </strong>
         </div>
       </div>
+      {d.kind === "warehouse" && (
+        <section className="stack">
+          <strong>
+            成品库存 {inventory} / {f.s.flow.warehouseCapacity ?? 480} 件
+          </strong>
+          <small>
+            12 个逻辑货格，每格按 40 件聚合显示；图中料箱不按真实装箱尺寸建模。
+          </small>
+          <button
+            disabled={!inventory}
+            onClick={() => {
+              f.update(dispatchInventory);
+              f.notify("现有成品库存已发运，历史订单完成数保留");
+            }}
+          >
+            发运现有库存
+          </button>
+        </section>
+      )}
+      {transport &&
+        [transport.cell.agvId, transport.cell.warehouseId].includes(d.id) && (
+          <p>
+            物流动作：{transport.phase} · {Math.round(transport.progress * 100)}
+            %
+          </p>
+        )}
       <dl>
         <div>
           <dt>所属产线</dt>
@@ -85,7 +119,11 @@ export default function DeviceDetail() {
           <dd>{d.energy.toFixed(3)} kWh</dd>
         </div>
       </dl>
-      {["cnc", "robot", "qc"].includes(d.kind) && <button className="primary" onClick={() => f.observe(d.id)}>观察加工</button>}
+      {["cnc", "robot", "qc"].includes(d.kind) && (
+        <button className="primary" onClick={() => f.observe(d.id)}>
+          观察加工
+        </button>
+      )}
       <section
         className="stack"
         aria-label="工件流转"
@@ -107,16 +145,18 @@ export default function DeviceDetail() {
             />
             <small>
               工件位置：
-              {
-                {
-                  infeed: "上料位",
-                  gripper: "机械臂夹爪",
-                  fixture: "机床夹具",
-                  inspection: "检测工位",
-                  "good-buffer": "良品暂存",
-                  "reject-buffer": "不合格暂存",
-                }[run.holder]
-              }
+              {transportCell
+                ? transport?.loaded
+                  ? "AGV 顶升平台"
+                  : transport?.phase
+                : {
+                    infeed: "上料位",
+                    gripper: "机械臂夹爪",
+                    fixture: "机床夹具",
+                    inspection: "检测工位",
+                    "good-buffer": "良品暂存",
+                    "reject-buffer": "不合格暂存",
+                  }[run.holder]}
             </small>
           </>
         ) : (

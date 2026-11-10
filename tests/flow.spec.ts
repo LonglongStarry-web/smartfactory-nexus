@@ -122,7 +122,7 @@ test("超差判定有测量依据，复检不生成工件或增加生产良品�
     s.running = true;
     engine.tick(s, 1);
     s.flow.parameters.fixtureOffsetXmm = 0;
-    engine.tick(s, 105);
+    engine.tick(s, 105 + s.flow.transferDuration * 2);
     s.running = false;
     engine.assign(s);
     useFactory.setState({ s });

@@ -1,3 +1,4 @@
+import Capabilities from "../features/scheduling/Capabilities";
 import { useState } from "react";
 import { Plus, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import { useFactory } from "../store/useFactory";
@@ -38,6 +39,7 @@ export default function Scheduling() {
     const data = new FormData(e.currentTarget);
     const input = {
       product: String(data.get("product")),
+      recipeId: String(data.get("recipeId")) as "flange" | "plate",
       quantity: Number(data.get("quantity")),
       priority: Number(data.get("priority")),
       planned: formTime + Number(data.get("planned")) * 60,
@@ -45,6 +47,11 @@ export default function Scheduling() {
     };
     try {
       if (edit) {
+        if (
+          input.recipeId !== (edit.recipeId ?? "flange") &&
+          f.s.workpieces.some((w) => w.orderId === edit.id)
+        )
+          throw new Error("已投料订单不能变更工艺配方；请新增订单");
         if (
           input.quantity <
             (f.s.orders.find((o) => o.id === edit.id)?.completed ??
@@ -112,6 +119,7 @@ export default function Scheduling() {
           重新排产
         </button>
       </div>
+      <Capabilities />
       <div className="two-columns">
         {compare.map((c) => (
           <div className="comparison" key={c.name}>
@@ -128,7 +136,7 @@ export default function Scheduling() {
       </div>
       <Panel
         title="生产甘特图"
-        sub={`完整工艺基准 ${cycleSeconds} 秒/件；另计转运 · 估算未预知后续不良与资源等待`}
+        sub={`法兰工艺 ${cycleSeconds} 秒/件，安装板 52 秒/件；换型 6 秒，转运 ${f.s.flow.transferDuration} 秒 · 估算不预知新故障与不良`}
       >
         <div className="gantt">
           <div className="gantt-scale">
@@ -324,6 +332,17 @@ export default function Scheduling() {
           onClose={() => setEdit(undefined)}
         >
           <form onSubmit={submit}>
+            <label className="field">
+              工艺配方
+              <select
+                name="recipeId"
+                aria-label="订单工艺配方"
+                defaultValue={edit?.recipeId ?? "flange"}
+              >
+                <option value="flange">圆形法兰 A-320</option>
+                <option value="plate">安装支架板 B-210</option>
+              </select>
+            </label>
             <label className="field">
               产品名称
               <input

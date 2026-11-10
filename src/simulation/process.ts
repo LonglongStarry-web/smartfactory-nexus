@@ -10,6 +10,7 @@ import {
 
 export const flangeRecipe: ProcessRecipe = {
   id: "FLANGE-A320",
+  family: "flange",
   revision: 1,
   product: "法兰件 A-320",
   steps: [
@@ -168,6 +169,31 @@ export const flangeRecipe: ProcessRecipe = {
   ],
 };
 
+export const plateRecipe: ProcessRecipe = {
+  ...structuredClone(flangeRecipe),
+  id: "PLATE-B210",
+  family: "plate",
+  product: "安装支架板 B-210",
+  revision: 1,
+  steps: flangeRecipe.steps.map((step) => ({
+    ...step,
+    duration:
+      ({ face: 4, contour: 10, drill: 8, deburr: 3 } as Record<string, number>)[
+        step.id
+      ] ?? step.duration,
+    label:
+      step.id === "contour"
+        ? "矩形外轮廓加工"
+        : step.id === "drill"
+          ? "安装孔与中心孔加工"
+          : step.label,
+  })),
+};
+export const recipeFor = (family?: "flange" | "plate") =>
+  family === "plate" ? plateRecipe : flangeRecipe;
+export const recipeSeconds = (family?: "flange" | "plate") =>
+  recipeFor(family).steps.reduce((n, s) => n + s.duration, 0);
+
 export const defaultProcessParameters: ProcessParameters = {
   spindleRpm: 2400,
   feedMmPerMin: 180,
@@ -189,7 +215,9 @@ function validateParameters(parameters: ProcessParameters) {
     !Number.isFinite(parameters.feedMmPerMin) ||
     parameters.feedMmPerMin <= 0 ||
     !Number.isFinite(parameters.fixtureOffsetXmm) ||
-    !Number.isFinite(parameters.contourDiameterErrorMm)
+    !Number.isFinite(parameters.contourDiameterErrorMm) ||
+    (parameters.skipDeburr !== undefined &&
+      typeof parameters.skipDeburr !== "boolean")
   ) {
     throw new Error("加工参数无效");
   }
@@ -209,6 +237,8 @@ function validateDevices(devices: ProcessRun["devices"]) {
 function validateRecipe(recipe: ProcessRecipe) {
   if (
     !recipe?.id ||
+    (recipe.family !== undefined &&
+      !["flange", "plate"].includes(recipe.family)) ||
     !recipe.product ||
     !Number.isInteger(recipe.revision) ||
     recipe.revision < 1 ||

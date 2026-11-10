@@ -29,6 +29,7 @@ export interface ProductionLine {
   deviceIds: string[];
 }
 export interface ProductionOrder {
+  recipeId?: "flange" | "plate";
   id: string;
   product: string;
   quantity: number;
@@ -51,6 +52,7 @@ export interface Workpiece {
   result?: "pass" | "fail";
   source?: "production" | "legacy";
   storedAt?: number;
+  dispatchedAt?: number;
   scrappedAt?: number;
   cancelledAt?: number;
   bufferSlot?: number;

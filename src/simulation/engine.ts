@@ -219,9 +219,16 @@ export function tick(s: SimulationState, seconds: number) {
       if (d.kind === "cnc") {
         d.available +=
           d.status === "fault" || d.status === "maintenance" ? 0 : dt;
-        d.ideal += operating
-          ? (dt * modes[s.mode].rate) / cncProcessSeconds
-          : 0;
+        const cell = s.flow.cells.find((c) => c.cncId === d.id),
+          run = cell?.activeId ? s.flow.runs[cell.activeId] : undefined;
+        const idealSeconds =
+          run?.recipe.steps
+            .filter((step) => step.role === "cnc")
+            .reduce((n, step) => n + step.duration, 0) ?? cncProcessSeconds;
+        d.ideal +=
+          operating && !cell?.setup
+            ? (dt * modes[s.mode].rate) / idealSeconds
+            : 0;
       }
       if (operating) {
         d.runtime += dt;
@@ -335,11 +342,13 @@ export function addOrder(
   s: SimulationState,
   input: Pick<
     ProductionOrder,
-    "product" | "quantity" | "priority" | "planned" | "due"
+    "product" | "quantity" | "priority" | "planned" | "due" | "recipeId"
   >,
 ) {
   if (
     !input.product.trim() ||
+    (input.recipeId !== undefined &&
+      !["flange", "plate"].includes(input.recipeId)) ||
     !Number.isInteger(input.quantity) ||
     input.quantity < 1 ||
     input.quantity > 10000 ||

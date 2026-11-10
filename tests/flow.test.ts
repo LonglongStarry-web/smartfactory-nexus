@@ -77,9 +77,11 @@ describe("工序与制造引擎接入", () => {
     expect(metrics(s).good).toBe(1);
     expect(metrics(s).stored).toBe(0);
     expect(s.orders[0].completed).toBe(0);
-    tick(s, 5);
+    tick(s, s.flow.transferDuration + 2);
     expect(s.orders[0].completed).toBe(1);
-    expect(s.orders[0].completedAt).toBe(cycleSeconds + 3);
+    expect(s.orders[0].completedAt).toBe(
+      cycleSeconds + s.flow.transferDuration,
+    );
     const count = s.workpieces.length;
     tick(s, 1000);
     expect(s.workpieces).toHaveLength(count);
@@ -212,7 +214,7 @@ describe("工序与制造引擎接入", () => {
     expect(restored.flow.transfer).toEqual(s.flow.transfer);
     expect(restored.workpieces).toEqual(s.workpieces);
     restored.running = true;
-    tick(restored, 2);
+    tick(restored, restored.flow.transferDuration);
     expect(restored.orders[0].completed).toBe(1);
     expect(restored.workpieces).toHaveLength(1);
   });

@@ -7,6 +7,8 @@ import {
   createProcessRun,
   defaultProcessParameters,
   flangeRecipe,
+  recipeFor,
+  recipeSeconds,
   recordProcessInspection,
 } from "./process";
 import { event, rng, uid } from "./journal";
@@ -26,6 +28,9 @@ export function createFactoryFlow(): FactoryFlow {
     schema: 1,
     cells: [1, 2].map((n) => ({
       id: `CELL-0${n}`,
+      capabilities: ["flange", "plate"],
+      currentFamily: "flange",
+      setup: null,
       line: n === 1 ? "A" : "B",
       cncId: `CNC-0${n}`,
       robotId: `ARM-0${n}`,
@@ -42,7 +47,8 @@ export function createFactoryFlow(): FactoryFlow {
     occupancy: {},
     inputCapacity: 2,
     outputCapacity: 2,
-    transferDuration: 3,
+    transferDuration: 14,
+    warehouseCapacity: 480,
     transfer: null,
     parameters: { ...defaultProcessParameters },
     demoVariations: true,
@@ -73,13 +79,18 @@ export function reservedForOrder(s: SimulationState, orderId: string) {
       w.storedAt === undefined &&
       w.scrappedAt === undefined &&
       w.cancelledAt === undefined &&
-      (w.result !== "fail" || Boolean(s.flow.qualityHold)),
+      (w.result !== "fail" ||
+        Boolean(s.flow.qualityHold) ||
+        s.flow.transfer?.reworkRun?.workpieceId === w.id),
   ).length;
 }
 
+export const supports = (cell: Workcell, family?: "flange" | "plate") =>
+  (cell.capabilities ?? ["flange", "plate"]).includes(family ?? "flange");
 function release(s: SimulationState, cell: Workcell): string | undefined {
   const order = rankedOrders(s).find(
     (o) =>
+      supports(cell, o.recipeId) &&
       o.planned <= s.time + epsilon &&
       o.completed + reservedForOrder(s, o.id) < o.quantity,
   );
@@ -88,7 +99,7 @@ function release(s: SimulationState, cell: Workcell): string | undefined {
   const parameters = { ...s.flow.parameters };
   if (s.flow.demoVariations && rng(s) < 0.06)
     parameters.fixtureOffsetXmm += 0.08;
-  const recipe = structuredClone(flangeRecipe);
+  const recipe = structuredClone(recipeFor(order.recipeId));
   recipe.product = order.product;
   s.flow.runs[id] = createProcessRun({
     workpieceId: id,
@@ -172,12 +183,75 @@ export function assignFlow(s: SimulationState) {
       if (!cell.activeId)
         cell.activeId = cell.queue.shift() ?? release(s, cell) ?? null;
     }
+    if (s.running && !flow.transfer && !flow.reroute) {
+      for (const source of flow.cells.filter(
+        (c) => offline(s, c.cncId) || offline(s, c.robotId),
+      )) {
+        if (offline(s, source.agvId)) continue;
+        const id = source.queue.find(
+          (id) => flow.runs[id].status === "ready" && !flow.runs[id].attempt,
+        );
+        if (!id) continue;
+        const run = flow.runs[id],
+          target = flow.cells.find(
+            (c) =>
+              c.id !== source.id &&
+              !offline(s, c.cncId) &&
+              !offline(s, c.robotId) &&
+              c.queue.length < flow.inputCapacity &&
+              supports(c, run.recipe.family),
+          );
+        if (!target) continue;
+        flow.reroute = {
+          workpieceId: id,
+          from: source.id,
+          to: target.id,
+          elapsed: 0,
+          duration: 8,
+          startedAt: s.time,
+          inputSlot: source.queue.indexOf(id),
+        };
+        source.queue = source.queue.filter((w) => w !== id);
+        event(
+          s,
+          "替代路线回送",
+          `${id} 未开工毛坯由 ${source.agvId} 从 ${source.id} 转运至 ${target.id}；在制夹持件保留原位`,
+          source.agvId,
+          run.orderId,
+        );
+        break;
+      }
+    }
     // Fill one place per cell in each pass so the first cell cannot reserve all small orders.
     for (let slot = 0; slot < flow.inputCapacity; slot++) {
       for (const cell of available) {
-        if (cell.queue.length >= flow.inputCapacity) continue;
+        if (
+          cell.queue.length >=
+          flow.inputCapacity - (flow.reroute?.to === cell.id ? 1 : 0)
+        )
+          continue;
         const id = release(s, cell);
         if (id) cell.queue.push(id);
+      }
+    }
+    for (const cell of available) {
+      if (cell.activeId) {
+        const run = flow.runs[cell.activeId],
+          family = run.recipe.family ?? "flange";
+        if (
+          run.status === "ready" &&
+          !cell.setup &&
+          family !== (cell.currentFamily ?? "flange")
+        ) {
+          cell.setup = { family, remaining: 6 };
+          event(
+            s,
+            "单元换型",
+            `${cell.id} 更换夹具与刀具配置为 ${family === "plate" ? "安装板" : "法兰"}，需 6 模拟秒`,
+            cell.cncId,
+            run.orderId,
+          );
+        }
       }
     }
     for (const cell of available) {
@@ -203,9 +277,17 @@ export function assignFlow(s: SimulationState) {
     const cell = flow.cells.find((c) => c.id === flow.transfer!.cellId)!;
     reserve(transferResources(cell), flow.transfer.workpieceId);
   }
-  if (!flow.transfer && s.running) {
+  if (flow.reroute) {
+    const c = flow.cells.find((c) => c.id === flow.reroute!.from)!;
+    reserve(transferResources(c), flow.reroute.workpieceId);
+  }
+  if (!flow.transfer && !flow.reroute && s.running) {
     for (const cell of flow.cells) {
-      const kind = cell.good.length ? "good" : "reject";
+      const capacity =
+        s.workpieces.filter(
+          (w) => w.storedAt !== undefined && w.dispatchedAt === undefined,
+        ).length < (flow.warehouseCapacity ?? 480);
+      const kind = cell.good.length && capacity ? "good" : "reject";
       if (kind === "reject" && flow.qualityHold) continue;
       const id = cell[kind][0];
       if (
@@ -226,8 +308,18 @@ export function assignFlow(s: SimulationState) {
     if (!cell.activeId) continue;
     const run = flow.runs[cell.activeId];
     const step = run.recipe.steps[run.stepIndex];
+    if (cell.setup) {
+      cell.waitingReason = `换型准备：${cell.setup.family === "plate" ? "安装板" : "法兰"}，剩余 ${cell.setup.remaining.toFixed(1)} 秒`;
+      if (!offline(s, cell.cncId) && s.running) {
+        reserve([cell.cncId], run.workpieceId);
+        operating.add(cell.cncId);
+      }
+      continue;
+    }
     const ids = requires(run);
-    const unavailable = ids.find((id) => offline(s, id));
+    const unavailable = [cell.cncId, cell.robotId, ...ids].find((id) =>
+      offline(s, id),
+    );
     const taken = ids.find(
       (id) => flow.occupancy[id] && flow.occupancy[id] !== run.workpieceId,
     );
@@ -274,6 +366,11 @@ export function assignFlow(s: SimulationState) {
     if (transferResources(cell).every((id) => !offline(s, id)))
       transferResources(cell).forEach((id) => operating.add(id));
   }
+  if (s.running && flow.reroute) {
+    const c = flow.cells.find((c) => c.id === flow.reroute!.from)!;
+    if (transferResources(c).every((id) => !offline(s, id)))
+      transferResources(c).forEach((id) => operating.add(id));
+  }
   for (const d of s.devices) {
     const oldTask = d.task;
     const held = flow.occupancy[d.id];
@@ -293,6 +390,14 @@ export function assignFlow(s: SimulationState) {
 
 export function nextFlowBoundary(s: SimulationState) {
   let next = 1;
+  for (const cell of s.flow.cells)
+    if (cell.setup && !offline(s, cell.cncId))
+      next = Math.min(next, cell.setup.remaining);
+  if (s.flow.reroute) {
+    const c = s.flow.cells.find((c) => c.id === s.flow.reroute!.from)!;
+    if (transferResources(c).every((id) => !offline(s, id)))
+      next = Math.min(next, s.flow.reroute.duration - s.flow.reroute.elapsed);
+  }
   for (const cell of s.flow.cells) {
     if (!cell.activeId || cell.waitingReason) continue;
     const run = s.flow.runs[cell.activeId];
@@ -325,25 +430,30 @@ export function nextFlowBoundary(s: SimulationState) {
 }
 
 export function processMeasurements(run: ProcessRun): ProcessMeasurement[] {
+  const plate = run.recipe.family === "plate",
+    hole = plate ? 30 : 20,
+    outer = plate ? 100 : 80;
   return [
     {
       featureId: "hole-x",
       label: "孔位 X",
       unit: "mm",
-      nominal: 20,
-      lower: 19.95,
-      upper: 20.05,
-      actual: Number((20 + run.parameters.fixtureOffsetXmm).toFixed(6)),
+      nominal: hole,
+      lower: hole - 0.05,
+      upper: hole + 0.05,
+      actual: Number((hole + run.parameters.fixtureOffsetXmm).toFixed(6)),
       sourceStepId: "drill",
     },
     {
       featureId: "outer-diameter",
-      label: "外轮廓直径",
+      label: plate ? "外轮廓宽度" : "外轮廓直径",
       unit: "mm",
-      nominal: 80,
-      lower: 79.9,
-      upper: 80.1,
-      actual: Number((80 + run.parameters.contourDiameterErrorMm).toFixed(6)),
+      nominal: outer,
+      lower: outer - 0.1,
+      upper: outer + 0.1,
+      actual: Number(
+        (outer + run.parameters.contourDiameterErrorMm).toFixed(6),
+      ),
       sourceStepId: "contour",
     },
     {
@@ -400,6 +510,58 @@ function finishInspection(s: SimulationState, run: ProcessRun) {
 /** Called after the single factory clock has advanced by dt. */
 export function advanceFlow(s: SimulationState, dt: number) {
   const flow = s.flow;
+  if (flow.reroute) {
+    const job = flow.reroute,
+      from = flow.cells.find((c) => c.id === job.from)!,
+      to = flow.cells.find((c) => c.id === job.to)!;
+    if (transferResources(from).every((id) => !offline(s, id))) {
+      job.elapsed += dt;
+      if (job.elapsed >= job.duration - epsilon) {
+        const run = flow.runs[job.workpieceId];
+        run.devices = { cnc: to.cncId, robot: to.robotId, qc: to.qcId };
+        run.time = s.time;
+        run.stepStartedAt = s.time;
+        (run.moves ??= []).push({
+          from: from.id,
+          to: to.id,
+          startedAt: job.startedAt,
+          completedAt: s.time,
+        });
+        s.workpieces.find((w) => w.id === run.workpieceId)!.deviceId = to.cncId;
+        to.queue.push(run.workpieceId);
+        flow.reroute = null;
+        event(
+          s,
+          "替代路线到达",
+          `${run.workpieceId} 到达 ${to.id} 上料位`,
+          to.cncId,
+          run.orderId,
+        );
+      }
+    }
+  }
+  for (const c of flow.cells)
+    if (c.setup) {
+      const run = c.activeId ? flow.runs[c.activeId] : undefined;
+      if (!offline(s, c.cncId)) {
+        c.setup.remaining = Math.max(0, c.setup.remaining - dt);
+        if (c.setup.remaining <= epsilon) {
+          c.currentFamily = c.setup.family;
+          c.setup = null;
+          if (run) {
+            run.time = s.time;
+            run.stepStartedAt = s.time;
+          }
+          event(
+            s,
+            "换型完成",
+            `${c.id} 具备当前配方的工装条件`,
+            c.cncId,
+            run?.orderId,
+          );
+        }
+      }
+    }
   if (flow.transfer) {
     const transfer = flow.transfer;
     const cell = flow.cells.find((c) => c.id === transfer.cellId)!;
@@ -467,7 +629,7 @@ export function advanceFlow(s: SimulationState, dt: number) {
   for (const cell of flow.cells) {
     if (!cell.activeId) continue;
     const run = flow.runs[cell.activeId];
-    if (cell.waitingReason || run.status !== "running") {
+    if (cell.setup || cell.waitingReason || run.status !== "running") {
       run.time = s.time;
       continue;
     }
@@ -508,7 +670,15 @@ export function scheduleFlow(s: SimulationState, algorithm: Algorithm): Slot[] {
   const rate = modeRate[s.mode];
   const transferCell = s.flow.transfer
     ? s.flow.cells.find((c) => c.id === s.flow.transfer!.cellId)
-    : undefined;
+    : s.flow.reroute
+      ? s.flow.cells.find((c) => c.id === s.flow.reroute!.from)
+      : undefined;
+  if (
+    s.workpieces.filter(
+      (w) => w.storedAt !== undefined && w.dispatchedAt === undefined,
+    ).length >= (s.flow.warehouseCapacity ?? 480)
+  )
+    return [];
   const stalledWarehouse =
     transferCell && transferResources(transferCell).some((id) => offline(s, id))
       ? transferCell.warehouseId
@@ -561,6 +731,9 @@ export function scheduleFlow(s: SimulationState, algorithm: Algorithm): Slot[] {
         late: end > order.due,
       });
   };
+  const plannedFamily = Object.fromEntries(
+    cells.map((c) => [c.id, c.currentFamily ?? "flange"]),
+  );
   for (const cell of cells) {
     for (const id of [
       ...(cell.activeId ? [cell.activeId] : []),
@@ -583,14 +756,65 @@ export function scheduleFlow(s: SimulationState, algorithm: Algorithm): Slot[] {
           .reduce((sum, step) => sum + step.duration, 0) -
           (run.stepIndex >= qcStart ? run.stepElapsed : 0)) /
         rate;
+      const family = run.recipe.family ?? "flange";
+      const changeover =
+        id === cell.activeId && cell.setup
+          ? cell.setup.remaining
+          : plannedFamily[cell.id] !== family
+            ? 6
+            : 0;
+      plannedFamily[cell.id] = family;
       jobs[cell.id].push({
         orderId: run.orderId,
         planned: s.time,
-        preQc,
+        preQc: preQc + changeover,
         qc,
         failed: run.inspection?.result === "fail",
       });
-      nominalFree[cell.id] += preQc + qc;
+      nominalFree[cell.id] += preQc + qc + changeover;
+    }
+  }
+  if (s.flow.reroute) {
+    const job = s.flow.reroute,
+      cell = cells.find((c) => c.id === job.to),
+      run = s.flow.runs[job.workpieceId];
+    if (cell) {
+      const family = run.recipe.family ?? "flange",
+        change = plannedFamily[cell.id] !== family ? 6 : 0;
+      jobs[cell.id].push({
+        orderId: run.orderId,
+        planned: s.time + job.duration - job.elapsed,
+        preQc: recipeSeconds(family) / rate - qcSeconds + change,
+        qc: qcSeconds,
+        failed: false,
+      });
+      nominalFree[cell.id] =
+        Math.max(nominalFree[cell.id], s.time + job.duration - job.elapsed) +
+        recipeSeconds(family) / rate +
+        change;
+      plannedFamily[cell.id] = family;
+    }
+  }
+  if (s.flow.transfer?.reworkRun) {
+    const t = s.flow.transfer,
+      run = t.reworkRun!,
+      cell = cells.find((c) => c.id === t.cellId);
+    if (cell) {
+      const pre =
+          run.recipe.steps
+            .slice(0, qcStart)
+            .reduce((n, s) => n + s.duration, 0) / rate,
+        qc =
+          run.recipe.steps.slice(qcStart).reduce((n, s) => n + s.duration, 0) /
+          rate;
+      jobs[cell.id].push({
+        orderId: run.orderId,
+        planned: s.time + s.flow.transferDuration - t.elapsed,
+        preQc: pre,
+        qc,
+        failed: false,
+      });
+      nominalFree[cell.id] += s.flow.transferDuration - t.elapsed + pre + qc;
     }
   }
   for (const order of rankedOrders(s, algorithm)) {
@@ -599,18 +823,24 @@ export function scheduleFlow(s: SimulationState, algorithm: Algorithm): Slot[] {
       order.quantity - order.completed - reservedForOrder(s, order.id),
     );
     for (let n = 0; n < count && cells.length; n++) {
-      const cell = cells.reduce((a, b) =>
-        nominalFree[a.id] <= nominalFree[b.id] ? a : b,
-      );
+      const eligible = cells.filter((c) => supports(c, order.recipeId));
+      if (!eligible.length) break;
+      const family = order.recipeId ?? "flange",
+        seconds = recipeSeconds(family) / rate;
+      const cost = (c: Workcell) =>
+        nominalFree[c.id] + (plannedFamily[c.id] !== family ? 6 : 0);
+      const cell = eligible.reduce((a, b) => (cost(a) <= cost(b) ? a : b)),
+        setup = plannedFamily[cell.id] !== family ? 6 : 0;
       jobs[cell.id].push({
         orderId: order.id,
         planned: order.planned,
-        preQc: cycleSeconds / rate - qcSeconds,
+        preQc: seconds - qcSeconds + setup,
         qc: qcSeconds,
         failed: false,
       });
       nominalFree[cell.id] =
-        Math.max(nominalFree[cell.id], order.planned) + cycleSeconds / rate;
+        Math.max(nominalFree[cell.id], order.planned) + seconds + setup;
+      plannedFamily[cell.id] = family;
     }
   }
   let qcFree = s.time;
@@ -700,7 +930,8 @@ export function disposeRejected(
     time: s.time,
   });
   next.attempt = (previous.attempt ?? 0) + 1;
-  if (s.flow.transfer) throw new Error("请等待物流完成当前任务");
+  if (s.flow.transfer || s.flow.reroute)
+    throw new Error("请等待物流完成当前任务");
   if (cell.queue.length >= s.flow.inputCapacity)
     throw new Error("请等待上料缓冲区空出位置");
   s.flow.transfer = {
@@ -716,6 +947,20 @@ export function disposeRejected(
     `${id} 由 ${cell.agvId} 从隔离位回送上料；保留原编号和首检记录`,
     cell.agvId,
     part.orderId,
+  );
+  assignFlow(s);
+}
+
+export function dispatchInventory(s: SimulationState) {
+  const parts = s.workpieces.filter(
+    (w) => w.storedAt !== undefined && w.dispatchedAt === undefined,
+  );
+  for (const p of parts) p.dispatchedAt = s.time;
+  event(
+    s,
+    "成品发运",
+    `已发运 ${parts.length} 件，释放仓储容量；历史履约数量保留`,
+    "ASRS-01",
   );
   assignFlow(s);
 }

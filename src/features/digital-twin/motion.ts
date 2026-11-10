@@ -31,6 +31,7 @@ export interface MotionPose {
   spindle: boolean;
   stage: ProcessStepId;
   progress: number;
+  profile?: "flange" | "plate";
 }
 
 export function solveArm(base: Vec3, tcp: Vec3) {
@@ -105,6 +106,7 @@ export function motionPose(
   const closed = radius + 0.035;
   if (!run || run.status === "ready" || run.status === "cancelled")
     return {
+      profile: run?.recipe.family ?? "flange",
       tcp,
       part,
       tool,
@@ -175,10 +177,21 @@ export function motionPose(
       const n = Math.min(4, Math.floor(p * 5)),
         local = p * 5 - n;
       const angle = ((n - 1) * Math.PI) / 2;
+      const platePoints = [
+        [0, 0],
+        [-0.16, -0.11],
+        [0.16, -0.11],
+        [0.16, 0.11],
+        [-0.16, 0.11],
+      ];
+      const xy =
+        run.recipe.family === "plate"
+          ? platePoints[n]
+          : [n ? Math.cos(angle) * 0.16 : 0, n ? Math.sin(angle) * 0.16 : 0];
       tool = [
-        fixture[0] + (n ? Math.cos(angle) * 0.16 : 0),
+        fixture[0] + xy[0],
         fixture[1] + height / 2 + 0.15 * (1 - Math.sin(Math.PI * local)),
-        fixture[2] + (n ? Math.sin(angle) * 0.16 : 0),
+        fixture[2] + xy[1],
       ];
     } else {
       tool = [
@@ -187,6 +200,30 @@ export function motionPose(
         fixture[2] + Math.sin(p * Math.PI * 2) * (radius + 0.025),
       ];
     }
+  }
+  if (
+    run.recipe.family === "plate" &&
+    ["contour", "deburr"].includes(stage) &&
+    !(run.attempt && stage !== "deburr") &&
+    !(stage === "deburr" && run.parameters.skipDeburr)
+  ) {
+    tool = path(
+      [
+        [-0.27, 0, -0.21],
+        [0.27, 0, -0.21],
+        [0.27, 0, 0.21],
+        [-0.27, 0, 0.21],
+        [-0.27, 0, -0.21],
+      ].map(
+        (v) =>
+          [
+            fixture[0] + v[0],
+            fixture[1] + height / 2,
+            fixture[2] + v[2],
+          ] as Vec3,
+      ),
+      p,
+    );
   }
   if (
     cutting.includes(stage) &&
@@ -267,6 +304,7 @@ export function motionPose(
         ? Math.min(5, Math.floor(p * 5 + 0.5))
         : 0;
   return {
+    profile: run.recipe.family ?? "flange",
     tcp,
     part,
     tool,

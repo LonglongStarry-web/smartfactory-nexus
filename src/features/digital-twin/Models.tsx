@@ -70,6 +70,7 @@ export function Part({
   deburred = false,
   position,
   onClick,
+  profile = "flange",
 }: {
   pose?: MutableRefObject<MotionPose>;
   color?: string;
@@ -77,22 +78,32 @@ export function Part({
   deburred?: boolean;
   position?: Vec3;
   onClick?: () => void;
+  profile?: "flange" | "plate";
 }) {
   const ref = useRef<THREE.Mesh>(null);
   const geometry = useMemo(() => {
     const shape = new THREE.Shape();
-    shape.absarc(0, 0, 0.24, 0, Math.PI * 2, false);
+    if (profile === "plate") {
+      shape.moveTo(-0.24, -0.18);
+      shape.lineTo(0.24, -0.18);
+      shape.lineTo(0.24, 0.18);
+      shape.lineTo(-0.24, 0.18);
+      shape.closePath();
+    } else shape.absarc(0, 0, 0.24, 0, Math.PI * 2, false);
     for (let i = 0; i < holes; i++) {
       const h = new THREE.Path();
       const angle = ((i - 1) * Math.PI) / 2;
-      h.absarc(
-        i ? Math.cos(angle) * 0.16 : 0,
-        i ? Math.sin(angle) * 0.16 : 0,
-        i ? 0.023 : 0.075,
-        0,
-        Math.PI * 2,
-        true,
-      );
+      const point =
+        profile === "plate"
+          ? [
+              [0, 0],
+              [-0.16, -0.11],
+              [0.16, -0.11],
+              [0.16, 0.11],
+              [-0.16, 0.11],
+            ][i]
+          : [i ? Math.cos(angle) * 0.16 : 0, i ? Math.sin(angle) * 0.16 : 0];
+      h.absarc(point[0], point[1], i ? 0.023 : 0.075, 0, Math.PI * 2, true);
       shape.holes.push(h);
     }
     const g = new THREE.ExtrudeGeometry(shape, {
@@ -107,7 +118,7 @@ export function Part({
     g.translate(0, 0, -0.06);
     g.rotateX(-Math.PI / 2);
     return g;
-  }, [holes, deburred]);
+  }, [holes, deburred, profile]);
   useEffect(() => () => geometry.dispose(), [geometry]);
   useFrame(() => {
     if (ref.current && pose) {
@@ -191,7 +202,7 @@ export function RobotModel({
         ik.wrist[1],
         ik.wrist[2] - device.position[2],
       );
-      wrist.current.rotation.y = ik.yaw;
+      wrist.current.rotation.y = pose.current.profile === "plate" ? 0 : ik.yaw;
     }
     if (left.current) left.current.position.x = -pose.current.grip;
     if (right.current) right.current.position.x = pose.current.grip;
@@ -286,7 +297,10 @@ export function CNCModel({
     jaws.forEach((jaw, i) => {
       if (jaw.current)
         jaw.current.position.x =
-          (i ? 1 : -1) * (p.radius + 0.06 + (1 - p.clamp) * 0.18);
+          (i ? 1 : -1) *
+          ((p.profile === "plate" ? (0.18 * p.radius) / 0.24 : p.radius) +
+            0.06 +
+            (1 - p.clamp) * 0.18);
     });
     if (tool.current)
       tool.current.position.set(
@@ -579,6 +593,36 @@ export function WarehouseModel({
         </group>
       ))}
       <StatusLamp device={device} />
+    </group>
+  );
+}
+
+export function Stacker({
+  position,
+  sign = -1,
+}: {
+  position: Vec3;
+  sign?: number;
+}) {
+  const [x, y, z] = position;
+  return (
+    <group name="warehouse-stacker">
+      <Block
+        p={[6.3, 0.12, sign * 1.75]}
+        size={[4.3, 0.12, 0.18]}
+        color="#4e7186"
+      />
+      <Block
+        p={[x, 1.95, sign * 1.75]}
+        size={[0.15, 3.7, 0.18]}
+        color="#7798a6"
+      />
+      <Block
+        p={[x, y - 0.085, (z + sign * 1.75) / 2]}
+        size={[0.13, 0.05, Math.abs(z - sign * 1.75) + 0.15]}
+        color="#b1c5ca"
+      />
+      <Block p={[x, y - 0.085, z]} size={[0.58, 0.05, 0.5]} color="#799aa6" />
     </group>
   );
 }

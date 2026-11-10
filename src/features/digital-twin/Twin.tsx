@@ -38,7 +38,7 @@ function Rig({
     );
     destination.current.set(
       ...((view.cutaway
-        ? [d.position[0] + 4.2, 2.9, d.position[2] + 3.1]
+        ? [d.position[0] + 3.4, 2.9, d.position[2] + 1.3]
         : focus
           ? d.kind === "qc"
             ? [d.position[0] + 4.5, 4.5, d.position[2] - 5.5]

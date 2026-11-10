@@ -16,6 +16,7 @@ import {
   RobotModel,
   Rollers,
   WarehouseModel,
+  Stacker,
 } from "./Models";
 
 export interface SceneView {
@@ -40,6 +41,7 @@ function WorkpieceView({
     <group name={`workpiece-${id}`}>
       <Part
         pose={pose}
+        profile={run.recipe.family}
         holes={phase.holes}
         deburred={phase.deburred}
         onClick={() =>
@@ -80,7 +82,11 @@ function QueuedPart({
   });
   return (
     <group name={`queued-${id}`}>
-      <Part pose={ref} />
+      <Part
+        pose={ref}
+        profile={useFactory.getState().s.flow.runs[id]?.recipe.family}
+        holes={useFactory.getState().s.flow.runs[id]?.attempt ? 5 : 0}
+      />
     </group>
   );
 }
@@ -217,12 +223,13 @@ function AnimatedCell({
             return (
               <Part
                 key={id}
+                profile={saved.recipe.family}
                 position={anchors.output(
                   saved.inspection?.result === "fail" ? "reject" : "good",
                   p?.bufferSlot ?? 0,
                 )}
                 holes={5}
-                deburred
+                deburred={!saved.parameters.skipDeburr}
                 color={
                   saved.inspection?.result === "fail" ? "#ba7773" : "#c6b57c"
                 }
@@ -271,7 +278,7 @@ export default function FactoryWorld({
       ),
     [],
   );
-  const qcOwner = state.flow.cells.find(
+  const qcOwner = view.replay ? state.flow.cells.find(c=>c.cncId===view.replay!.run.devices.cnc) : state.flow.cells.find(
     (c) => c.activeId && state.flow.occupancy[c.qcId] === c.activeId,
   );
   const qc = state.devices.find((d) => d.id === "QC-01")!,
@@ -364,7 +371,9 @@ export default function FactoryWorld({
         <WarehouseModel
           device={warehouse}
           stored={
-            state.workpieces.filter((w) => w.storedAt !== undefined).length
+            state.workpieces.filter(
+              (w) => w.storedAt !== undefined && w.dispatchedAt === undefined,
+            ).length
           }
         />
       </group>
@@ -385,13 +394,34 @@ export default function FactoryWorld({
             />
           </group>
         ))}
+      <Stacker
+        position={transport?.stacker ? transport.part : [5.1, 1.14, -1.35]}
+        sign={transport?.cell.line === "B" ? 1 : -1}
+      />
+      {state.flow.reroute && transport && (
+        <Part
+          position={transport.part}
+          profile={
+            state.flow.runs[state.flow.reroute.workpieceId].recipe.family
+          }
+        />
+      )}
       {state.flow.transfer &&
         (() => {
           const c = state.flow.cells.find(
             (c) => c.id === state.flow.transfer!.cellId,
           )!;
           const p = transport!.part;
-          return <Part position={p} holes={5} deburred />;
+          return (
+            <Part
+              position={p}
+              profile={
+                state.flow.runs[state.flow.transfer!.workpieceId].recipe.family
+              }
+              holes={5}
+              deburred
+            />
+          );
         })()}
     </>
   );

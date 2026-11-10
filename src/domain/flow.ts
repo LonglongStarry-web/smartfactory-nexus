@@ -1,6 +1,9 @@
 import type { ProcessParameters, ProcessRun } from "./process";
 
 export interface Workcell {
+  capabilities?: ("flange" | "plate")[];
+  currentFamily?: "flange" | "plate";
+  setup?: { family: "flange" | "plate"; remaining: number } | null;
   id: string;
   line: string;
   cncId: string;
@@ -22,6 +25,7 @@ export interface FactoryFlow {
   occupancy: Record<string, string>;
   inputCapacity: number;
   outputCapacity: number;
+  warehouseCapacity?: number;
   transferDuration: number;
   transfer: {
     workpieceId: string;
@@ -32,6 +36,15 @@ export interface FactoryFlow {
   } | null;
   parameters: ProcessParameters;
   demoVariations: boolean;
+  reroute?: {
+    workpieceId: string;
+    from: string;
+    to: string;
+    elapsed: number;
+    duration: number;
+    startedAt: number;
+    inputSlot: number;
+  } | null;
   qualityHold?: boolean;
   reworkArchive?: Record<string, ProcessRun[]>;
 }

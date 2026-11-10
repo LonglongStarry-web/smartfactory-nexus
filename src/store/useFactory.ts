@@ -61,7 +61,7 @@ interface Store {
   order: (
     x: Pick<
       ProductionOrder,
-      "product" | "quantity" | "priority" | "planned" | "due"
+      "product" | "quantity" | "priority" | "planned" | "due" | "recipeId"
     >,
   ) => void;
   mode: (m: Mode) => void;
