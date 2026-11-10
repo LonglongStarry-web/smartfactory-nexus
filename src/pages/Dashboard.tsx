@@ -209,7 +209,7 @@ export default function Dashboard() {
                         ? e.good
                         : f.s.inspections.filter(
                             (w) =>
-                              w.source !== "sample" &&
+                              w.source !== "sample" && w.source !== "rework" &&
                               w.time <= e.time &&
                               w.result === "pass" &&
                               devices.some(

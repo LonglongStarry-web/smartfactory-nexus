@@ -71,6 +71,12 @@ export function motionPose(
   outputSlot = 0,
 ): MotionPose {
   const a = cellAnchors(line);
+  if (run?.attempt) {
+    a.raw[1] = 1.14;
+    a.fixture[1] = 1.13;
+    a.rawAbove[1] = 1.85;
+  }
+
   const index = run?.stepIndex ?? 0;
   const step = run?.recipe.steps[Math.min(index, run.recipe.steps.length - 1)];
   const stage = step?.id ?? "pick";
@@ -81,8 +87,8 @@ export function motionPose(
     run?.recipe.steps.findIndex((s) => s.id === id) ?? 0;
   const face = index > at("face") ? 1 : stage === "face" ? p : 0;
   const contour = index > at("contour") ? 1 : stage === "contour" ? p : 0;
-  const radius = 0.26 - 0.02 * contour;
-  const height = 0.18 - 0.06 * face;
+  const radius = run?.attempt ? 0.24 : 0.26 - 0.02 * contour;
+  const height = run?.attempt ? 0.12 : 0.18 - 0.06 * face;
   const fixture: Vec3 = [
     a.fixture[0],
     a.fixtureFloor + height / 2,
@@ -107,7 +113,7 @@ export function motionPose(
       grip,
       radius,
       height,
-      holes: 0,
+      holes: run?.attempt ? 5 : 0,
       deburred: false,
       spindle: false,
       stage,
@@ -153,6 +159,14 @@ export function motionPose(
   if (cutting.includes(stage)) {
     part = fixture;
     clamp = 1;
+  }
+  if (
+    cutting.includes(stage) &&
+    !(run.attempt && stage !== "deburr") &&
+    !(stage === "deburr" && run.parameters.skipDeburr)
+  ) {
+    part = fixture;
+    clamp = 1;
     if (stage === "face") {
       const x = Math.sin(p * Math.PI * 6) * 0.17,
         z = -0.16 + 0.32 * p;
@@ -174,7 +188,11 @@ export function motionPose(
       ];
     }
   }
-  if (cutting.includes(stage)) {
+  if (
+    cutting.includes(stage) &&
+    !(run.attempt && stage !== "deburr") &&
+    !(stage === "deburr" && run.parameters.skipDeburr)
+  ) {
     const cutPoint = tool;
     if (p < 0.12) tool = mix(toolHome, cutPoint, p / 0.12);
     if (p > 0.88) tool = mix(cutPoint, toolHome, (p - 0.88) / 0.12);
@@ -241,8 +259,9 @@ export function motionPose(
       outputSlot,
     );
   }
-  const holes =
-    index > at("drill")
+  const holes = run.attempt
+    ? 5
+    : index > at("drill")
       ? 5
       : stage === "drill"
         ? Math.min(5, Math.floor(p * 5 + 0.5))
@@ -257,8 +276,13 @@ export function motionPose(
     radius,
     height,
     holes,
-    deburred: index > at("deburr") || (stage === "deburr" && p > 0.9),
-    spindle: cutting.includes(stage),
+    deburred:
+      !run.parameters.skipDeburr &&
+      (index > at("deburr") || (stage === "deburr" && p > 0.9)),
+    spindle:
+      cutting.includes(stage) &&
+      !(run.attempt && stage !== "deburr") &&
+      !(stage === "deburr" && run.parameters.skipDeburr),
     stage,
     progress: p,
   };

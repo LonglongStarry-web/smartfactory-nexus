@@ -28,7 +28,10 @@ export interface FactoryFlow {
     cellId: string;
     kind: "good" | "reject";
     elapsed: number;
+    reworkRun?: ProcessRun;
   } | null;
   parameters: ProcessParameters;
   demoVariations: boolean;
+  qualityHold?: boolean;
+  reworkArchive?: Record<string, ProcessRun[]>;
 }

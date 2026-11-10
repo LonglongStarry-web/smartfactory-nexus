@@ -173,6 +173,7 @@ export const defaultProcessParameters: ProcessParameters = {
   feedMmPerMin: 180,
   fixtureOffsetXmm: 0,
   contourDiameterErrorMm: 0,
+  skipDeburr: false,
 };
 
 function finiteNonnegative(value: number, label: string) {

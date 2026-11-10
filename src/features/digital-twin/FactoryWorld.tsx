@@ -5,6 +5,7 @@ import { useFactory } from "../../store/useFactory";
 import { cellAnchors, factoryLayout, type Vec3 } from "../../domain/layout";
 import type { ProcessRun } from "../../domain/process";
 import type { Workcell } from "../../domain/flow";
+import { transportPose } from "./logistics";
 import { motionPose, replayAt, type MotionPose } from "./motion";
 import {
   AGVModel,
@@ -41,7 +42,12 @@ function WorkpieceView({
         pose={pose}
         holes={phase.holes}
         deburred={phase.deburred}
-        onClick={() => observe(run.devices.cnc, run.status === "complete" ? run.workpieceId : undefined)}
+        onClick={() =>
+          observe(
+            run.devices.cnc,
+            run.status === "complete" ? run.workpieceId : undefined,
+          )
+        }
       />
     </group>
   );
@@ -239,27 +245,10 @@ export function vehiclePose(
   deviceId: string,
   state: ReturnType<typeof useFactory.getState>["s"],
 ): Vec3 {
-  const home = factoryLayout[deviceId] ?? [0, 0, 0];
-  const transfer = state.flow.transfer;
-  if (!transfer) return home;
-  const cell = state.flow.cells.find((c) => c.id === transfer.cellId);
-  if (!cell || cell.agvId !== deviceId) return home;
-  const p = transfer.elapsed / state.flow.transferDuration,
-    sign = cell.line === "A" ? -1 : 1;
-  const source = cellAnchors(cell.line).output(
-    transfer.kind,
-    state.workpieces.find((w) => w.id === transfer.workpieceId)?.bufferSlot ??
-      0,
-  );
-  const pickup: Vec3 = [source[0], 0, source[2]],
-    dock: Vec3 = [5.7, 0, sign * 1.35];
-  const waypoints: Vec3[] = [home, pickup, pickup, dock, dock, home];
-  const n = Math.min(
-      waypoints.length - 2,
-      Math.floor(p * (waypoints.length - 1)),
-    ),
-    u = Math.min(1, p * (waypoints.length - 1) - n);
-  return waypoints[n].map((v, i) => v + (waypoints[n + 1][i] - v) * u) as Vec3;
+  const t = transportPose(state);
+  return t?.cell.agvId === deviceId
+    ? t.vehicle
+    : (factoryLayout[deviceId] ?? [0, 0, 0]);
 }
 
 export default function FactoryWorld({
@@ -271,6 +260,7 @@ export default function FactoryWorld({
 }) {
   const state = useFactory((s) => s.s),
     select = useFactory((s) => s.select);
+  const transport = transportPose(state);
   const poses = useMemo(
     () =>
       Object.fromEntries(
@@ -347,9 +337,16 @@ export default function FactoryWorld({
         />
       ))}
       <Rollers from={[1.7, 1.03, 0]} to={[4.6, 1.03, 0]} />
-      {state.flow.cells.map((c) => (
-        <AnimatedCell key={c.id} cell={c} pose={poses[c.id]} view={view} />
-      ))}
+      {state.flow.cells
+        .filter(
+          (c) =>
+            !view.deviceId ||
+            view.deviceId === c.qcId ||
+            [c.cncId, c.robotId].includes(view.deviceId),
+        )
+        .map((c) => (
+          <AnimatedCell key={c.id} cell={c} pose={poses[c.id]} view={view} />
+        ))}
       <group
         onClick={(e) => {
           e.stopPropagation();
@@ -381,7 +378,11 @@ export default function FactoryWorld({
               select(d.id);
             }}
           >
-            <AGVModel device={d} position={vehiclePose(d.id, state)} />
+            <AGVModel
+              device={d}
+              position={vehiclePose(d.id, state)}
+              lift={transport?.cell.agvId === d.id ? transport.lift : 0.15}
+            />
           </group>
         ))}
       {state.flow.transfer &&
@@ -389,8 +390,8 @@ export default function FactoryWorld({
           const c = state.flow.cells.find(
             (c) => c.id === state.flow.transfer!.cellId,
           )!;
-          const p = vehiclePose(c.agvId, state);
-          return <Part position={[p[0], 0.95, p[2]]} holes={5} deburred />;
+          const p = transport!.part;
+          return <Part position={p} holes={5} deburred />;
         })()}
     </>
   );

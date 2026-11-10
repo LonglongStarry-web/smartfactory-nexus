@@ -66,7 +66,7 @@ export interface QualityInspection {
   defect?: string;
   x: number;
   y: number;
-  source?: "production" | "sample" | "legacy";
+  source?: "production" | "sample" | "legacy" | "rework";
   inspectorId?: string;
   measurements?: ProcessMeasurement[];
 }

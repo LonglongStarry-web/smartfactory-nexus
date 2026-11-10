@@ -28,6 +28,7 @@ export const modes: Record<
 };
 export const defects = [
   "孔位超差",
+  "毛刺超限",
   "表面划伤",
   "尺寸异常",
   "孔洞",
@@ -368,7 +369,10 @@ export function metrics(s: SimulationState, line = "all") {
   const ds = s.devices.filter((d) => line === "all" || d.line === line);
   const cncs = ds.filter((d) => d.kind === "cnc");
   const qs = s.inspections.filter(
-    (q) => q.source !== "sample" && ds.some((d) => d.id === q.deviceId),
+    (q) =>
+      q.source !== "sample" &&
+      q.source !== "rework" &&
+      ds.some((d) => d.id === q.deviceId),
   );
   const output = ds
     .filter((d) => d.kind === "cnc")

@@ -1,3 +1,5 @@
+import ProcessLab from "../features/quality/ProcessLab";
+import CauseChain from "../features/quality/CauseChain";
 import { useState } from "react";
 import { useFactory } from "../store/useFactory";
 import { Panel, Stat, Chart, Modal, Empty, lineOption } from "../components/UI";
@@ -47,11 +49,12 @@ export default function Quality() {
         <Stat label="合格产品" value={m.good} unit="件" />
         <Stat label="不合格产品" value={m.total - m.good} unit="件" />
         <Stat
-          label="检测良品率"
+          label="首检良品率"
           value={m.total ? (m.quality * 100).toFixed(1) : "—"}
           unit={m.total ? "%" : ""}
         />
       </div>
+      <ProcessLab />
       <div className="two-columns">
         <Panel
           title="缺陷类型分布"
@@ -92,7 +95,7 @@ export default function Quality() {
           </div>
         </Panel>
       </div>
-      <Panel title="质量趋势" sub="每10个模拟秒的累计检测良品率">
+      <Panel title="质量趋势" sub="每10个模拟秒的累计首检良品率">
         <Chart
           option={lineOption(
             f.s.energy.map((e) => stamp(e.time)),
@@ -101,7 +104,10 @@ export default function Quality() {
                 name: "检测良品率",
                 values: f.s.energy.map((e) => {
                   const records = f.s.inspections.filter(
-                    (q) => q.source !== "sample" && q.time <= e.time,
+                    (q) =>
+                      q.source !== "sample" &&
+                      q.source !== "rework" &&
+                      q.time <= e.time,
                   );
                   return records.length
                     ? +(
@@ -167,11 +173,13 @@ export default function Quality() {
                   </td>
                   <td>{stamp(q.time)}</td>
                   <td>
-                    {q.source === "sample"
-                      ? "抽检复核"
-                      : q.source === "legacy"
-                        ? "历史记录"
-                        : "生产检测"}
+                    {q.source === "rework"
+                      ? "返工复测"
+                      : q.source === "sample"
+                        ? "抽检复核"
+                        : q.source === "legacy"
+                          ? "历史记录"
+                          : "生产检测"}
                   </td>
                   <td className={q.result === "fail" ? "red" : "green"}>
                     {q.result === "pass" ? "合格" : "不合格"}
@@ -209,7 +217,16 @@ export default function Quality() {
               </div>
             )}
           </div>
-          {f.s.flow.runs[selected.workpieceId] && <button className="primary" onClick={()=>f.observe(selected.deviceId,selected.workpieceId)}>查看加工过程</button>}
+          {f.s.flow.runs[selected.workpieceId] && (
+            <button
+              className="primary"
+              onClick={() =>
+                f.observe(selected.deviceId, selected.workpieceId, selected.id)
+              }
+            >
+              查看加工过程
+            </button>
+          )}
           <dl>
             {[
               ["产品", selected.workpieceId],
@@ -228,6 +245,7 @@ export default function Quality() {
               </div>
             ))}
           </dl>
+          <CauseChain record={selected} />
           {selected.measurements && (
             <div className="stack" aria-label="检测依据">
               <strong>检测依据 · 工艺规则仿真</strong>

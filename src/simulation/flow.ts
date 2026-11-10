@@ -73,7 +73,7 @@ export function reservedForOrder(s: SimulationState, orderId: string) {
       w.storedAt === undefined &&
       w.scrappedAt === undefined &&
       w.cancelledAt === undefined &&
-      w.result !== "fail",
+      (w.result !== "fail" || Boolean(s.flow.qualityHold)),
   ).length;
 }
 
@@ -206,6 +206,7 @@ export function assignFlow(s: SimulationState) {
   if (!flow.transfer && s.running) {
     for (const cell of flow.cells) {
       const kind = cell.good.length ? "good" : "reject";
+      if (kind === "reject" && flow.qualityHold) continue;
       const id = cell[kind][0];
       if (
         id &&
@@ -345,6 +346,16 @@ export function processMeasurements(run: ProcessRun): ProcessMeasurement[] {
       actual: Number((80 + run.parameters.contourDiameterErrorMm).toFixed(6)),
       sourceStepId: "contour",
     },
+    {
+      featureId: "burr-height",
+      label: "残余毛刺高度",
+      unit: "mm",
+      nominal: 0,
+      lower: 0,
+      upper: 0.05,
+      actual: run.parameters.skipDeburr ? 0.12 : 0.01,
+      sourceStepId: "deburr",
+    },
   ];
 }
 
@@ -368,11 +379,13 @@ function finishInspection(s: SimulationState, run: ProcessRun) {
     defect: defect
       ? defect.featureId === "hole-x"
         ? "孔位超差"
-        : "尺寸异常"
+        : defect.featureId === "burr-height"
+          ? "毛刺超限"
+          : "尺寸异常"
       : undefined,
     x: 50,
     y: 50,
-    source: "production",
+    source: run.attempt ? "rework" : "production",
     measurements: structuredClone(q.measurements),
   });
   event(
@@ -397,7 +410,24 @@ export function advanceFlow(s: SimulationState, dt: number) {
         cell[transfer.kind] = cell[transfer.kind].filter(
           (id) => id !== part.id,
         );
-        if (transfer.kind === "good") {
+        if (transfer.reworkRun) {
+          const previous = flow.runs[part.id];
+          (flow.reworkArchive ??= {})[part.id] ??= [];
+          flow.reworkArchive[part.id].push(structuredClone(previous));
+          flow.runs[part.id] = transfer.reworkRun;
+          flow.runs[part.id].time = s.time;
+          flow.runs[part.id].stepStartedAt = s.time;
+          cell.queue.unshift(part.id);
+          part.result = undefined;
+          part.bufferSlot = undefined;
+          event(
+            s,
+            "返工投料",
+            `${part.id} 已回送上料，等待重新装夹与去毛刺`,
+            cell.cncId,
+            part.orderId,
+          );
+        } else if (transfer.kind === "good") {
           part.storedAt = s.time;
           const order = s.orders.find((o) => o.id === part.orderId)!;
           if (!order.cancelled) {
@@ -452,7 +482,7 @@ export function advanceFlow(s: SimulationState, dt: number) {
         entry.deviceId,
         run.orderId,
       );
-      if (entry.stepId === "tool-clear") {
+      if (entry.stepId === "tool-clear" && !run.attempt) {
         s.devices.find((d) => d.id === cell.cncId)!.produced++;
         event(
           s,
@@ -620,4 +650,72 @@ export function scheduleFlow(s: SimulationState, algorithm: Algorithm): Slot[] {
     start: Math.round(slot.start * 1e6) / 1e6,
     end: Math.round(slot.end * 1e6) / 1e6,
   }));
+}
+
+/** Rework is offered only for removable burrs; positional/dimension damage is scrapped. */
+export function disposeRejected(
+  s: SimulationState,
+  id: string,
+  action: "rework" | "scrap",
+) {
+  const part = s.workpieces.find((w) => w.id === id),
+    cell = s.flow.cells.find((c) => c.reject.includes(id));
+  const previous = s.flow.runs[id];
+  if (!part || !cell || !previous || s.flow.transfer?.workpieceId === id)
+    throw new Error("工件已转运或不在隔离暂存区");
+  if (action === "scrap") {
+    cell.reject = cell.reject.filter((w) => w !== id);
+    part.scrappedAt = s.time;
+    event(
+      s,
+      "人工报废",
+      `${id} 已报废，可按剩余合格需求补投`,
+      cell.cncId,
+      part.orderId,
+    );
+    assignFlow(s);
+    return;
+  }
+  const failures =
+    previous.inspection?.measurements.filter(
+      (m) => m.actual < m.lower || m.actual > m.upper,
+    ) ?? [];
+  if (!failures.length || failures.some((m) => m.featureId !== "burr-height"))
+    throw new Error("仅残余毛刺允许去毛刺返工；孔位或尺寸损伤需报废补投");
+  if (cell.activeId) throw new Error("请等待原加工单元空闲后返工");
+  const recipe = structuredClone(previous.recipe);
+  recipe.id = "DEBURR-REWORK";
+  recipe.revision++;
+  for (const step of recipe.steps)
+    if (["face", "contour", "drill"].includes(step.id)) {
+      step.duration = 0.2;
+      step.label = "保留既有加工面（跳过重复切削）";
+    }
+  const next = createProcessRun({
+    workpieceId: id,
+    orderId: part.orderId,
+    recipe,
+    devices: previous.devices,
+    parameters: { ...previous.parameters, skipDeburr: false },
+    time: s.time,
+  });
+  next.attempt = (previous.attempt ?? 0) + 1;
+  if (s.flow.transfer) throw new Error("请等待物流完成当前任务");
+  if (cell.queue.length >= s.flow.inputCapacity)
+    throw new Error("请等待上料缓冲区空出位置");
+  s.flow.transfer = {
+    workpieceId: id,
+    cellId: cell.id,
+    kind: "reject",
+    elapsed: 0,
+    reworkRun: next,
+  };
+  event(
+    s,
+    "返工回送",
+    `${id} 由 ${cell.agvId} 从隔离位回送上料；保留原编号和首检记录`,
+    cell.agvId,
+    part.orderId,
+  );
+  assignFlow(s);
 }

@@ -62,6 +62,7 @@ export interface ProcessParameters {
   feedMmPerMin: number;
   fixtureOffsetXmm: number;
   contourDiameterErrorMm: number;
+  skipDeburr?: boolean;
 }
 
 export interface ProcessMeasurement {
@@ -111,4 +112,6 @@ export interface ProcessRun {
   holder: PartHolder;
   trace: ProcessTraceEntry[];
   inspection: ProcessInspection | null;
+  attempt?: number;
+  reworkSlot?: number;
 }

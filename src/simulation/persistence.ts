@@ -98,6 +98,9 @@ export function restoreFactoryState(input: unknown): SimulationState {
         throw new Error("工件关联存档无效");
       s.flow.runs[id] = restoreProcessRun(run);
     }
+    for (const attempts of Object.values(s.flow.reworkArchive ?? {}))
+      for (let i = 0; i < attempts.length; i++)
+        attempts[i] = restoreProcessRun(attempts[i]);
     const locations: string[] = [];
     for (const cell of s.flow.cells) {
       if (

@@ -1,3 +1,5 @@
+import packageInfo from "../package.json" with { type: "json" };
+const APP_VERSION = packageInfo.version;
 import { test, expect } from "@playwright/test";
 import { readFileSync } from "node:fs";
 const legacySnapshot = JSON.parse(
@@ -36,7 +38,9 @@ test("设置保存、系统主题、三维偏好、备份与恢复", async ({ pa
   await expect(
     page.getByRole("heading", { name: "系统设置", exact: true }),
   ).toBeVisible();
-  await expect(page.getByText("v1.1.1", { exact: true }).last()).toBeVisible();
+  await expect(
+    page.getByText(`v${APP_VERSION}`, { exact: true }).last(),
+  ).toBeVisible();
   await page.getByRole("button", { name: "浅色", exact: true }).click();
   await page.getByRole("button", { name: "主题色：远山蓝" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -97,13 +101,13 @@ test("版本检查使用实际清单，能区分新版本与失败", async ({ pa
   await page.route("**/version.json", (route) =>
     route.fulfill({
       json: {
-        version: "1.2.0",
+        version: "9.0.0",
         notes: ["测试发布清单"],
       },
     }),
   );
   await page.getByRole("button", { name: "检查更新", exact: true }).click();
-  await expect(page.getByText("发现新版本 v1.2.0")).toBeVisible();
+  await expect(page.getByText("发现新版本 v9.0.0")).toBeVisible();
   await expect(
     page.getByRole("button", { name: "重新载入应用", exact: true }),
   ).toBeVisible();
