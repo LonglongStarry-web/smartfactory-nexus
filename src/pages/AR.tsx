@@ -4,6 +4,7 @@ import { useFactory } from "../store/useFactory";
 import { Panel, Badge } from "../components/UI";
 import Twin from "../features/digital-twin/Twin";
 import { event, stamp } from "../simulation/engine";
+import { fontSizes } from "../app/preferences";
 export default function AR() {
   const f = useFactory();
   const [camera, setCamera] = useState(false),
@@ -112,7 +113,7 @@ export default function AR() {
               <iframe
                 ref={frame}
                 title="MindAR 摄像头图像识别"
-                src={`/ar/index.html?device=${encodeURIComponent(d.id)}&status=${d.status}`}
+                src={`/ar/index.html?device=${encodeURIComponent(d.id)}&status=${d.status}&fontScale=${fontSizes[f.preferences.fontSize].scale}`}
                 allow="camera; fullscreen"
               />
             ) : mode === "3d" ? (

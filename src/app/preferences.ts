@@ -1,11 +1,19 @@
 export type ThemeMode = "dark" | "light" | "system";
 export type Accent = "cyan" | "blue" | "emerald" | "amber";
+export type FontSize = "standard" | "medium" | "large" | "xlarge";
+export const fontSizes: Record<FontSize, { name: string; scale: number }> = {
+  standard: { name: "标准（100%）", scale: 1 },
+  medium: { name: "较大（115%）", scale: 1.15 },
+  large: { name: "大号（130%）", scale: 1.3 },
+  xlarge: { name: "特大（145%）", scale: 1.45 },
+};
 export interface Preferences {
   lowQuality: boolean;
   showLabels: boolean;
   defaultSpeed: 1 | 5 | 20;
   reducedMotion: boolean;
   density: "compact" | "comfortable";
+  fontSize: FontSize;
 }
 export const defaults: Preferences = {
   lowQuality: false,
@@ -13,6 +21,7 @@ export const defaults: Preferences = {
   defaultSpeed: 5,
   reducedMotion: false,
   density: "compact",
+  fontSize: "standard",
 };
 export const accents: Record<
   Accent,

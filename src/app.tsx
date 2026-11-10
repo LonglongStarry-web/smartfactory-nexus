@@ -50,7 +50,7 @@ const nav = [
 ] as const;
 export default function App() {
   const f = useFactory();
-  const { theme, accentColor } = useAppearance();
+  const { theme, accentColor, fontScale } = useAppearance();
   const [mobile, setMobile] = useState(false),
     [reset, setReset] = useState(false);
   const Page = pages[f.page as keyof typeof pages] || pages.dashboard;
@@ -71,9 +71,18 @@ export default function App() {
     const root = document.documentElement;
     root.dataset.theme = theme;
     root.style.setProperty("--cyan", accentColor);
+    root.style.setProperty("--font-scale", String(fontScale));
+    root.dataset.fontSize = f.preferences.fontSize;
     root.dataset.density = f.preferences.density;
     root.dataset.reducedMotion = String(f.preferences.reducedMotion);
-  }, [theme, accentColor, f.preferences.density, f.preferences.reducedMotion]);
+  }, [
+    theme,
+    accentColor,
+    fontScale,
+    f.preferences.fontSize,
+    f.preferences.density,
+    f.preferences.reducedMotion,
+  ]);
   return (
     <div className="app-shell">
       <aside className={`sidebar ${mobile ? "open" : ""}`}>

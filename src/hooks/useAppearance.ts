@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 import { useFactory } from "../store/useFactory";
-import { accents } from "../app/preferences";
+import { accents, fontSizes } from "../app/preferences";
 const subscribe = (callback: () => void) => {
   const media = window.matchMedia("(prefers-color-scheme: dark)");
   media.addEventListener("change", callback);
@@ -11,7 +11,12 @@ const snapshot = () =>
 export function useAppearance() {
   const theme = useFactory((s) => s.theme);
   const accent = useFactory((s) => s.accent);
+  const fontSize = useFactory((s) => s.preferences.fontSize);
   const dark = useSyncExternalStore(subscribe, snapshot, () => true);
   const resolved = theme === "system" ? (dark ? "dark" : "light") : theme;
-  return { theme: resolved, accentColor: accents[accent][resolved] };
+  return {
+    theme: resolved,
+    accentColor: accents[accent][resolved],
+    fontScale: fontSizes[fontSize].scale,
+  };
 }

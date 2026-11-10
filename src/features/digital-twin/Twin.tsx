@@ -6,6 +6,7 @@ import { useFactory } from "../../store/useFactory";
 import { statusText } from "../../simulation/engine";
 import type { Device } from "../../domain/types";
 import StatusLamp from "./StatusLamp";
+import { accents } from "../../app/preferences";
 const color = {
   running: "#34D399",
   idle: "#8192a6",
@@ -173,6 +174,7 @@ function AGV() {
 }
 function Station({ d, labels }: { d: Device; labels: boolean }) {
   const selected = useFactory((s) => s.selected);
+  const accent = useFactory((s) => s.accent);
   const select = useFactory((s) => s.select);
   const time = useFactory((s) => s.s.time);
   const running = useFactory((s) => s.s.running);
@@ -204,7 +206,13 @@ function Station({ d, labels }: { d: Device; labels: boolean }) {
               ? [1.5, 0.04, 1.2]
               : [3.1, 0.05, 3]
         }
-        c={selected === d.id ? "#1b7180" : "#344558"}
+        c={
+          selected === d.id
+            ? new THREE.Color(accents[accent].dark)
+                .multiplyScalar(0.38)
+                .getStyle()
+            : "#344558"
+        }
       />
       {d.kind === "cnc" ? (
         <CNC />

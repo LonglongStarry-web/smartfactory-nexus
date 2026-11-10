@@ -90,7 +90,7 @@ export function Chart({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts>(null);
-  const { theme, accentColor } = useAppearance();
+  const { theme, accentColor, fontScale } = useAppearance();
   useEffect(() => {
     if (!ref.current) return;
     const c = echarts.init(ref.current);
@@ -103,27 +103,77 @@ export function Chart({
     };
   }, []);
   useEffect(() => {
+    const ink = theme === "dark" ? "#94A3B8" : "#526379";
+    const gridColor = theme === "dark" ? "#26364a" : "#dbe4ef";
+    const styleAxis = (value: any): any =>
+      Array.isArray(value)
+        ? value.map(styleAxis)
+        : !value
+          ? undefined
+          : {
+              ...value,
+              axisLabel: {
+                ...value.axisLabel,
+                color: ink,
+                fontSize: 11 * fontScale,
+              },
+              nameTextStyle: {
+                ...value.nameTextStyle,
+                color: ink,
+                fontSize: 11 * fontScale,
+              },
+              splitLine: {
+                ...value.splitLine,
+                lineStyle: { ...value.splitLine?.lineStyle, color: gridColor },
+              },
+            };
+    const plot = { left: 40, right: 18, top: 20, bottom: 28, ...option.grid };
+    const scaledPlot = Object.fromEntries(
+      Object.entries(plot).map(([key, value]) => [
+        key,
+        typeof value === "number" ? value * fontScale : value,
+      ]),
+    );
     chart.current?.setOption(
       {
         textStyle: {
           fontFamily: "Segoe UI, Microsoft YaHei, sans-serif",
           color: theme === "dark" ? "#94A3B8" : "#526379",
-          fontSize: 11,
+          fontSize: 11 * fontScale,
         },
         color: [accentColor, "#7c96ae", "#34D399", "#FB7185"],
         tooltip: {
           trigger: "axis",
           backgroundColor: theme === "dark" ? "#18263A" : "#fff",
           borderWidth: 0,
-          textStyle: { color: theme === "dark" ? "#E8EEF7" : "#15243a" },
+          textStyle: {
+            color: theme === "dark" ? "#E8EEF7" : "#15243a",
+            fontSize: 12 * fontScale,
+          },
         },
-        grid: { left: 40, right: 18, top: 20, bottom: 28 },
         ...option,
+        grid: scaledPlot,
+        ...(option.xAxis ? { xAxis: styleAxis(option.xAxis) } : {}),
+        ...(option.yAxis ? { yAxis: styleAxis(option.yAxis) } : {}),
+        ...(option.legend
+          ? {
+              legend: {
+                ...option.legend,
+                textStyle: {
+                  ...option.legend.textStyle,
+                  color: ink,
+                  fontSize: 11 * fontScale,
+                },
+              },
+            }
+          : {}),
       },
       true,
     );
-  }, [option, theme, accentColor]);
-  return <div ref={ref} className="chart" style={{ height }} />;
+  }, [option, theme, accentColor, fontScale]);
+  return (
+    <div ref={ref} className="chart" style={{ height: height * fontScale }} />
+  );
 }
 export function lineOption(
   xs: string[],

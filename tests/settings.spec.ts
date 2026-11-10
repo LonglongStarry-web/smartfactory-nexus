@@ -1,6 +1,11 @@
 import { test, expect } from "@playwright/test";
-import {readFileSync} from 'node:fs';
-const legacySnapshot=JSON.parse(readFileSync(new URL('../deliverables/示例状态快照.json',import.meta.url),'utf8'));
+import { readFileSync } from "node:fs";
+const legacySnapshot = JSON.parse(
+  readFileSync(
+    new URL("../deliverables/示例状态快照.json", import.meta.url),
+    "utf8",
+  ),
+);
 test("升级保留v1.0本地生产数据并补齐默认设置", async ({ page }) => {
   await page.addInitScript(
     (s) =>
@@ -19,6 +24,9 @@ test("升级保留v1.0本地生产数据并补齐默认设置", async ({ page })
     page.getByRole("button", { name: "浅色", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByLabel("显示设备标签", { exact: true })).toBeChecked();
+  await expect(page.getByLabel("界面字号", { exact: true })).toHaveValue(
+    "standard",
+  );
   await expect(
     page.getByText("4 个订单 · 85 条事件 · 包含当前偏好。"),
   ).toBeVisible();
@@ -28,7 +36,7 @@ test("设置保存、系统主题、三维偏好、备份与恢复", async ({ pa
   await expect(
     page.getByRole("heading", { name: "系统设置", exact: true }),
   ).toBeVisible();
-  await expect(page.getByText("v1.1.0", { exact: true }).last()).toBeVisible();
+  await expect(page.getByText("v1.1.1", { exact: true }).last()).toBeVisible();
   await page.getByRole("button", { name: "浅色", exact: true }).click();
   await page.getByRole("button", { name: "主题色：远山蓝" }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
@@ -86,11 +94,10 @@ test("版本检查使用实际清单，能区分新版本与失败", async ({ pa
   await page.goto("/#settings");
   await page.getByRole("button", { name: "检查更新", exact: true }).click();
   await expect(page.getByText("当前已是部署清单中的最新版本")).toBeVisible();
-  await page.route("**/version.json?*", (route) =>
+  await page.route("**/version.json", (route) =>
     route.fulfill({
       json: {
         version: "1.2.0",
-        publishedAt: "2026-11-10",
         notes: ["测试发布清单"],
       },
     }),
@@ -100,8 +107,8 @@ test("版本检查使用实际清单，能区分新版本与失败", async ({ pa
   await expect(
     page.getByRole("button", { name: "重新载入应用", exact: true }),
   ).toBeVisible();
-  await page.unroute("**/version.json?*");
-  await page.route("**/version.json?*", (route) =>
+  await page.unroute("**/version.json");
+  await page.route("**/version.json", (route) =>
     route.fulfill({ status: 503, body: "unavailable" }),
   );
   await page.getByRole("button", { name: "检查更新", exact: true }).click();

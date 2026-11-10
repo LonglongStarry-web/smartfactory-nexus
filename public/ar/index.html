@@ -47,6 +47,12 @@
     import { MindARThree } from "./mindar-image-three.prod.js";
     import * as THREE from "three";
     const q = new URLSearchParams(location.search);
+    const textScale = Math.max(
+      1,
+      Math.min(1.45, Number(q.get("fontScale")) || 1),
+    );
+    document.documentElement.style.fontSize = `${13 * textScale}px`;
+    document.querySelector("#state").style.fontSize = `${13 * textScale}px`;
     let device = {
       id: q.get("device") || "CNC-01",
       status: q.get("status") || "idle",

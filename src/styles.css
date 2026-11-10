@@ -68,7 +68,7 @@ button,
   gap: 7px;
   cursor: pointer;
   text-decoration: none;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   white-space: nowrap;
   transition:
     background 0.15s,
@@ -97,7 +97,7 @@ select {
   border: 1px solid var(--border);
   border-radius: 5px;
   padding: 8px 10px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   max-width: 100%;
   min-height: 34px;
 }
@@ -124,7 +124,7 @@ a.text-button {
   color: var(--muted);
   padding: 3px 0;
   min-height: 24px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -157,7 +157,7 @@ a.text-button:hover {
 .subtle,
 small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 400;
 }
 .mono,
@@ -185,17 +185,17 @@ p {
   margin: 0;
 }
 h1 {
-  font-size: 25px;
+  font-size: calc(25px * var(--font-scale, 1));
   line-height: 1.5;
   letter-spacing: -0.7px;
   font-weight: 600;
 }
 h2 {
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
   font-weight: 600;
 }
 h3 {
-  font-size: 15px;
+  font-size: calc(15px * var(--font-scale, 1));
   font-weight: 500;
 }
 p {
@@ -258,14 +258,14 @@ progress::-webkit-progress-value {
   align-items: center;
 }
 .brand > div {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   letter-spacing: 1px;
   font-weight: 600;
   line-height: 1.4;
 }
 .brand span {
   display: block;
-  font-size: 19px;
+  font-size: calc(19px * var(--font-scale, 1));
   letter-spacing: 5px;
 }
 .workspace {
@@ -277,20 +277,20 @@ progress::-webkit-progress-value {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .workspace > div {
   color: var(--text);
 }
 .workspace small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 5px;
 }
 .nav-group {
   display: block;
   padding: 0 24px 14px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 nav {
@@ -307,7 +307,7 @@ nav button {
   border-radius: 0;
   background: none;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   margin: 3px 0;
   padding-left: 14px;
 }
@@ -337,14 +337,14 @@ nav button.active svg {
 nav b {
   margin-left: auto;
   color: var(--red);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .sidebar-bottom {
   margin-top: auto;
   padding: 30px 24px 20px;
 }
 .simulation-note {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--text);
 }
 .simulation-note .live-dot {
@@ -354,7 +354,7 @@ nav b {
 }
 .simulation-note p {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 8px;
 }
 .version {
@@ -363,12 +363,12 @@ nav b {
   margin-top: 24px;
   border-top: 1px solid var(--border);
   padding-top: 14px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   letter-spacing: 1px;
   color: var(--muted);
 }
 .version small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   letter-spacing: 0;
 }
 .main-shell {
@@ -386,13 +386,13 @@ nav b {
   gap: 12px;
 }
 .topbar-title {
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
   font-weight: 600;
   white-space: nowrap;
 }
 .topbar-title span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 400;
   margin-left: 7px;
 }
@@ -408,14 +408,14 @@ nav b {
   margin-right: 8px;
 }
 .clock small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .clock time {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
 }
 .topbar button,
 .topbar select {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   min-height: 30px;
   height: 30px;
   padding: 4px 9px;
@@ -439,7 +439,7 @@ nav b {
 }
 .alarm-button span {
   font-family: Consolas, monospace;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .reset-button {
   background: transparent !important;
@@ -468,11 +468,11 @@ main {
   align-items: center;
   gap: 6px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-bottom: 8px;
 }
 .page-heading p {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   margin-top: 5px;
 }
@@ -497,13 +497,13 @@ main {
 }
 .panel-head small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 6px;
 }
 .panel-head select {
   min-height: 27px;
   height: 27px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   padding: 4px 7px;
 }
 .kpi-strip {
@@ -539,14 +539,14 @@ main {
   border: 0;
 }
 .stat > span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   display: flex;
   align-items: center;
   gap: 7px;
 }
 .stat strong {
-  font-size: 29px;
+  font-size: calc(29px * var(--font-scale, 1));
   line-height: 1.15;
   font-weight: 500;
   font-family: "IBM Plex Mono", Consolas, monospace;
@@ -554,7 +554,7 @@ main {
   letter-spacing: -1px;
 }
 .stat em {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 400;
   color: var(--muted);
   font-style: normal;
@@ -563,7 +563,7 @@ main {
   font-family: inherit;
 }
 .stat small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   line-height: 1.6;
 }
 .dashboard-grid {
@@ -589,7 +589,7 @@ main {
   position: absolute;
   top: 13px;
   left: 16px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   display: flex;
   align-items: center;
   gap: 6px;
@@ -597,7 +597,7 @@ main {
   pointer-events: none;
 }
 .scene-corner > span:last-child {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: #94a3b8;
   margin-left: 8px;
 }
@@ -611,14 +611,14 @@ main {
   border-top: 1px solid var(--border);
 }
 .scene-footer > span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   display: flex;
   align-items: center;
   gap: 6px;
 }
 .scene-footer button {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .device-overview {
   display: grid;
@@ -633,13 +633,13 @@ main {
   gap: 5px;
 }
 .device-overview > div > span:nth-child(2) {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .device-overview strong {
   display: block;
   flex-basis: 100%;
-  font-size: 24px;
+  font-size: calc(24px * var(--font-scale, 1));
   font-family: "IBM Plex Mono", Consolas, monospace;
   font-weight: 400;
   margin-top: 8px;
@@ -654,14 +654,14 @@ main {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .line-capacity small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-left: 5px;
 }
 .line-capacity strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 400;
 }
 .mini-kpis {
@@ -682,16 +682,16 @@ main {
   padding: 0;
 }
 .mini-kpis span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .mini-kpis strong {
-  font-size: 21px;
+  font-size: calc(21px * var(--font-scale, 1));
   font-weight: 400;
   font-family: "IBM Plex Mono", Consolas, monospace;
 }
 .mini-kpis small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .chart {
   width: 100%;
@@ -727,11 +727,11 @@ main {
   flex: 1;
 }
 .event-feed b {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 500;
 }
 .event-feed p {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -739,7 +739,7 @@ main {
   margin-top: 5px;
 }
 .event-feed time {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   margin-top: 2px;
 }
@@ -750,7 +750,7 @@ main {
   display: flex;
   align-items: center;
   gap: 14px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin: 0 0 14px;
 }
 .distribution > div span {
@@ -761,11 +761,11 @@ main {
 .distribution strong {
   width: 20px;
   text-align: right;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 400;
 }
 .distribution > p {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 20px;
 }
 .app-footer {
@@ -773,7 +773,7 @@ main {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .app-footer span:first-child {
@@ -802,7 +802,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   color: var(--muted);
   padding: 24px;
   text-align: center;
@@ -814,7 +814,7 @@ main {
   align-items: center;
   justify-content: center;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--font-scale, 1));
 }
 .twin-layout {
   display: grid;
@@ -838,7 +838,7 @@ main {
   left: 16px;
   bottom: 16px;
   color: #b8c9d5;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   pointer-events: none;
 }
 .device-label {
@@ -846,7 +846,7 @@ main {
   border: 1px solid #3a5367;
   padding: 5px 8px;
   min-height: 27px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: #e8eef7;
   gap: 5px;
 }
@@ -860,7 +860,7 @@ main {
 }
 .device-label span {
   color: #a3b2c3;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .detail-metrics {
   display: grid;
@@ -874,16 +874,16 @@ main {
   gap: 9px;
 }
 .detail-metrics span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .detail-metrics strong {
-  font-size: 20px;
+  font-size: calc(20px * var(--font-scale, 1));
   font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 .detail-metrics small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 dl {
   padding: 0 18px;
@@ -894,7 +894,7 @@ dl > div {
   justify-content: space-between;
   border-bottom: 1px solid var(--border);
   padding: 11px 0;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   gap: 10px;
 }
 dt {
@@ -913,7 +913,7 @@ dd {
   background: var(--raised);
   border-left: 2px solid var(--cyan);
   border-radius: 4px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   line-height: 1.8;
   color: var(--muted);
   margin: 0 0 16px;
@@ -935,7 +935,7 @@ dd {
 }
 .filterbar > span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .comparison {
   border: 1px solid var(--border);
@@ -947,16 +947,16 @@ dd {
   gap: 10px;
 }
 .comparison > span {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .comparison > span small {
   float: right;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .comparison strong {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
-  font-size: 23px;
+  font-size: calc(23px * var(--font-scale, 1));
 }
 .gantt {
   padding: 12px 18px 20px;
@@ -966,7 +966,7 @@ dd {
   display: flex;
   margin-bottom: 15px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .gantt-scale > span {
   width: 130px;
@@ -983,11 +983,11 @@ dd {
   min-height: 70px;
 }
 .gantt-row b {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 400;
 }
 .gantt-row small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   display: block;
   margin-top: 8px;
 }
@@ -1009,7 +1009,7 @@ dd {
   background: #236078;
   border: 1px solid #3795aa;
   border-radius: 3px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   line-height: 24px;
   color: #e5f5fb;
   padding: 0 7px;
@@ -1029,11 +1029,11 @@ table {
   border-collapse: collapse;
   width: 100%;
   white-space: nowrap;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 th {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 400;
   text-align: left;
   padding: 13px 18px;
@@ -1044,12 +1044,12 @@ td {
   font-variant-numeric: tabular-nums;
 }
 td b {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 500;
 }
 td small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 7px;
 }
 td progress {
@@ -1057,7 +1057,7 @@ td progress {
   max-width: 100px;
 }
 td select {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   min-height: 26px;
   padding: 3px 6px;
 }
@@ -1072,13 +1072,13 @@ tbody tr:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   color: var(--muted);
   margin-bottom: 18px;
 }
 .field input,
 .field select {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   min-height: 39px;
 }
 .field input {
@@ -1104,10 +1104,10 @@ dialog > header {
   margin-bottom: 24px;
 }
 dialog h2 {
-  font-size: 18px;
+  font-size: calc(18px * var(--font-scale, 1));
 }
 dialog p {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   margin-bottom: 18px;
 }
 dialog .two-columns {
@@ -1135,7 +1135,7 @@ dialog .primary {
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   max-width: 90vw;
 }
 .toast svg {
@@ -1146,7 +1146,7 @@ dialog .primary {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   white-space: nowrap;
 }
@@ -1194,11 +1194,11 @@ dialog .primary {
   gap: 10px;
 }
 .device-card b {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   font-weight: 500;
 }
 .device-card p {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   margin-top: 6px;
 }
@@ -1209,23 +1209,23 @@ dialog .primary {
   margin: 18px 0 12px;
 }
 .health-score strong {
-  font-size: 25px;
+  font-size: calc(25px * var(--font-scale, 1));
   font-weight: 400;
   font-family: "IBM Plex Mono", monospace;
 }
 .health-score small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-left: 4px;
 }
 .health-score > span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .device-params {
   display: flex;
   justify-content: space-between;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 12px;
 }
 .panel > .toolbar {
@@ -1233,7 +1233,7 @@ dialog .primary {
 }
 .panel > .subtle {
   padding: 0 18px 16px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .record-list {
   padding: 0 18px 12px;
@@ -1253,16 +1253,16 @@ dialog .primary {
   align-items: flex-start;
 }
 .record-list b {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .record-list small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   line-height: 1.8;
   margin-top: 5px;
 }
 .record-list > button > span {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   white-space: nowrap;
   text-align: right;
 }
@@ -1324,7 +1324,7 @@ dialog .primary {
 .part-caption {
   position: absolute;
   bottom: 14px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: #9eb5c7;
   font-family: Consolas, monospace;
   letter-spacing: 1px;
@@ -1334,7 +1334,7 @@ dialog .primary {
   position: absolute;
   width: 55px;
   height: 40px;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: #fb7185;
   white-space: nowrap;
   padding-top: 40px;
@@ -1355,16 +1355,16 @@ dialog .primary {
 .mode-card strong {
   display: block;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 28px;
+  font-size: calc(28px * var(--font-scale, 1));
   font-weight: 400;
   margin-top: 20px;
 }
 .mode-card strong small {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .mode-card p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   margin: 8px 0 18px;
 }
 .mode-card > span {
@@ -1372,7 +1372,7 @@ dialog .primary {
   border-top: 1px solid var(--border);
   padding-top: 16px;
   margin-top: 20px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   color: var(--cyan);
 }
 .ar-layout {
@@ -1399,10 +1399,10 @@ dialog .primary {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
 }
 .camera-placeholder small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .ar-controls {
   padding: 14px 18px !important;
@@ -1427,12 +1427,12 @@ dialog .primary {
   flex: 1;
 }
 .steps b {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   font-weight: 500;
 }
 .steps small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   line-height: 1.8;
   margin-top: 8px;
 }
@@ -1460,16 +1460,16 @@ dialog .primary {
   background: white;
 }
 .target-row p {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   margin-bottom: 16px;
 }
 .target-row a {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-bottom: 10px;
 }
 .instructions {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
   line-height: 2.2;
   padding: 0 24px 15px 36px;
@@ -1494,7 +1494,7 @@ dialog .primary {
     padding: 0 14px;
   }
   .brand > div {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .main-shell {
     margin-left: 190px;
@@ -1514,10 +1514,10 @@ dialog .primary {
     padding: 16px;
   }
   .stat strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--font-scale, 1));
   }
   .stat em {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .scene-footer > span:nth-child(2) {
     display: none;
@@ -1527,7 +1527,7 @@ dialog .primary {
     grid-template-columns: minmax(0, 1fr) 260px;
   }
   .scene-tools button {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .topbar-controls {
     gap: 5px;
@@ -1563,7 +1563,7 @@ dialog .primary {
     transform: translateX(0);
   }
   .sidebar .brand > div {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .sidebar .brand .mobile-only {
     margin-left: auto;
@@ -1608,7 +1608,7 @@ dialog .primary {
     gap: 6px;
   }
   .topbar-title {
-    font-size: 12px;
+    font-size: calc(12px * var(--font-scale, 1));
   }
   .topbar .reset-button span,
   .theme-button,
@@ -1622,10 +1622,10 @@ dialog .primary {
     gap: 4px;
   }
   .topbar-controls button span {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .topbar-controls select {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     max-width: 45px;
   }
   .topbar .alarm-button {
@@ -1644,13 +1644,13 @@ dialog .primary {
   }
   .page-heading p {
     line-height: 1.9;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .page-heading h1 {
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1));
   }
   .breadcrumb {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .kpi-strip {
     grid-template-columns: 1fr 1fr;
@@ -1668,14 +1668,14 @@ dialog .primary {
     border-bottom: 1px solid var(--border);
   }
   .stat strong {
-    font-size: 25px;
+    font-size: calc(25px * var(--font-scale, 1));
   }
   .stat em {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     margin-left: 5px;
   }
   .stat small {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .dashboard-grid,
   .two-columns,
@@ -1694,10 +1694,10 @@ dialog .primary {
     padding-bottom: 16px;
   }
   .scene-footer > span {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .scene-footer button {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .panel-head {
     padding: 14px;
@@ -1705,7 +1705,7 @@ dialog .primary {
     min-height: 65px;
   }
   .panel-head small {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     line-height: 1.7;
   }
   .panel-head .toolbar {
@@ -1732,7 +1732,7 @@ dialog .primary {
     min-height: 150px;
   }
   .app-footer {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     line-height: 1.7;
     align-items: flex-start;
   }
@@ -1752,11 +1752,11 @@ dialog .primary {
     min-height: 36px;
   }
   .scene-hint {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     left: 10px;
   }
   .device-label {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
     padding: 3px 6px;
   }
   .device-label span {
@@ -1770,7 +1770,7 @@ dialog .primary {
     gap: 10px;
   }
   .detail-metrics strong {
-    font-size: 18px;
+    font-size: calc(18px * var(--font-scale, 1));
   }
   .detail-metrics small {
     display: block;
@@ -1790,10 +1790,10 @@ dialog .primary {
     margin-left: 10px;
   }
   .comparison strong {
-    font-size: 21px;
+    font-size: calc(21px * var(--font-scale, 1));
   }
   .comparison > small {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .panel:has(.gantt) {
     overflow: auto;
@@ -1809,10 +1809,10 @@ dialog .primary {
     flex-wrap: wrap;
   }
   .health-score strong {
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1));
   }
   .device-params {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .health-layout {
     gap: 0;
@@ -1827,19 +1827,19 @@ dialog .primary {
     position: relative;
   }
   .mode-card strong {
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1));
     margin-top: 15px;
   }
   .mode-card p {
     margin: 8px 0;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .mode-card > span {
     position: absolute;
     right: 18px;
     top: 45px;
     border: 0;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .ar-viewport {
     height: 300px;
@@ -1849,16 +1849,16 @@ dialog .primary {
   }
   .ar-controls button {
     min-height: 40px;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .steps > label {
     padding: 18px 0;
   }
   .steps b {
-    font-size: 12px;
+    font-size: calc(12px * var(--font-scale, 1));
   }
   .steps small {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .target-row {
     gap: 16px;
@@ -1869,10 +1869,10 @@ dialog .primary {
     height: 160px;
   }
   .target-row p {
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .instructions {
-    font-size: 12px;
+    font-size: calc(12px * var(--font-scale, 1));
     line-height: 2;
   }
   .two-columns > .panel {
@@ -1884,14 +1884,14 @@ dialog .primary {
   }
   .toast {
     bottom: 16px;
-    font-size: 11px;
+    font-size: calc(11px * var(--font-scale, 1));
   }
   .topbar button,
   .topbar select {
     min-height: 36px;
   }
   nav button {
-    font-size: 14px;
+    font-size: calc(14px * var(--font-scale, 1));
     height: 47px;
   }
 }
@@ -1935,7 +1935,7 @@ dialog .primary {
     padding-bottom: 18px;
   }
   .device-overview strong {
-    font-size: 22px;
+    font-size: calc(22px * var(--font-scale, 1));
     margin-top: 6px;
   }
   .line-capacity > div {

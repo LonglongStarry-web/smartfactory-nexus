@@ -1,0 +1,125 @@
+nav button.active {
+  color: var(--cyan);
+  background: color-mix(in srgb, var(--cyan) 12%, var(--surface));
+}
+nav button.active:hover {
+  background: color-mix(in srgb, var(--cyan) 16%, var(--surface));
+}
+.appearance-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  margin: 0 0 18px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 40%, var(--border));
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--cyan) 6%, var(--surface));
+}
+.appearance-preview b {
+  font-size: calc(14px * var(--font-scale, 1));
+  font-weight: 500;
+  color: var(--cyan);
+}
+.appearance-preview small {
+  display: block;
+  font-size: calc(12px * var(--font-scale, 1));
+  margin-top: 7px;
+  line-height: 1.8;
+}
+.appearance-preview button {
+  flex-shrink: 0;
+}
+.gantt-slot {
+  background: color-mix(in srgb, var(--cyan) 28%, var(--surface));
+  border-color: color-mix(in srgb, var(--cyan) 65%, var(--border));
+  color: var(--text);
+  height: calc(26px * var(--font-scale, 1));
+  line-height: calc(24px * var(--font-scale, 1));
+}
+.gantt-track {
+  height: calc(40px * var(--font-scale, 1));
+}
+.gantt-slot.late {
+  background: color-mix(in srgb, var(--yellow) 15%, var(--surface));
+  border-color: var(--yellow);
+}
+.sidebar {
+  overflow-y: auto;
+}
+.panel-head {
+  height: auto;
+  min-height: 65px;
+  flex-wrap: wrap;
+}
+.panel-head > div {
+  min-width: 0;
+}
+.stat strong {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  max-width: 100%;
+}
+.workspace > div {
+  min-width: 0;
+}
+.distribution > div span {
+  width: calc(45px * var(--font-scale, 1));
+}
+.settings-content .setting-row select[aria-label="界面字号"] {
+  width: calc(165px * var(--font-scale, 1));
+  max-width: 100%;
+}
+:root[data-font-size="large"] .panel-head,
+:root[data-font-size="xlarge"] .panel-head {
+  min-height: 78px;
+}
+:root[data-font-size="xlarge"] .page-heading > .toolbar {
+  flex-wrap: wrap;
+}
+:root[data-font-size="xlarge"] .device-overview > div {
+  column-gap: 5px;
+}
+:root[data-font-size="xlarge"] .brand > div {
+  letter-spacing: 0.5px;
+}
+:root[data-font-size="xlarge"] .topbar-controls select {
+  max-width: calc(60px * var(--font-scale, 1));
+}
+@media (max-width: 760px) {
+  .appearance-preview {
+    flex-wrap: wrap;
+    padding: 14px;
+  }
+  .setting-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .setting-row > div {
+    flex: 1 1 160px;
+  }
+  .setting-row > select {
+    max-width: 100%;
+  }
+  .settings-content .setting-row select[aria-label="界面字号"] {
+    max-width: 100%;
+    margin-left: auto;
+  }
+  .topbar-controls select {
+    max-width: calc(45px * var(--font-scale, 1));
+  }
+  .panel-head .toolbar {
+    flex-wrap: wrap;
+  }
+  .stat {
+    min-height: calc(112px * var(--font-scale, 1));
+  }
+  .scene-footer {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  :root[data-font-size="xlarge"] .topbar-title {
+    font-size: calc(10px * var(--font-scale, 1));
+  }
+}

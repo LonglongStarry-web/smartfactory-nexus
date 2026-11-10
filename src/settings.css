@@ -15,10 +15,10 @@
   padding-top: 16px;
 }
 .settings-description h2 {
-  font-size: 15px;
+  font-size: calc(15px * var(--font-scale, 1));
 }
 .settings-description p {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   color: var(--muted);
   line-height: 1.9;
   margin-top: 10px;
@@ -37,7 +37,7 @@
   align-items: center;
   gap: 6px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   padding-bottom: 7px;
 }
 .settings-saved svg {
@@ -49,7 +49,7 @@
   padding: 8px 0 20px;
 }
 .setting-fieldset legend {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   color: var(--text);
   margin-bottom: 12px;
   padding: 0;
@@ -64,7 +64,7 @@
 .accent-options button {
   background: var(--bg);
   min-height: 40px;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   padding: 9px 12px;
 }
 .settings-content button.selected {
@@ -96,12 +96,12 @@
   min-width: 0;
 }
 .setting-row b {
-  font-size: 13px;
+  font-size: calc(13px * var(--font-scale, 1));
   font-weight: 500;
 }
 .setting-row small {
   display: block;
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   line-height: 1.8;
   margin-top: 6px;
 }
@@ -121,7 +121,7 @@
   flex-shrink: 0;
 }
 .settings-help {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   line-height: 1.9;
   color: var(--muted);
   padding: 14px 0 0;
@@ -131,7 +131,7 @@
 }
 .settings-help code {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .version-summary {
   display: flex;
@@ -146,20 +146,20 @@
   gap: 8px;
 }
 .version-summary span {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   color: var(--muted);
 }
 .version-summary strong {
   font-family: "IBM Plex Mono", monospace;
-  font-size: 27px;
+  font-size: calc(27px * var(--font-scale, 1));
   letter-spacing: -1px;
   font-weight: 400;
 }
 .version-summary small {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .release-channel {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   color: var(--muted);
 }
 .release-result {
@@ -167,7 +167,7 @@
   padding: 14px 16px;
   background: var(--bg);
   border-left: 2px solid var(--cyan);
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   line-height: 1.9;
 }
 .release-result > b {
@@ -175,7 +175,7 @@
 }
 .release-result small {
   display: block;
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
   margin-top: 7px;
 }
 .release-result ul {
@@ -184,17 +184,17 @@
   color: var(--muted);
 }
 .release-result p {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
   margin: 12px 0;
 }
 .settings-link {
   padding-top: 8px;
 }
 .order-time time {
-  font-size: 12px;
+  font-size: calc(12px * var(--font-scale, 1));
 }
 .order-time small {
-  font-size: 11px;
+  font-size: calc(11px * var(--font-scale, 1));
 }
 .checking-icon {
   animation: checking-spin 1.2s linear infinite;
@@ -272,13 +272,13 @@
     min-height: 42px;
   }
   .version-summary strong {
-    font-size: 24px;
+    font-size: calc(24px * var(--font-scale, 1));
   }
   .settings-description p,
   .setting-row small,
   .settings-help,
   .release-result {
-    font-size: 12px;
+    font-size: calc(12px * var(--font-scale, 1));
   }
   .settings-section .panel-head {
     min-height: 66px;

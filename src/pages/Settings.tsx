@@ -10,7 +10,13 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { useFactory } from "../store/useFactory";
-import { accents, type Accent, type ThemeMode } from "../app/preferences";
+import {
+  accents,
+  fontSizes,
+  type Accent,
+  type ThemeMode,
+  type FontSize,
+} from "../app/preferences";
 import {
   APP_VERSION,
   checkRelease,
@@ -24,8 +30,7 @@ export default function Settings() {
   const [confirm, setConfirm] = useState(false),
     [checking, setChecking] = useState(false),
     [release, setRelease] = useState<Release>(),
-    [error, setError] = useState(""),
-    [checkedAt, setCheckedAt] = useState("");
+    [error, setError] = useState("");
   const request = useRef<AbortController | null>(null);
   useEffect(
     () => () => {
@@ -46,12 +51,6 @@ export default function Settings() {
       const result = await checkRelease(controller.signal);
       if (request.current !== controller) return;
       setRelease(result);
-      setCheckedAt(
-        new Date().toLocaleString("zh-CN", {
-          timeZone: "Asia/Shanghai",
-          hour12: false,
-        }),
-      );
     } catch (e) {
       if (request.current === controller)
         setError(
@@ -100,9 +99,8 @@ export default function Settings() {
                 <div>
                   <span>当前版本</span>
                   <strong>v{APP_VERSION}</strong>
-                  <small>本次更新：2026-11-10</small>
                 </div>
-                <button onClick={check} disabled={checking}>
+                <button className="primary" onClick={check} disabled={checking}>
                   <RefreshCw
                     size={15}
                     className={checking ? "checking-icon" : ""}
@@ -128,10 +126,6 @@ export default function Settings() {
                         ? "当前版本领先于部署清单"
                         : "当前已是部署清单中的最新版本"}
                   </b>
-                  <small>
-                    发布于 {release.publishedAt} · 检查于 {checkedAt}
-                    （北京时间）
-                  </small>
                   <ul>
                     {release.notes.map((note, i) => (
                       <li key={i}>{note}</li>
@@ -209,6 +203,35 @@ export default function Settings() {
                   ))}
                 </div>
               </fieldset>
+              <div className="appearance-preview" aria-label="主题效果预览">
+                <div>
+                  <b>当前主题：{accents[f.accent].name}</b>
+                  <small>导航、按钮、图表与进度条同步应用。</small>
+                </div>
+                <button className="primary" onClick={() => f.nav("dashboard")}>
+                  查看驾驶舱 <ArrowUpRight size={14} />
+                </button>
+              </div>
+              <div className="setting-row">
+                <div>
+                  <b>界面字号</b>
+                  <small>调整页面和图表文字大小，设置自动保存。</small>
+                </div>
+                <select
+                  aria-label="界面字号"
+                  value={f.preferences.fontSize}
+                  onChange={(e) =>
+                    f.setPreferences({ fontSize: e.target.value as FontSize })
+                  }
+                >
+                  {Object.entries(fontSizes).map(([value, size]) => (
+                    <option key={value} value={value}>
+                      {size.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div className="setting-row">
                 <div>
                   <b>表格密度</b>
@@ -359,7 +382,9 @@ export default function Settings() {
               <div className="setting-row">
                 <div>
                   <b>恢复默认偏好</b>
-                  <small>恢复明暗模式、主题色、画质、标签与默认倍速。</small>
+                  <small>
+                    恢复明暗模式、主题色、字号、画质、标签与默认倍速。
+                  </small>
                 </div>
                 <button onClick={() => setConfirm(true)}>
                   <RotateCcw size={14} />
@@ -373,7 +398,7 @@ export default function Settings() {
       {confirm && (
         <Modal title="恢复默认设置" onClose={() => setConfirm(false)}>
           <p>
-            恢复深色、冰川青、标准画质、设备标签和 5×
+            恢复深色、冰川青、标准字号、标准画质、设备标签和 5×
             默认倍速。订单、工件、告警和维修记录不会删除。
           </p>
           <button

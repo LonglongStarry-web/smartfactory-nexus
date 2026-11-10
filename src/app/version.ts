@@ -2,7 +2,6 @@ import packageInfo from "../../package.json";
 export const APP_VERSION = packageInfo.version;
 export interface Release {
   version: string;
-  publishedAt: string;
   notes: string[];
 }
 const pattern = /^\d+\.\d+\.\d+$/;
@@ -16,7 +15,7 @@ export function compareVersions(a: string, b: string) {
   return 0;
 }
 export async function checkRelease(signal?: AbortSignal): Promise<Release> {
-  const response = await fetch(`/version.json?check=${Date.now()}`, {
+  const response = await fetch("/version.json", {
     cache: "no-store",
     signal,
   });
@@ -28,11 +27,9 @@ export async function checkRelease(signal?: AbortSignal): Promise<Release> {
   if (
     typeof release.version !== "string" ||
     !pattern.test(release.version) ||
-    typeof release.publishedAt !== "string" ||
-    !Number.isFinite(Date.parse(release.publishedAt)) ||
     !Array.isArray(release.notes) ||
     !release.notes.every((n) => typeof n === "string")
   )
     throw Error("版本清单格式无效。");
-  return release;
+  return { version: release.version, notes: release.notes };
 }
