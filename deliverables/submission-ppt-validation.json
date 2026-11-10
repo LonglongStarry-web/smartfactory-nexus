@@ -1,0 +1,2175 @@
+{
+  "slideCount": 26,
+  "fontPolicy": {
+    "families": [
+      "Microsoft YaHei"
+    ],
+    "basis": "design"
+  },
+  "checks": [
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "1",
+      "outOfSlide": false
+    },
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "智造未来",
+      "outOfSlide": false
+    },
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "数字孪生与 AR\n柔性制造协同管控系统",
+      "outOfSlide": false
+    },
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "智能制造系统设计及初步验证\n课程提交版 · v1.3.0\n可交互 Web 原型 / 可编辑 PPT / 验证记录",
+      "outOfSlide": false
+    },
+    {
+      "slide": 2,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 2,
+      "overflow": false,
+      "text": "2",
+      "outOfSlide": false
+    },
+    {
+      "slide": 2,
+      "overflow": false,
+      "text": "本作品如何对应课程要求",
+      "outOfSlide": false
+    },
+    {
+      "slide": 2,
+      "overflow": false,
+      "text": "正文已包含理解和评阅所需信息，可直接阅读，无需现场操作。",
+      "outOfSlide": false
+    },
+    {
+      "text": "作业要求",
+      "slide": 2,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "本作品的回答",
+      "slide": 2,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "阅读位置",
+      "slide": 2,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "需求分析",
+      "slide": 2,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "用户、业务问题、优先级和验收条件",
+      "slide": 2,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "第 3–4 页",
+      "slide": 2,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "初步设计",
+      "slide": 2,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "架构、数据关系、车间布局与工序联锁",
+      "slide": 2,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "第 5–8 页",
+      "slide": 2,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "可交互原型",
+      "slide": 2,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "8 个业务模块及加工观察、质量追溯",
+      "slide": 2,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "第 9–19 页",
+      "slide": 2,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "初步评估",
+      "slide": 2,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "自动化验证、守恒核算、布局检查与待测方案",
+      "slide": 2,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "第 20–25 页",
+      "slide": 2,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 2,
+      "overflow": false,
+      "text": "正式题名：基于数字孪生与增强现实的智能柔性制造车间协同管控系统。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "围绕一个可追溯的车间任务设计",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "场景是两组加工单元共享检测与仓储；数据来自本地规则仿真。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "调度人员",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "需要知道订单何时开始、何时能合格入库；插单和故障后仍能看清任务去向。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "质量人员",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "需要从超差结果回到具体工件、设备、参数和工序，比较修正前后的测量。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "维护人员",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "需要把报警、维修步骤和恢复记录关联到设备，并在 AR 识别或三维回退界面查看。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 3,
+      "overflow": false,
+      "text": "设计依据：课程场景推演与原始任务需求；尚未开展工厂访谈，不能当作已证实的行业调研结论。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 4,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 4,
+      "overflow": false,
+      "text": "4",
+      "outOfSlide": false
+    },
+    {
+      "slide": 4,
+      "overflow": false,
+      "text": "把需求写成可检查的行为",
+      "outOfSlide": false
+    },
+    {
+      "slide": 4,
+      "overflow": false,
+      "text": "优先保证跨页面状态一致和完整业务流程，再扩展可解释加工。",
+      "outOfSlide": false
+    },
+    {
+      "text": "优先级",
+      "slide": 4,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "需求",
+      "slide": 4,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "验收条件",
+      "slide": 4,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "核心",
+      "slide": 4,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "生产、调度、故障与维修联动",
+      "slide": 4,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "同一工件不丢失、不复制；故障冻结原任务",
+      "slide": 4,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "核心",
+      "slide": 4,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "三维与真实工序状态一致",
+      "slide": 4,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "取放、门、夹具、刀具及送检顺序可核对",
+      "slide": 4,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "核心",
+      "slide": 4,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "质量追溯与处置",
+      "slide": 4,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "3 类超差有测量依据；返工保留首检",
+      "slide": 4,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "扩展",
+      "slide": 4,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "AR、显示设置及导出",
+      "slide": 4,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "识别/权限失败有反馈；主题与字号实际生效",
+      "slide": 4,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "非功能",
+      "slide": 4,
+      "overflow": false,
+      "cell": "6,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "可安装、可构建、可阅读",
+      "slide": 4,
+      "overflow": false,
+      "cell": "6,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "本地存档；桌面/平板/手机尺寸无横向溢出",
+      "slide": 4,
+      "overflow": false,
+      "cell": "6,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 4,
+      "overflow": false,
+      "text": "原始八模块：驾驶舱、数字孪生、调度、质量、设备健康、能耗、AR 巡检、报告；另增系统设置。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "5",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "所有视图读取同一份制造状态",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "一个模拟时钟推进业务；三维渲染只读取工序姿态，回放不会改生产数量。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "React 业务页面（8模块）",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "ECharts 图表",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "主题 / 字号 / 报告导出",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "Zustand 统一状态：订单 / 设备 / 工件 / 工序 / 质量 / 维修 / 能耗",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "模拟时钟与规则引擎",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "R3F 三维场景与回放",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "MindAR 独立识别",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "本地持久化与记录",
+      "outOfSlide": false
+    },
+    {
+      "slide": 5,
+      "overflow": false,
+      "text": "纯前端课程原型：没有服务端、PLC 或实时工业通信；刷新保留存档并默认暂停。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "6",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "以工件编号连接加工与质量证据",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "每件工件保存投料时的配方和参数；历史记录不随新设置被改写。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "订单\n需求 / 优先级 / 交期",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "工件唯一编号\n订单关联 / 所在位置",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "配方与参数快照\n投料时固定",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "加工工序轨迹\n设备 / 时间 / 持有者",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "检测与处置\n测量 / 首检 / 返工",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "入库与发运\n库存 / 历史订单履约",
+      "outOfSlide": false
+    },
+    {
+      "slide": 6,
+      "overflow": false,
+      "text": "旧版历史数据保留原统计含义；缺少加工轨迹时明确提示，不能伪造回放。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "7",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "车间布局包含两组加工单元",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "每组 CNC 与机械臂对应独立上料位；共享 QC、AGV 物流通道和 ASRS 仓储。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "机械臂目标点由统一空间锚点定义。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "状态灯安装在设备表面；颜色反映统一设备状态。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "货架按 12 个逻辑货格聚合显示，尺寸未作工业标定。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 7,
+      "overflow": false,
+      "text": "最终版本实际界面；示例运行至模拟时间 08:05:00。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "8",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "19 道工序明确工件由谁持有",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "夹爪、夹具、检测台和暂存位依次接管工件，前一步满足后才能继续。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "上料与装夹\n\n抓取毛坯 / 开门\n定位 / 夹紧\n撤爪 / 关门\n\n夹爪 → 夹具",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "切削与退刀\n\n端面 / 外轮廓\n钻孔 / 去毛刺\n刀具退回安全位\n\n夹具持续持有",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "卸料与送检\n\n开门 / 握持成品\n松夹 / 卸料\n关门 / 放入检测台\n\n夹具 → 夹爪 → QC",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "检测与分流\n\n扫描测量\n规格判定 / 分流\n合格与超差分开\n\nQC → 暂存位",
+      "outOfSlide": false
+    },
+    {
+      "slide": 8,
+      "overflow": false,
+      "text": "法兰单件工艺 49 模拟秒；AGV 转运另计 14 秒。共享 QC、缓冲区和故障会形成等待。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "9",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "机械动作随工序推进",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "以下三个画面来自同一法兰配方的确定工序状态，展示装夹前后与切削阶段。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "装载：工件跟随夹爪",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "端面：夹具持有工件",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "钻孔：刀具逐孔下探",
+      "outOfSlide": false
+    },
+    {
+      "slide": 9,
+      "overflow": false,
+      "text": "路径检查覆盖两单元、两配方及返工；连杆长度保持，工序交接连续。场景没有切削力、切屑或碰撞动力学。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "10",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "进入设备内部查看加工依据",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "选择设备并点击“观察加工”，可透视外壳、查看刀路、阅读部件说明并选择历史工件。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "可按工序跳转、拖动时间或调节回放速度。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "回放读取参数快照和已完成工序区间。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "未逐帧记录停机动作，回放属于工序轨迹重建。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 10,
+      "overflow": false,
+      "text": "回放测试逐字段比较生产状态：订单、库存、工件和时钟均未被回放修改。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 11,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 11,
+      "overflow": false,
+      "text": "11",
+      "outOfSlide": false
+    },
+    {
+      "slide": 11,
+      "overflow": false,
+      "text": "两类配方体现柔性加工差异",
+      "outOfSlide": false
+    },
+    {
+      "slide": 11,
+      "overflow": false,
+      "text": "产品切换会改变外形、刀路、工序时长和检测名义值。",
+      "outOfSlide": false
+    },
+    {
+      "text": "项目",
+      "slide": 11,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "圆形法兰 A-320",
+      "slide": 11,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "安装支架板 B-210",
+      "slide": 11,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "工件 / 轮廓",
+      "slide": 11,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "圆形；圆周轮廓刀路",
+      "slide": 11,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "矩形；矩形外轮廓刀路",
+      "slide": 11,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "加工周期",
+      "slide": 11,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "49 模拟秒",
+      "slide": 11,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "52 模拟秒",
+      "slide": 11,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "孔位 X 名义值",
+      "slide": 11,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "20 mm；允许 ±0.05 mm",
+      "slide": 11,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "30 mm；允许 ±0.05 mm",
+      "slide": 11,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "轮廓名义尺寸",
+      "slide": 11,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "直径 80 mm；允许 ±0.10 mm",
+      "slide": 11,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "宽度 100 mm；允许 ±0.10 mm",
+      "slide": 11,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "单元能力与换型",
+      "slide": 11,
+      "overflow": false,
+      "cell": "6,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "可配置兼容配方",
+      "slide": 11,
+      "overflow": false,
+      "cell": "6,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "变更工装需 6 模拟秒",
+      "slide": 11,
+      "overflow": false,
+      "cell": "6,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 11,
+      "overflow": false,
+      "text": "规格、周期及工装时间均为课程演示假设，不代表真实产品工程图或工艺定额。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "12",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "调度同时考虑能力和已知等待",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "先来先服务与紧急优先可对比；正在加工的工件不会被插单替换。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "没有兼容设备的订单保持等待。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "故障时仅未开工毛坯可经 AGV 转到兼容单元。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "在制夹持件留在原位；预计完成不预知未来故障与不良。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 12,
+      "overflow": false,
+      "text": "甘特图预测包含已知工序、换型、共享检测与转运等待；它是规则估算，不是优化算法最优性证明。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 13,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 13,
+      "overflow": false,
+      "text": "13",
+      "outOfSlide": false
+    },
+    {
+      "slide": 13,
+      "overflow": false,
+      "text": "不合格品由工艺输入产生",
+      "outOfSlide": false
+    },
+    {
+      "slide": 13,
+      "overflow": false,
+      "text": "投料时保存参数，检测值按明确规则生成，再与规格比较。",
+      "outOfSlide": false
+    },
+    {
+      "text": "输入场景",
+      "slide": 13,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "工序影响",
+      "slide": 13,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "法兰测量结果",
+      "slide": 13,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "处理原则",
+      "slide": 13,
+      "overflow": false,
+      "cell": "1,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "装夹 X 偏移 +0.08 mm",
+      "slide": 13,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "钻孔基准同量偏移",
+      "slide": 13,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "20.08 mm；允许 19.95–20.05",
+      "slide": 13,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "隔离、报废，修正后补投",
+      "slide": 13,
+      "overflow": false,
+      "cell": "2,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "轮廓补偿误差 +0.20 mm",
+      "slide": 13,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "外轮廓尺寸偏移",
+      "slide": 13,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "80.20 mm；允许 79.90–80.10",
+      "slide": 13,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "隔离、报废，修正后补投",
+      "slide": 13,
+      "overflow": false,
+      "cell": "3,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "跳过去毛刺",
+      "slide": 13,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "边缘残余未去除",
+      "slide": 13,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "0.12 mm；允许 0–0.05",
+      "slide": 13,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "可去毛刺返工后复测",
+      "slide": 13,
+      "overflow": false,
+      "cell": "4,4",
+      "outOfSlide": false
+    },
+    {
+      "slide": 13,
+      "overflow": false,
+      "text": "这是已知输入在仿真规则中的因果解释；不能直接据此认定真实设备根因，也未使用训练后的视觉检测模型。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "14",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "返工保留同一编号和首检证据",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "开启人工处置后，超差件留在隔离位；毛刺件可回送上料并去毛刺复测。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "孔位和尺寸损伤不能通过本模型加料修复。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "返工前参数、工序与检测单独存档。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "首检良品率排除返工复测；返工不增加新增产品数量。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 14,
+      "overflow": false,
+      "text": "已验证：1 件毛刺超差件返工后合格入库；仍只有 1 件产品，保存 1 条首检失败和 1 条返工通过记录。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "15",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "故障处理形成可核对的维护闭环",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "报警触发后查看健康参数、创建工单、确认检查步骤，再恢复设备。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "温度、振动和健康阈值为演示规则。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "维修未完成时恢复操作给出反馈。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "恢复后保留原在制件与维修事件，不把旧进度挪给新订单。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 15,
+      "overflow": false,
+      "text": "自动化流程已验证“生产 → 插单 → 故障 → 维修 → 恢复 → 导出”；未声称具备预测性维护模型。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "16",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "AR 识别目标并展示维修步骤",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "MindAR 读取本地目标资源，识别后叠加设备信息；拒绝摄像头权限时提供明确回退。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "桌面合成视频流识别成功，关闭后媒体轨道全部释放。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "三维回退可查看维修步骤，但不使用摄像头或图像识别。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "真实 Android / iOS、光照和遮挡条件仍待实测。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 16,
+      "overflow": false,
+      "text": "此图为实际目标 PNG 生成的视频流测试，不是手机拍摄结果。识别资源和算法已打包在项目中。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "17",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "驾驶舱与显示设置支持独立阅读",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "驾驶舱汇总同一模拟时钟下的生产、质量与告警；设置可改变实际显示。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "统一业务概览",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "主题、字号、动画与版本检查",
+      "outOfSlide": false
+    },
+    {
+      "slide": 17,
+      "overflow": false,
+      "text": "支持四种主题色、深浅色和四档字号；导航、按钮、排产条及图表同步变化。版本区不显示或保存更新时间。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 18,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 18,
+      "overflow": false,
+      "text": "18",
+      "outOfSlide": false
+    },
+    {
+      "slide": 18,
+      "overflow": false,
+      "text": "用同一批量比较模拟能耗",
+      "outOfSlide": false
+    },
+    {
+      "slide": 18,
+      "overflow": false,
+      "text": "40 件法兰、两单元、无随机不良；各模式运行至订单全部合格入库，逐秒推进。",
+      "outOfSlide": false
+    },
+    {
+      "text": "模式",
+      "slide": 18,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "完成用时 / 模拟秒",
+      "slide": 18,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "合格入库 / 件",
+      "slide": 18,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "累计模拟能耗 / kWh",
+      "slide": 18,
+      "overflow": false,
+      "cell": "1,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "标准",
+      "slide": 18,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "1008",
+      "slide": 18,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "40",
+      "slide": 18,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "4.6084",
+      "slide": 18,
+      "overflow": false,
+      "cell": "2,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "高性能",
+      "slide": 18,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "782",
+      "slide": 18,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "40",
+      "slide": 18,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "5.5431",
+      "slide": 18,
+      "overflow": false,
+      "cell": "3,4",
+      "outOfSlide": false
+    },
+    {
+      "text": "节能",
+      "slide": 18,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "1335",
+      "slide": 18,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "40",
+      "slide": 18,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "3.8321",
+      "slide": 18,
+      "overflow": false,
+      "cell": "4,4",
+      "outOfSlide": false
+    },
+    {
+      "slide": 18,
+      "overflow": false,
+      "text": "能耗由设备运行/待机功率积分；模式功率与加工倍率为设定值。数据只能比较该仿真条件，不能证明真实工厂节能效果。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "19",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "报告把统计口径与原始记录一起导出",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "可导出 CSV、JSON 和 HTML 报告，用于老师离线核对订单、事件与计算结果。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "加工产量、生产首检、合格入库和在制件分开统计。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "首检良品率 = 首次检测合格数 / 首次检测总数。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "综合效率为课程演示指标，不作经过现场标定的工业 OEE 结论。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 19,
+      "overflow": false,
+      "text": "导出文件与完整示例备份随交付包提供；无需连接外部数据库。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "20",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "初步评估采用可重复的技术验证",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "实际完成的是功能、数据一致性、浏览器和布局验证；专家与用户评估另列待开展。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "单元验证",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "58 项：状态机、工件守恒、测量判定、返工、能力、换型、故障转运及存档恢复。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "浏览器验证",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "21 项：原八个业务模块及设置、三维实际接触、观察回放、质量处置和物流流程。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "构建与兼容性",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "TypeScript 和 Vite 生产构建通过；Windows 安装版 Chrome，软件 WebGL（SwiftShader）。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 20,
+      "overflow": false,
+      "text": "实际测试文件、最终验证清单和截图随源码交付；预计结果与实际结果分开记录。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 21,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 21,
+      "overflow": false,
+      "text": "21",
+      "outOfSlide": false
+    },
+    {
+      "slide": 21,
+      "overflow": false,
+      "text": "完整默认批次满足数量守恒",
+      "outOfSlide": false
+    },
+    {
+      "slide": 21,
+      "overflow": false,
+      "text": "默认需求 370 件；运行 12000 个模拟秒，核对唯一工件、首检、报废和入库。",
+      "outOfSlide": false
+    },
+    {
+      "text": "实际核对项",
+      "slide": 21,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "结果",
+      "slide": 21,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "含义",
+      "slide": 21,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "释放工件",
+      "slide": 21,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "389 件",
+      "slide": 21,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "每件有唯一编号和完整加工轨迹",
+      "slide": 21,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "合格入库",
+      "slide": 21,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "370 件",
+      "slide": 21,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "订单只在合格件完成入库后增加完成量",
+      "slide": 21,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "不合格并隔离报废",
+      "slide": 21,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "19 件",
+      "slide": 21,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "对应补投；没有计入合格完成量",
+      "slide": 21,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "完整工序轨迹",
+      "slide": 21,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "389 条",
+      "slide": 21,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "每条包含 19 个已完成工序区间",
+      "slide": 21,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "本地存档",
+      "slide": 21,
+      "overflow": false,
+      "cell": "6,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "4.07 MiB",
+      "slide": 21,
+      "overflow": false,
+      "cell": "6,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "低于已验证浏览器的 5 MiB 配额",
+      "slide": 21,
+      "overflow": false,
+      "cell": "6,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 21,
+      "overflow": false,
+      "text": "本次核算：389 = 370 合格入库 + 19 报废。大规模长期历史存储仍需服务端方案。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 22,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 22,
+      "overflow": false,
+      "text": "22",
+      "outOfSlide": false
+    },
+    {
+      "slide": 22,
+      "overflow": false,
+      "text": "关键验收项均有对应测试证据",
+      "outOfSlide": false
+    },
+    {
+      "slide": 22,
+      "overflow": false,
+      "text": "以下为实际结果，不以预期效果代替实测。",
+      "outOfSlide": false
+    },
+    {
+      "text": "检查项",
+      "slide": 22,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "实际结果",
+      "slide": 22,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "可复核文件",
+      "slide": 22,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "暂停 / 故障",
+      "slide": 22,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "工件与阶段进度保留",
+      "slide": 22,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "motion / flow 测试",
+      "slide": 22,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "加工回放",
+      "slide": 22,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "不改生产时钟、库存或订单",
+      "slide": 22,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "observation 浏览器测试",
+      "slide": 22,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "三类超差 / 去毛刺返工",
+      "slide": 22,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "测量可复现；首检不被覆盖",
+      "slide": 22,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "quality-cause 测试",
+      "slide": 22,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "能力 / 换型 / 替代路线",
+      "slide": 22,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "不派到不兼容设备；到达后迁移",
+      "slide": 22,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "flexibility 测试",
+      "slide": 22,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "AR 及媒体释放",
+      "slide": 22,
+      "overflow": false,
+      "cell": "6,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "合成目标识别成功；轨道释放",
+      "slide": 22,
+      "overflow": false,
+      "cell": "6,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "ar-synthetic-result.json",
+      "slide": 22,
+      "overflow": false,
+      "cell": "6,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 22,
+      "overflow": false,
+      "text": "对应测试均在当前 v1.3 源码中；真实手机 AR 和现场工艺精度不在“已通过”范围。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "23",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "界面与资源检查说明适用范围",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "生产构建在 1440、768、390px 的九个页面共 27 个布局组合均未出现横向溢出。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "可读性",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "四档字号与深浅色、主题色已通过浏览器检查；最大字号也检查九页布局。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "资源趋势",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "同一端面观察视图，重复进入/退出五次后，几何体计数均为 116，纹理计数均为 3。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "解释边界",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "资源计数稳定是本次场景的证据，不等于长期无泄漏证明；SwiftShader 采样不代表真实 GPU 帧率。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 23,
+      "overflow": false,
+      "text": "实测方法与原始采样：v1.3-final-validation.json、v1.3-resource-trend.json；不报告未测的 GPU 显存或手机性能。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 24,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 24,
+      "overflow": false,
+      "text": "24",
+      "outOfSlide": false
+    },
+    {
+      "slide": 24,
+      "overflow": false,
+      "text": "真实用户与实机评估已准备方案",
+      "outOfSlide": false
+    },
+    {
+      "slide": 24,
+      "overflow": false,
+      "text": "以下工作尚未开展；交付空白记录表，不填写虚构评分。",
+      "outOfSlide": false
+    },
+    {
+      "text": "计划对象",
+      "slide": 24,
+      "overflow": false,
+      "cell": "1,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "任务 / 条件",
+      "slide": 24,
+      "overflow": false,
+      "cell": "1,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "待记录指标",
+      "slide": 24,
+      "overflow": false,
+      "cell": "1,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "课程同学 / 调度视角",
+      "slide": 24,
+      "overflow": false,
+      "cell": "2,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "创建订单，解释预计与实际完成",
+      "slide": 24,
+      "overflow": false,
+      "cell": "2,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "任务完成率、用时、错误次数",
+      "slide": 24,
+      "overflow": false,
+      "cell": "2,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "质量 / 维护视角",
+      "slide": 24,
+      "overflow": false,
+      "cell": "3,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "追溯一件超差品，完成一次维护恢复",
+      "slide": 24,
+      "overflow": false,
+      "cell": "3,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "原因理解正确率、可追溯性评分",
+      "slide": 24,
+      "overflow": false,
+      "cell": "3,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "指导教师 / 专家",
+      "slide": 24,
+      "overflow": false,
+      "cell": "4,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "审阅需求、设计、工艺简化及证据",
+      "slide": 24,
+      "overflow": false,
+      "cell": "4,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "合理性、完整性、改进意见",
+      "slide": 24,
+      "overflow": false,
+      "cell": "4,3",
+      "outOfSlide": false
+    },
+    {
+      "text": "Android / iOS 手机",
+      "slide": 24,
+      "overflow": false,
+      "cell": "5,1",
+      "outOfSlide": false
+    },
+    {
+      "text": "不同光照、距离、遮挡下识别目标",
+      "slide": 24,
+      "overflow": false,
+      "cell": "5,2",
+      "outOfSlide": false
+    },
+    {
+      "text": "成功率、首帧耗时、退出摄像头释放",
+      "slide": 24,
+      "overflow": false,
+      "cell": "5,3",
+      "outOfSlide": false
+    },
+    {
+      "slide": 24,
+      "overflow": false,
+      "text": "计划与实际严格区分：目前没有真实用户、专家评分、工厂现场或手机实机测试数据。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "25",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "系统局限与后续验证方向",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "原型已证明业务流程可以联动，尚不能替代真实车间控制系统。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "工艺与机械",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "动作采用简化几何与路径；后续需工程图、碰撞约束、真实刀路和量具数据校准。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "数据与智能",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "本地规则仿真，没有 PLC、工业协议、训练模型或因果诊断实证；后续需接入真实时序数据。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "部署与评估",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "单浏览器存档适合课程验证；长期历史、多人权限和手机 AR 应在后续服务端与实机测试中完善。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 25,
+      "overflow": false,
+      "text": "当前成果定位：智能制造系统的设计、可交互原型及初步技术验证。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "SmartFactory Nexus · 课程提交版",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "26",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "老师可以直接阅读与核对交付物",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "PPT 与 PDF 说明完整；可交互系统和验证文件用于进一步复核。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "阅读成果",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "本提交版 PPT/PDF；docs 内需求分析、总体设计、验证记录及评估表。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "运行原型",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "解压交付包，安装 Node.js 22.12+，双击“启动系统.cmd”；浏览器访问本机 5174 端口。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "复核证据",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "tests、最终截图、示例完整备份与验证 JSON；源码按阶段提交至私有 GitHub，并保留 v1.0–v1.3 版本。",
+      "outOfSlide": false
+    },
+    {
+      "slide": 26,
+      "overflow": false,
+      "text": "结论：四项课程要求均有对应成果；技术验证已完成，真实用户、专家、现场与手机评估明确留待开展。",
+      "outOfSlide": false
+    }
+  ],
+  "method": "Native PowerPoint COM; every slide exported to PNG; editable text, tables and diagrams; artifact runtime unavailable",
+  "font": "Microsoft YaHei"
+}

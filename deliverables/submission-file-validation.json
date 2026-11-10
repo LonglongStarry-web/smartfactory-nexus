@@ -1,0 +1,73 @@
+{
+  "integrity": {
+    "chart_count": 0,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 26,
+    "relationship_part_count": 67,
+    "slide_count": 26,
+    "status": "pass"
+  },
+  "layout": {
+    "finding_count": 0,
+    "findings": [],
+    "font_policy": {
+      "checked_text_script_count": 647,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Microsoft YaHei"
+      ],
+      "observed_font_use_counts": {
+        "Microsoft YaHei": 647
+      },
+      "passed": true,
+      "performed": true
+    },
+    "slide_count": 26,
+    "slide_size_in": [
+      13.3333,
+      7.5
+    ],
+    "warning_count": 0,
+    "warnings": []
+  },
+  "pptxSha256": "86ae42c2c05e0ff4c0e10ccd29e3975da4a7f3dbe5923d933394da9b7d3ddbd4",
+  "pdfSha256": "6399d8c1dd217f105ed712e4570500e70c5ec8ef25ae66247370a688ecebd031",
+  "pdfPageMarkers": 26,
+  "artifactImport": "unavailable: failed to write kernel assets",
+  "nativePowerPoint": true,
+  "editable": "native text, tables and diagrams; screenshots remain raster evidence",
+  "visualReview": {
+    "slides": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "method": "Individual full-slide PNG review; final changed slides reviewed again",
+    "outcome": "No unintended overlap, clipping or broken connector found"
+  }
+}

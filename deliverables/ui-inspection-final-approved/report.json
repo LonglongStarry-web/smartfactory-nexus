@@ -1,0 +1,1852 @@
+{
+ "url": "http://127.0.0.1:4173/#quality",
+ "at": "2026-11-10T13:48:00.922Z",
+ "allow": [
+  "micro-label"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.58,
+    0.76
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1696,
+     "screens": 1.9,
+     "words": 111,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 18,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能质量检测",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.02,
+      "top": 253,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.02,
+      "top": 253,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 253,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.034,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.02,
+      "top": 253,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 4,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.95,
+       "mono": false
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.03,
+       "mono": true
+      },
+      {
+       "family": "Consolas",
+       "share": 0.02,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      25,
+      29
+     ],
+     "sizeCount": 8,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 29,
+      "vw": 2,
+      "font": "IBM Plex Mono",
+      "text": "0"
+     },
+     "monoShare": 0.05,
+     "monoProseShare": 0.05,
+     "monoFamilies": [
+      "IBM Plex Mono",
+      "Consolas"
+     ],
+     "monoSamples": [
+      "08:00:00",
+      "0",
+      "0",
+      "件",
+      "0",
+      "件"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.035,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.16,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "工艺规则仿真检测 · 定位与尺寸参数对照规格判定；未运行真实图像检测模型",
+      "above": "0 件",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 162
+     },
+     {
+      "text": "工艺规则仿真检测 · 定位与尺寸参数对照规格判定；未运行真实图像检测模型",
+      "above": "0 件",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 162
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#111c2e",
+       "top": 339,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.76
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.2
+      },
+      {
+       "color": "#9eb5c7",
+       "share": 0.02
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      },
+      {
+       "color": "#06232d",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#22d3ee"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 5,
+     "radius": 5,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "质量检测",
+      "开始生产",
+      "重置演示",
+      "复检最近工件",
+      "应用后续投料参数"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.metal-part → rgb(183, 199, 206) 0px 0px 0px 3px inset, rgb(69, 94, 112) 0px 12px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "aside.sidebar 216px",
+      "header.topbar 1224px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 205
+      }
+     ]
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 1696,
+    "margins": {
+     "left": 244,
+     "right": 28
+    },
+    "sections": [
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 339,
+      "height": 439,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "工艺与质量实验",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 245,
+      "right": 29,
+      "textLeft": 245,
+      "textRight": 583,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.two-columns",
+      "tag": "div",
+      "top": 794,
+      "height": 290,
+      "words": 9,
+      "media": 1,
+      "middle": 70,
+      "heading": {
+       "text": "缺陷类型分布",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 245,
+      "right": 245,
+      "textLeft": 263,
+      "textRight": 245,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1100,
+      "height": 260,
+      "words": 2,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "质量趋势",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 245,
+      "right": 29,
+      "textLeft": 263,
+      "textRight": 1023,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1376,
+      "height": 251,
+      "words": 13,
+      "media": 0,
+      "middle": 145,
+      "heading": {
+       "text": "检测历史",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 263,
+      "right": 47,
+      "textLeft": 263,
+      "textRight": 118,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能质量检测",
+      "size": 25,
+      "top": 119,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 263,
+      "n": 4
+     },
+     {
+      "x": 244,
+      "n": 1
+     },
+     {
+      "x": 855,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.08,
+    "voidBox": {
+     "x": 1020,
+     "y": 660,
+     "w": 420,
+     "h": 240
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 216,
+     "tag": "aside",
+     "links": 10,
+     "share": 0.15
+    },
+    "topbar": {
+     "h": 70
+    },
+    "canvas": {
+     "left": 28,
+     "right": 28
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 1.7,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 119,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 4,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 76,
+       "at": 1472,
+       "panel": "检测历史"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       6
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.82,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      25
+     ]
+    },
+    "title": {
+     "text": "智能质量检测",
+     "size": 25,
+     "top": 119
+    },
+    "colourShare": 0.005
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.63,
+    0.86
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1666,
+     "screens": 1.6,
+     "words": 107,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 18,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能质量检测",
+     "words": 1,
+     "lines": 1,
+     "size": 25,
+     "font": "Public Sans"
+    },
+    "headings": [],
+    "headingSummary": {
+     "count": 0,
+     "maxLines": 0,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.96,
+       "mono": false
+      },
+      {
+       "family": "Consolas",
+       "share": 0.02,
+       "mono": true
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.01,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      19,
+      25
+     ],
+     "sizeCount": 6,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 3.3,
+      "font": "Public Sans",
+      "text": "智能质量检测"
+     },
+     "monoShare": 0.04,
+     "monoProseShare": 0.04,
+     "monoFamilies": [
+      "Consolas",
+      "IBM Plex Mono"
+     ],
+     "monoSamples": [
+      "0",
+      "0",
+      "件",
+      "0",
+      "件",
+      "0"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.036,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.16,
+     "smallText": 13
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#111c2e",
+       "top": 309,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.76
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.19
+      },
+      {
+       "color": "#9eb5c7",
+       "share": 0.02
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      },
+      {
+       "color": "#06232d",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#22d3ee"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 5,
+     "radius": 5,
+     "height": 30,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "质量检测",
+      "开始生产",
+      "重置演示",
+      "复检最近工件",
+      "应用后续投料参数"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.metal-part → rgb(183, 199, 206) 0px 0px 0px 3px inset, rgb(69, 94, 112) 0px 12px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 768px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.09
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1666,
+    "margins": {
+     "left": 20,
+     "right": 20
+    },
+    "sections": [
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 309,
+      "height": 439,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "工艺与质量实验",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 21,
+      "textLeft": 21,
+      "textRight": 135,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.two-columns",
+      "tag": "div",
+      "top": 764,
+      "height": 290,
+      "words": 9,
+      "media": 1,
+      "middle": 32,
+      "heading": {
+       "text": "缺陷类型分布",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 127,
+      "textLeft": 35,
+      "textRight": 127,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1070,
+      "height": 260,
+      "words": 2,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "质量趋势",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 21,
+      "right": 21,
+      "textLeft": 35,
+      "textRight": 579,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1346,
+      "height": 251,
+      "words": 13,
+      "media": 0,
+      "middle": 59,
+      "heading": {
+       "text": "检测历史",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 35,
+      "right": 35,
+      "textLeft": 35,
+      "textRight": 61,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能质量检测",
+      "size": 25,
+      "top": 111,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 35,
+      "n": 4
+     },
+     {
+      "x": 20,
+      "n": 1
+     },
+     {
+      "x": 407,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": {
+     "w": 240,
+     "tag": "aside",
+     "links": 10,
+     "share": 0.31
+    },
+    "topbar": {
+     "h": 62
+    },
+    "canvas": {
+     "left": 33,
+     "right": 20
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 25,
+     "vw": 3.3,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 111,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 4,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       6
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.82,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      25
+     ]
+    },
+    "title": {
+     "text": "智能质量检测",
+     "size": 25,
+     "top": 111
+    },
+    "colourShare": 0.007
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.62,
+    0.92,
+    0.79
+   ],
+   "motion": {
+    "elements": 1,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 1,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2226,
+     "screens": 2.6,
+     "words": 105,
+     "img": 0,
+     "video": 0,
+     "canvas": 2,
+     "svg": 18,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "智能质量检测",
+     "words": 1,
+     "lines": 1,
+     "size": 22,
+     "font": "Public Sans"
+    },
+    "headings": [
+     {
+      "text": "智能质量检测",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Public Sans",
+      "weight": 600,
+      "tracking": -0.032,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 105,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 300,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.08,
+      "top": 300,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "0 件",
+      "words": 2,
+      "chars": 3,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 413,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "—",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "weight": 500,
+      "tracking": -0.04,
+      "leading": 1.15,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.05,
+      "top": 413,
+      "tag": "strong",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 5,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Public Sans",
+       "share": 0.96,
+       "mono": false
+      },
+      {
+       "family": "Consolas",
+       "share": 0.02,
+       "mono": true
+      },
+      {
+       "family": "IBM Plex Mono",
+       "share": 0.01,
+       "mono": true
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      14,
+      16,
+      19,
+      22,
+      25
+     ],
+     "sizeCount": 7,
+     "notLoaded": [
+      "Consolas"
+     ],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 25,
+      "vw": 6.4,
+      "font": "IBM Plex Mono",
+      "text": "0"
+     },
+     "monoShare": 0.04,
+     "monoProseShare": 0.04,
+     "monoFamilies": [
+      "IBM Plex Mono",
+      "Consolas"
+     ],
+     "monoSamples": [
+      "0",
+      "件",
+      "0",
+      "件",
+      "0",
+      "件"
+     ],
+     "microLabels": 2,
+     "microLabelShare": 0.037,
+     "microSamples": [
+      "SMARTFACTORY",
+      "NEXUS LAB"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.16,
+     "smallText": 13
+    },
+    "eyebrows": [
+     {
+      "text": "质量管理 / 批次追溯",
+      "above": "智能质量检测",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11,
+      "top": 82
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0b1220",
+     "bodyBgHsl": {
+      "h": 220,
+      "s": 0.49,
+      "l": 0.08
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b1220",
+       "top": 0,
+       "hsl": {
+        "h": 220,
+        "s": 0.49,
+        "l": 0.08
+       }
+      },
+      {
+       "color": "#111c2e",
+       "top": 493,
+       "hsl": {
+        "h": 217,
+        "s": 0.46,
+        "l": 0.12
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#94a3b8",
+       "share": 0.77
+      },
+      {
+       "color": "#e8eef7",
+       "share": 0.19
+      },
+      {
+       "color": "#9eb5c7",
+       "share": 0.02
+      },
+      {
+       "color": "#22d3ee",
+       "share": 0.01
+      },
+      {
+       "color": "#06232d",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#18263a",
+      "hsl": {
+       "h": 215,
+       "s": 0.41,
+       "l": 0.16
+      },
+      "fg": "#22d3ee"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 4,
+     "radius": 5,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "质量检测",
+      "开始生产",
+      "复检最近工件",
+      "应用后续投料参数"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div.metal-part → rgb(183, 199, 206) 0px 0px 0px 3px inset, rgb(69, 94, 112) 0px 12px 0px 0px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 2,
+     "hairlineSamples": [
+      "aside.sidebar 240px",
+      "header.topbar 390px"
+     ],
+     "outlinedBoxes": 6,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 7,
+     "boxRadius": 8,
+     "squareMedia": 0,
+     "roundedMedia": 2,
+     "mediaRadius": 8,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 844,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "ibm plex mono",
+     "public sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 2226,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "div.page-heading",
+      "tag": "div",
+      "top": 82,
+      "height": 149,
+      "words": 8,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "智能质量检测",
+       "size": 22,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 25,
+      "textLeft": 16,
+      "textRight": 25,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.kpi-strip",
+      "tag": "div",
+      "top": 251,
+      "height": 226,
+      "words": 4,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 126,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 493,
+      "height": 502,
+      "words": 15,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "工艺与质量实验",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 17,
+      "textRight": 29,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.two-columns",
+      "tag": "div",
+      "top": 1011,
+      "height": 573,
+      "words": 9,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "缺陷类型分布",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 124,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1600,
+      "height": 264,
+      "words": 2,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "质量趋势",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 31,
+      "textRight": 205,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.panel",
+      "tag": "section",
+      "top": 1880,
+      "height": 255,
+      "words": 12,
+      "media": 0,
+      "middle": 8,
+      "heading": {
+       "text": "检测历史",
+       "size": 14,
+       "tag": "h2"
+      },
+      "left": 30,
+      "right": 17,
+      "textLeft": 30,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "智能质量检测",
+      "size": 22,
+      "top": 105,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 31,
+      "n": 5
+     },
+     {
+      "x": 16,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 6,
+    "bodySize": 11,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": true,
+    "ground": "#0b1220",
+    "sidebar": null,
+    "topbar": {
+     "h": 80
+    },
+    "canvas": {
+     "left": 16,
+     "right": -69
+    },
+    "hero": {
+     "text": "智能质量检测",
+     "words": 1,
+     "chars": 6,
+     "lines": 1,
+     "size": 22,
+     "vw": 5.6,
+     "font": "Public Sans",
+     "weight": 600,
+     "tracking": -0.03,
+     "leading": 1.5,
+     "top": 105,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 3,
+    "layout": {
+     "panels": 6,
+     "firstScreen": 2,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 65,
+       "at": 1980,
+       "panel": "检测历史"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 7,
+     "radii": [
+      [
+       8,
+       6
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 0,
+     "tabularShare": null,
+     "kpiMax": null
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.75,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      16,
+      19,
+      22
+     ]
+    },
+    "title": {
+     "text": "智能质量检测",
+     "size": 22,
+     "top": 105
+    },
+    "colourShare": 0.011
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Public Sans, IBM Plex Mono, Consolas).",
+   "fix": "Two at most."
+  },
+  {
+   "level": "WARN",
+   "id": "font-fallback",
+   "width": 1440,
+   "message": "Typeface(s) declared but not loaded, so a fallback is rendering: Consolas",
+   "fix": "Fix the font URL / family name, or the screenshots you are judging are not the design.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "tiny-text",
+   "width": 1440,
+   "message": "82% of the text is under 13px.",
+   "fix": "Data and labels read at 13–14px; keep 11–12px for sublines and axis ticks.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "panel-void",
+   "width": 1440,
+   "message": "1 card(s) hold a blank band inside: 76px in \"检测历史\".",
+   "fix": "A card stretches to its neighbour only when it has content to fill. Keep a legend or a note directly under its chart (only an action or a total may sit at a stretched card's foot), let a short card keep its own height (align-items: start), and let a filtered block shrink to its rows."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\desktop-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\tablet-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\mobile-fold.jpg",
+   "pages": [
+    "D:\\MY Data\\Chatgpt ws\\2026-11-09\\files-pasted-by-the-user-codex\\outputs\\smartfactory-nexus\\deliverables\\ui-inspection-final-approved\\mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

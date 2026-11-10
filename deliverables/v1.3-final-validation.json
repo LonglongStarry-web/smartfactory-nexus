@@ -1,0 +1,578 @@
+{
+  "version": "1.3.0",
+  "featureCommit": "91f9ea1af3d0523d204ff51d3ae866b32f08f9b7",
+  "browser": "Windows installed Chrome / SwiftShader software WebGL",
+  "unitTests": 58,
+  "browserTests": 21,
+  "batch": {
+    "output": 389,
+    "stored": 370,
+    "wip": 0,
+    "good": 370,
+    "total": 389,
+    "energy": 47.635892222227426,
+    "availability": 0.4826666666666667,
+    "performance": 0.9999999999999813,
+    "quality": 0.9511568123393316,
+    "oee": 0.45909168808910883,
+    "runRate": 0,
+    "alarms": 0,
+    "unit": 0.12245730648387514,
+    "plan": 370,
+    "completion": 1,
+    "released": 389,
+    "rejected": 19,
+    "scrapped": 19,
+    "traceCount": 389,
+    "storageBytes": 4271290,
+    "completionTime": 9722
+  },
+  "benchmark": [
+    {
+      "mode": "standard",
+      "quantity": 40,
+      "seconds": 1008,
+      "energyKwh": 4.608417777777726,
+      "stored": 40
+    },
+    {
+      "mode": "performance",
+      "quantity": 40,
+      "seconds": 782,
+      "energyKwh": 5.543082222222209,
+      "stored": 40
+    },
+    {
+      "mode": "eco",
+      "quantity": 40,
+      "seconds": 1335,
+      "energyKwh": 3.8320888888889013,
+      "stored": 40
+    }
+  ],
+  "productionLayouts": [
+    {
+      "width": 1440,
+      "route": "dashboard",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "twin",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "scheduling",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "quality",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "health",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "energy",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "ar",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "reports",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "settings",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "dashboard",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "twin",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "scheduling",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "quality",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "health",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "energy",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "ar",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "reports",
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "route": "settings",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "dashboard",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "twin",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "scheduling",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "quality",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "health",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "energy",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "ar",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "reports",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "settings",
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "screens": [
+    "deliverables/screenshots/final-dashboard.png",
+    "deliverables/screenshots/final-twin.png",
+    "deliverables/screenshots/final-scheduling.png",
+    "deliverables/screenshots/final-quality.png",
+    "deliverables/screenshots/final-energy.png",
+    "deliverables/screenshots/final-reports.png",
+    "deliverables/screenshots/final-settings.png",
+    "deliverables/screenshots/final-health.png",
+    "deliverables/screenshots/final-ar.png",
+    "deliverables/screenshots/final-load.png",
+    "deliverables/screenshots/final-face.png",
+    "deliverables/screenshots/final-drill.png",
+    "deliverables/screenshots/final-plate.png",
+    "deliverables/screenshots/final-complete.png",
+    "deliverables/screenshots/final-observer.png",
+    "deliverables/screenshots/final-cause.png",
+    "deliverables/screenshots/final-inspection.png"
+  ],
+  "performance": {
+    "method": "12 samples of 250ms window means, paused face view, viewport 1440x1000; software renderer, no GPU timing or GPU memory claim",
+    "samples": [
+      {
+        "fps": 18.39587932323335,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 19.65408804985398,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 20.826102048330903,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 25.10760401748503,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.865853658017183,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.701475596169715,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.288261515355032,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.07505518788002,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.148394240930177,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 22.148394240930177,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 21.269053527567436,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      },
+      {
+        "fps": 20.38043478219607,
+        "calls": 38,
+        "geometries": 116,
+        "textures": 3,
+        "cells": [
+          {
+            "id": "CELL-01",
+            "workpiece": "WP-000002",
+            "stage": "face",
+            "holder": "fixture",
+            "part": [
+              -2.4,
+              1.145,
+              -2.2
+            ],
+            "tcp": [
+              0.75,
+              1.65,
+              -2.2
+            ],
+            "contactError": null
+          },
+          {
+            "id": "CELL-02",
+            "contactError": null
+          }
+        ]
+      }
+    ]
+  },
+  "testServer": "fresh Vite on 127.0.0.1:5184, reuseExistingServer=false",
+  "presentation": {
+    "slides": 26,
+    "standaloneReading": true,
+    "nativePowerPoint": true,
+    "pdfPages": 26,
+    "visualReview": "All 26 slides inspected individually; changed slides inspected again",
+    "fileValidation": "submission-file-validation.json"
+  },
+  "uiInspector": {
+    "file": "ui-inspection-final-approved/report.json",
+    "fail": 0,
+    "warnings": 4,
+    "exception": "micro-label for existing English product branding; raw pre-exception report retained"
+  }
+}
