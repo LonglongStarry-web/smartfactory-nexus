@@ -19,10 +19,13 @@ import {
   ChevronDown,
   Factory,
   Check,
+  Settings as SettingsIcon,
 } from "lucide-react";
 import { useFactory } from "./store/useFactory";
 import { stamp } from "./simulation/engine";
 import { Modal } from "./components/UI";
+import { useAppearance } from "./hooks/useAppearance";
+import { APP_VERSION } from "./app/version";
 const pages = {
   dashboard: lazy(() => import("./pages/Dashboard")),
   twin: lazy(() => import("./pages/TwinPage")),
@@ -32,6 +35,7 @@ const pages = {
   energy: lazy(() => import("./pages/Energy")),
   ar: lazy(() => import("./pages/AR")),
   reports: lazy(() => import("./pages/Reports")),
+  settings: lazy(() => import("./pages/Settings")),
 };
 const nav = [
   ["dashboard", "智能驾驶舱", LayoutDashboard],
@@ -42,9 +46,11 @@ const nav = [
   ["energy", "能耗管理", Zap],
   ["ar", "AR 智能巡检", Scan],
   ["reports", "数据分析与报告", ChartNoAxesCombined],
+  ["settings", "系统设置", SettingsIcon],
 ] as const;
 export default function App() {
   const f = useFactory();
+  const { theme, accentColor } = useAppearance();
   const [mobile, setMobile] = useState(false),
     [reset, setReset] = useState(false);
   const Page = pages[f.page as keyof typeof pages] || pages.dashboard;
@@ -62,8 +68,12 @@ export default function App() {
     };
   }, []);
   useEffect(() => {
-    document.documentElement.dataset.theme = f.theme;
-  }, [f.theme]);
+    const root = document.documentElement;
+    root.dataset.theme = theme;
+    root.style.setProperty("--cyan", accentColor);
+    root.dataset.density = f.preferences.density;
+    root.dataset.reducedMotion = String(f.preferences.reducedMotion);
+  }, [theme, accentColor, f.preferences.density, f.preferences.reducedMotion]);
   return (
     <div className="app-shell">
       <aside className={`sidebar ${mobile ? "open" : ""}`}>
@@ -77,12 +87,12 @@ export default function App() {
           >
             <path
               d="M2 24V8l14-7 14 7v16l-14 8L2 24Z"
-              stroke="#22D3EE"
+              stroke="var(--cyan)"
               strokeWidth="1.6"
             />
             <path
               d="m9 23 0-11 14 11V11M2 8l14 8 14-8M16 16v16"
-              stroke="#22D3EE"
+              stroke="var(--cyan)"
               strokeWidth="1.2"
             />
           </svg>
@@ -132,7 +142,7 @@ export default function App() {
           </div>
           <div className="version">
             <span>NEXUS LAB</span>
-            <small>v1.0 / 2026</small>
+            <small>v{APP_VERSION}</small>
           </div>
         </div>
       </aside>
@@ -189,7 +199,7 @@ export default function App() {
               aria-label="切换主题"
               onClick={f.setTheme}
             >
-              {f.theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+              {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
             </button>
             <button className="reset-button" onClick={() => setReset(true)}>
               <RotateCcw size={14} />

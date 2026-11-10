@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "version": "1.1.0",
+  "screenshots": [
+    "settings-checked",
+    "settings-light",
+    "scheduling",
+    "lamp-CNC-01",
+    "lamp-QC-01",
+    "lamp-ARM-01",
+    "lamp-ASRS-01",
+    "lamp-AGV-01"
+  ]
+}

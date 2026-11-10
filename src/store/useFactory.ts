@@ -1,6 +1,12 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import {
+  defaults,
+  type Preferences,
+  type ThemeMode,
+  type Accent,
+} from "../app/preferences";
+import {
   initialState,
   tick,
   assign,
@@ -21,7 +27,12 @@ interface Store {
   page: string;
   selected: string;
   toast: string;
-  theme: string;
+  theme: ThemeMode;
+  accent: Accent;
+  preferences: Preferences;
+  appearance: (patch: { theme?: ThemeMode; accent?: Accent }) => void;
+  setPreferences: (patch: Partial<Preferences>) => void;
+  resetPreferences: () => void;
   update: (f: (s: SimulationState) => void) => void;
   notify: (t: string) => void;
   nav: (p: string) => void;
@@ -51,6 +62,25 @@ export const useFactory = create<Store>()(
       selected: "CNC-01",
       toast: "",
       theme: "dark",
+      accent: "cyan",
+      preferences: { ...defaults },
+      appearance: (patch) => set(patch),
+      setPreferences: (patch) =>
+        set((state) => ({
+          preferences: { ...state.preferences, ...patch },
+          ...(patch.defaultSpeed === undefined
+            ? {}
+            : { s: { ...state.s, speed: patch.defaultSpeed } }),
+        })),
+      resetPreferences: () => {
+        set((state) => ({
+          theme: "dark",
+          accent: "cyan",
+          preferences: { ...defaults },
+          s: { ...state.s, speed: defaults.defaultSpeed },
+        }));
+        get().notify("显示和演示偏好已恢复默认，生产记录已保留");
+      },
       update: (f) =>
         set((state) => {
           const s = structuredClone(state.s);
@@ -81,6 +111,7 @@ export const useFactory = create<Store>()(
       },
       reset: (scene = "normal") => {
         const s = initialState();
+        s.speed = get().preferences.defaultSpeed;
         if (scene !== "normal") {
           s.running = true;
           tick(s, 120);
@@ -136,14 +167,31 @@ export const useFactory = create<Store>()(
           event(s, "调度策略", `策略切换至 ${algorithm}`);
           assign(s);
         }),
-      setTheme: () => set({ theme: get().theme === "dark" ? "light" : "dark" }),
+      setTheme: () => {
+        const current = get().theme;
+        const dark =
+          current === "system"
+            ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            : current === "dark";
+        set({ theme: dark ? "light" : "dark" });
+      },
     }),
     {
       name: "nexus-simulation-v1",
       partialize: (state) => ({
         s: { ...state.s, running: false },
         theme: state.theme,
+        accent: state.accent,
+        preferences: state.preferences,
       }),
+      merge: (persisted, current) => {
+        const saved = persisted as Partial<Store>;
+        return {
+          ...current,
+          ...saved,
+          preferences: { ...defaults, ...saved.preferences },
+        };
+      },
       version: 1,
     },
   ),

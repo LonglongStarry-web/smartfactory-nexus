@@ -3,14 +3,7 @@ import { Download, Printer } from "lucide-react";
 import { useFactory } from "../store/useFactory";
 import { Panel, Stat, Empty, Chart, lineOption } from "../components/UI";
 import { metrics, stamp, statusText } from "../simulation/engine";
-export function download(name: string, data: string, type: string) {
-  const url = URL.createObjectURL(new Blob([data], { type }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
+import { download } from "../utils/download";
 const esc = (v: unknown) =>
   String(v)
     .replaceAll("&", "&amp;")

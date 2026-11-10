@@ -8,9 +8,9 @@ import {
 } from "echarts/components";
 import { CanvasRenderer } from "echarts/renderers";
 import { X, ArrowUpRight } from "lucide-react";
-import { useFactory } from "../store/useFactory";
 import { statusText } from "../simulation/engine";
 import type { Status } from "../domain/types";
+import { useAppearance } from "../hooks/useAppearance";
 echarts.use([
   LineChart,
   BarChart,
@@ -90,7 +90,7 @@ export function Chart({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const chart = useRef<echarts.ECharts>(null);
-  const theme = useFactory((s) => s.theme);
+  const { theme, accentColor } = useAppearance();
   useEffect(() => {
     if (!ref.current) return;
     const c = echarts.init(ref.current);
@@ -110,7 +110,7 @@ export function Chart({
           color: theme === "dark" ? "#94A3B8" : "#526379",
           fontSize: 11,
         },
-        color: ["#22D3EE", "#7c96ae", "#34D399", "#FB7185"],
+        color: [accentColor, "#7c96ae", "#34D399", "#FB7185"],
         tooltip: {
           trigger: "axis",
           backgroundColor: theme === "dark" ? "#18263A" : "#fff",
@@ -122,7 +122,7 @@ export function Chart({
       },
       true,
     );
-  }, [option, theme]);
+  }, [option, theme, accentColor]);
   return <div ref={ref} className="chart" style={{ height }} />;
 }
 export function lineOption(

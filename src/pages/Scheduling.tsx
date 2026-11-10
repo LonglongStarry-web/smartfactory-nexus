@@ -6,6 +6,12 @@ import { Panel, Modal, Empty } from "../components/UI";
 import type { ProductionOrder } from "../domain/types";
 export default function Scheduling() {
   const f = useFactory();
+  const [formTime, setFormTime] = useState(0);
+  function openOrder(order: ProductionOrder | null) {
+    setFormTime(f.s.time);
+    setError("");
+    setEdit(order);
+  }
   const [edit, setEdit] = useState<ProductionOrder | null | undefined>(
       undefined,
     ),
@@ -33,8 +39,8 @@ export default function Scheduling() {
       product: String(data.get("product")),
       quantity: Number(data.get("quantity")),
       priority: Number(data.get("priority")),
-      planned: f.s.time + Number(data.get("planned")) * 60,
-      due: f.s.time + Number(data.get("due")) * 60,
+      planned: formTime + Number(data.get("planned")) * 60,
+      due: formTime + Number(data.get("due")) * 60,
     };
     try {
       if (edit) {
@@ -42,6 +48,7 @@ export default function Scheduling() {
           input.quantity < edit.completed ||
           input.quantity < 1 ||
           !Number.isInteger(input.quantity) ||
+          input.planned < 0 ||
           input.due <= input.planned
         )
           throw Error("数量不能小于已完成数量，交期必须晚于计划开始");
@@ -50,6 +57,8 @@ export default function Scheduling() {
             s.orders.find((o) => o.id === edit.id)!,
             input,
           );
+          const order = s.orders.find((o) => o.id === edit.id)!;
+          if (order.completed < order.quantity) delete order.completedAt;
           event(s, "修改订单", `${edit.id} 更新数量、优先级与计划`);
           assign(s);
         });
@@ -68,7 +77,7 @@ export default function Scheduling() {
           <h1>生产调度</h1>
           <p>两台并行加工中心 · 同一工件仅分配一次 · 故障设备自动退出排产</p>
         </div>
-        <button className="primary" onClick={() => setEdit(null)}>
+        <button className="primary" onClick={() => openOrder(null)}>
           <Plus size={16} /> 新增订单
         </button>
       </div>
@@ -164,7 +173,7 @@ export default function Scheduling() {
       </Panel>
       <Panel
         title="生产订单"
-        sub={`${orders.length} 个订单`}
+        sub={`${orders.length} 个订单 · 计划开始由订单指定；预计完工计入当前工件进度，受故障、插单和速度影响`}
         action={
           <button className="text-button" onClick={() => setSort(!sort)}>
             <ArrowUpDown size={14} /> {sort ? "按优先级" : "按创建时间"}
@@ -179,7 +188,9 @@ export default function Scheduling() {
                 <th className="num">数量</th>
                 <th>优先级</th>
                 <th>进度</th>
-                <th>计划 / 预计完成</th>
+                <th>计划开始</th>
+                <th>完工时间</th>
+                <th>交付期限</th>
                 <th>设备</th>
                 <th>操作</th>
               </tr>
@@ -187,6 +198,11 @@ export default function Scheduling() {
             <tbody>
               {orders.map((o) => {
                 const slot = slots.find((x) => x.orderId === o.id);
+                const completedAt =
+                  o.completedAt ??
+                  f.s.events.find(
+                    (e) => e.type === "完成订单" && e.orderId === o.id,
+                  )?.time;
                 return (
                   <tr key={o.id}>
                     <td>
@@ -219,15 +235,45 @@ export default function Scheduling() {
                         : `${o.completed} / ${o.quantity}`}
                       <progress max={o.quantity} value={o.completed} />
                     </td>
-                    <td>
-                      {stamp(o.planned)}
-                      <small className={slot?.late ? "red" : ""}>
-                        {slot
-                          ? stamp(slot.end) + (slot.late ? " 延期" : "")
-                          : o.completed === o.quantity
-                            ? "已完成"
-                            : "—"}
-                      </small>
+                    <td className="order-time">
+                      <time>{stamp(o.planned)}</time>
+                      <small>订单计划</small>
+                    </td>
+                    <td className="order-time">
+                      {o.cancelled ? (
+                        <span className="subtle">已取消</span>
+                      ) : o.completed === o.quantity ? (
+                        <>
+                          <time>
+                            {completedAt === undefined
+                              ? "—"
+                              : stamp(completedAt)}
+                          </time>
+                          <small>
+                            {completedAt === undefined
+                              ? "已完成 · 历史时间未记录"
+                              : "实际完工"}
+                          </small>
+                        </>
+                      ) : slot ? (
+                        <>
+                          <time className={slot.late ? "red" : ""}>
+                            {stamp(Math.ceil(slot.end - 1e-6))}
+                          </time>
+                          <small>
+                            {slot.late ? "预计完工 · 延期" : "预计完工"}
+                          </small>
+                        </>
+                      ) : (
+                        <>
+                          <span>待排产</span>
+                          <small>当前无可用设备</small>
+                        </>
+                      )}
+                    </td>
+                    <td className="order-time">
+                      <time>{stamp(o.due)}</time>
+                      <small>承诺交付</small>
                     </td>
                     <td>{slot?.deviceId || "—"}</td>
                     <td>
@@ -235,7 +281,7 @@ export default function Scheduling() {
                         <button
                           aria-label={`编辑 ${o.id}`}
                           disabled={o.cancelled}
-                          onClick={() => setEdit(o)}
+                          onClick={() => openOrder(o)}
                         >
                           <Pencil size={14} />
                         </button>
@@ -298,8 +344,9 @@ export default function Scheduling() {
                 <input
                   name="planned"
                   type="number"
-                  min="0"
-                  defaultValue={0}
+                  min={edit ? undefined : 0}
+                  step="any"
+                  defaultValue={edit ? (edit.planned - formTime) / 60 : 0}
                   required
                 />
               </label>
@@ -308,8 +355,9 @@ export default function Scheduling() {
                 <input
                   name="due"
                   type="number"
-                  min="1"
-                  defaultValue={15}
+                  min={edit ? undefined : 1}
+                  step="any"
+                  defaultValue={edit ? (edit.due - formTime) / 60 : 15}
                   required
                 />
               </label>

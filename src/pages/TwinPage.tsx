@@ -5,9 +5,9 @@ import Twin from "../features/digital-twin/Twin";
 import DeviceDetail from "../components/DeviceDetail";
 export default function TwinPage() {
   const f = useFactory();
-  const [labels, setLabels] = useState(true),
-    [low, setLow] = useState(false),
-    [preset, setPreset] = useState(0),
+  const labels = f.preferences.showLabels,
+    low = f.preferences.lowQuality;
+  const [preset, setPreset] = useState(0),
     [focus, setFocus] = useState(false);
   return (
     <>
@@ -20,11 +20,11 @@ export default function TwinPage() {
           <p>程序化设备模型与实时业务状态联动 · 动画属于演示级运动</p>
         </div>
         <div className="toolbar">
-          <button onClick={() => setLabels(!labels)}>
+          <button onClick={() => f.setPreferences({ showLabels: !labels })}>
             <Tags size={15} />
             {labels ? "隐藏标签" : "显示标签"}
           </button>
-          <button onClick={() => setLow(!low)}>
+          <button onClick={() => f.setPreferences({ lowQuality: !low })}>
             {low ? "低画质" : "标准画质"}
           </button>
         </div>
@@ -62,6 +62,7 @@ export default function TwinPage() {
           <label className="field">
             选择设备
             <select
+              aria-label="选择设备"
               value={f.selected}
               onChange={(e) => f.select(e.target.value)}
             >

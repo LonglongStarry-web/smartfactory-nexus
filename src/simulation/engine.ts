@@ -182,10 +182,22 @@ export function schedule(
         a.created - b.created,
     );
   for (const o of orders) {
-    const d = devices.reduce((a, b) => (free[a.id] <= free[b.id] ? a : b));
+    // Preserve an in-progress assignment when the resource is equally available.
+    const earliest = Math.min(...devices.map((d) => free[d.id]));
+    const d =
+      devices.find(
+        (d) => d.task === o.id && Math.abs(free[d.id] - earliest) < 1e-6,
+      ) ?? devices.reduce((a, b) => (free[a.id] <= free[b.id] ? a : b));
     const start = Math.max(free[d.id], o.planned);
     const qty = o.quantity - o.completed;
-    const end = start + (qty * 10) / modes[s.mode].rate;
+    const inProgress =
+      d.task === o.id && start <= s.time + 1e-6
+        ? Math.min(1, Math.max(0, s.carry[d.id] || 0))
+        : 0;
+    const end =
+      Math.round(
+        (start + ((qty - inProgress) * 10) / modes[s.mode].rate) * 1e6,
+      ) / 1e6;
     slots.push({
       orderId: o.id,
       deviceId: d.id,
@@ -214,6 +226,8 @@ export function assign(s: SimulationState) {
           )?.orderId;
     if (d.task !== task && task)
       event(s, "分配任务", `${d.id} 分配至 ${task}`, d.id, task);
+    // Partial work belongs to the old order; it cannot finish a newly assigned one.
+    if (d.kind === "cnc" && d.task !== task) s.carry[d.id] = 0;
     d.task = task;
     if (d.status !== "fault" && d.status !== "maintenance")
       d.status = s.running && task ? "running" : "idle";
@@ -261,8 +275,8 @@ export function tick(s: SimulationState, seconds: number) {
   while (left > 0) {
     const dt = Math.min(1, left);
     left -= dt;
-    s.time += dt;
     assign(s);
+    s.time += dt;
     let delta = 0;
     for (const d of s.devices) {
       const operating = d.status === "running";
@@ -288,7 +302,7 @@ export function tick(s: SimulationState, seconds: number) {
         if (d.kind === "cnc" && d.task) {
           s.carry[d.id] = (s.carry[d.id] || 0) + (dt * modes[s.mode].rate) / 10;
           if (s.carry[d.id] >= 1 - 1e-9) {
-            s.carry[d.id] -= 1;
+            s.carry[d.id] = Math.max(0, s.carry[d.id] - 1);
             const order = s.orders.find((o) => o.id === d.task)!;
             if (order.completed < order.quantity) {
               order.completed++;
@@ -301,7 +315,8 @@ export function tick(s: SimulationState, seconds: number) {
                 order.id,
               );
               inspect(s, order.id, d.id);
-              if (order.completed === order.quantity)
+              if (order.completed === order.quantity) {
+                order.completedAt = s.time;
                 event(
                   s,
                   "完成订单",
@@ -309,6 +324,7 @@ export function tick(s: SimulationState, seconds: number) {
                   undefined,
                   order.id,
                 );
+              }
             }
           }
         }

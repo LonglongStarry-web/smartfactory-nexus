@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { useFactory } from "../../store/useFactory";
 import { statusText } from "../../simulation/engine";
 import type { Device } from "../../domain/types";
+import StatusLamp from "./StatusLamp";
 const color = {
   running: "#34D399",
   idle: "#8192a6",
@@ -216,19 +217,13 @@ function Station({ d, labels }: { d: Device; labels: boolean }) {
       ) : (
         <AGV />
       )}
-      {d.kind !== "agv" && (
+      {d.kind === "robot" && (
         <>
-          <Cylinder p={[1, 2.8, 0]} r={0.05} h={0.65} c="#3e5265" />
-          <mesh position={[1, 3.18, 0]}>
-            <sphereGeometry args={[0.12, 12, 12]} />
-            <meshStandardMaterial
-              color={color[d.status]}
-              emissive={color[d.status]}
-              emissiveIntensity={0.7}
-            />
-          </mesh>
+          <Box p={[1.05, 0.35, -0.9]} s={[0.42, 0.6, 0.46]} c="#52687a" />
+          <Box p={[1.05, 0.39, -0.66]} s={[0.27, 0.2, 0.025]} c="#203c49" />
         </>
       )}
+      <StatusLamp device={d} />
     </group>
   );
 }
@@ -266,6 +261,7 @@ function Conveyor({ z }: { z: number }) {
   );
 }
 function Rig({ preset, focus }: { preset: number; focus: boolean }) {
+  const reducedMotion = useFactory((s) => s.preferences.reducedMotion);
   const controls = useRef<any>(null);
   const { camera } = useThree();
   const selected = useFactory((s) => s.selected);
@@ -284,15 +280,22 @@ function Rig({ preset, focus }: { preset: number; focus: boolean }) {
     );
     destination.current.set(
       ...((focus
-        ? [d.position[0] + 5, 6, d.position[2] + 7]
+        ? d.kind === "qc"
+          ? [d.position[0] + 4.5, 4.5, d.position[2] - 5.5]
+          : [d.position[0] + 5, 6, d.position[2] + 7]
         : preset % 3 === 1
           ? [0, 22, 0.1]
           : preset % 3 === 2
             ? [0, 6, 21]
             : [15, 13, 18]) as [number, number, number]),
     );
-    moving.current = true;
-  }, [selected, preset, focus]);
+    if (reducedMotion) {
+      camera.position.copy(destination.current);
+      controls.current?.target.copy(target.current);
+      controls.current?.update();
+      moving.current = false;
+    } else moving.current = true;
+  }, [selected, preset, focus, reducedMotion]);
   useFrame((_, dt) => {
     if (moving.current && controls.current) {
       camera.position.lerp(destination.current, Math.min(1, dt * 4));

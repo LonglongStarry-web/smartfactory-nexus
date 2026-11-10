@@ -36,6 +36,7 @@ export interface ProductionOrder {
   planned: number;
   due: number;
   cancelled: boolean;
+  completedAt?: number;
 }
 export interface Workpiece {
   id: string;
