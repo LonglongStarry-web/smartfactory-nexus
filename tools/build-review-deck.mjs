@@ -19,10 +19,6 @@ const dark = {
   bg: "#0B1422", surface: "#13243A", ink: "#F1F6FC", muted: "#B3C4D6",
   accent: "#53DFEB", line: "#36506B", strong: "#1B4057", warn: "#FFD08A",
 };
-const light = {
-  bg: "#F2F6FB", surface: "#FFFFFF", ink: "#102338", muted: "#435D75",
-  accent: "#006677", line: "#CBD7E5", strong: "#DEEEF2", warn: "#934A12",
-};
 const noLine = { fill: "none", width: 0 };
 const sections = [
   "01  需求与范围", "02  系统设计", "03  业务功能", "04  初步验证", "05  项目获取",
@@ -137,7 +133,7 @@ function flow(s, entries, y, h, p = dark) {
   for (let i = 1; i < nodes.length; i += 1) connect(s, nodes[i - 1], nodes[i], p);
 }
 
-function table(s, values, widths, y, height, p = light, size = 22) {
+function table(s, values, widths, y, height, p = dark, size = 22) {
   const t = s.tables.add({
     rows: values.length, columns: widths.length, left: 56, top: y,
     width: widths.reduce((a, b) => a + b, 0), height, columnWidths: widths, values,
@@ -195,14 +191,14 @@ function paragraph(s, value, x, y, w, p = dark, options = {}) {
 {
   const s = page(0, "用户任务与验收条件", "以可观察的业务结果定义需求。三类角色可从相同工件和设备编号交叉核对记录。",
     "需求来源  |  柔性制造场景的角色任务分析",
-    "来源：docs/01-需求分析.md、docs/22-系统测试操作手册.docx。", light);
+    "来源：docs/01-需求分析.md、docs/22-系统测试操作手册.docx。", dark);
   table(s, [
     ["角色", "需要解决的问题", "操作与验收条件"],
     ["生产调度", "插单、停机和换型改变交付时间", "对比排产策略。停机后停止派工，在制件原位保留。"],
     ["质量检验", "不合格原因与去向难追踪", "查看同编号的测量、工序及参数。返工保留首检结果。"],
     ["设备维护", "告警、维修和恢复各自记录", "按设备查看告警与工单。三项确认完成后才恢复生产。"],
-  ], [185, 405, 578], 205, 333, light, 23);
-  paragraph(s, "基础能力还包括浏览器启动、主题与字号设置、存档恢复，以及可打开的报告导出。", 56, 580, 1168, light);
+  ], [185, 405, 578], 205, 333, dark, 23);
+  paragraph(s, "基础能力还包括浏览器启动、主题与字号设置、存档恢复，以及可打开的报告导出。", 56, 580, 1168, dark);
 }
 
 // Architecture and data
@@ -225,15 +221,15 @@ function paragraph(s, value, x, y, w, p = dark, options = {}) {
 {
   const s = page(1, "工件编号贯通生产记录", "投料时固化配方与参数。检测结果、返工和库存动作按编号回到同一件工件。",
     "数据设计  |  订单 ID、工件 ID 和设备 ID 作为跨页面查询线索",
-    "来源：src/domain/types.ts、src/simulation/process.ts、src/simulation/flow.ts、src/simulation/persistence.ts。", light);
+    "来源：src/domain/types.ts、src/simulation/process.ts、src/simulation/flow.ts、src/simulation/persistence.ts。", dark);
   flow(s, [
     ["订单", "数量、配方\n交期与优先级"], ["工件", "唯一编号\n所属订单"], ["加工轨迹", "设备和参数快照\n工序起止时间"],
     ["质检与处置", "规格、实测\n首检与返工"], ["库存与发运", "合格入库\n发运记录"],
-  ], 213, 131, light);
+  ], 213, 131, dark);
   rules(s, [
     ["当前状态和历史快照", "实时页面读取当前工序，历史回放读取已记录的工序区间和该件工艺参数。"],
     ["计数发生的时间", "切削完成计加工量，首次检测决定首检良品率，合格件登记入库后增加订单完成量。"],
-  ], 56, 396, 1168, 108, light);
+  ], 56, 396, 1168, 108, dark);
 }
 {
   const s = page(1, "工序联锁与模拟时钟", "设备、夹具和检测位按工序交接工件。三维从当前工序和进度计算姿态。",
@@ -305,27 +301,27 @@ function paragraph(s, value, x, y, w, p = dark, options = {}) {
 {
   const s = page(2, "配方切换改变刀路与规格", "两组 CNC 可设置兼容产品。换型占用 6 个模拟秒，单元有投料或转运时锁定能力配置。",
     "工艺配方  |  周期为标准模式的单件工艺时间，物流时间另计",
-    "来源：src/simulation/process.ts、src/simulation/flow.ts、tests/flexibility.test.ts；final-plate.png。", light);
+    "来源：src/simulation/process.ts、src/simulation/flow.ts、tests/flexibility.test.ts；final-plate.png。", dark);
   table(s, [
     ["项目", "圆形法兰 A-320", "安装支架板 B-210"],
     ["外形与刀路", "圆形、圆周外轮廓", "矩形、矩形外轮廓"],
     ["加工周期", "49 模拟秒", "52 模拟秒"],
     ["孔位 X", "20 mm，公差 ±0.05 mm", "30 mm，公差 ±0.05 mm"],
     ["轮廓尺寸", "直径 80 mm，公差 ±0.10 mm", "宽度 100 mm，公差 ±0.10 mm"],
-  ], [245, 461, 462], 211, 340, light, 23);
-  paragraph(s, "没有兼容加工单元时，订单显示能力等待。标准工装完成换型后才开始对应配方。", 56, 584, 1168, light);
+  ], [245, 461, 462], 211, 340, dark, 23);
+  paragraph(s, "没有兼容加工单元时，订单显示能力等待。标准工装完成换型后才开始对应配方。", 56, 584, 1168, dark);
 }
 {
   const s = page(2, "超差可追溯至测量与工序", "按投料时的工艺参数计算特征测量值，再与该配方的规格比较。",
     "质量实验  |  圆形法兰单件示例，测量单位为 mm",
-    "来源：src/features/quality/ProcessLab.tsx、src/simulation/flow.ts、tests/quality-cause.test.ts 与界面操作复核。", light);
+    "来源：src/features/quality/ProcessLab.tsx、src/simulation/flow.ts、tests/quality-cause.test.ts 与界面操作复核。", dark);
   table(s, [
     ["实验输入", "关联工序", "实测值 / 允许范围", "判定"],
     ["装夹 X 偏移 +0.08", "钻孔", "孔位 X  20.08 / 19.95–20.05", "孔位超差"],
     ["轮廓补偿 +0.20", "轮廓加工", "外径  80.20 / 79.90–80.10", "尺寸超差"],
     ["跳过去毛刺", "去毛刺", "毛刺高度  0.12 / 0–0.05", "毛刺超限"],
-  ], [284, 188, 480, 216], 211, 317, light, 22);
-  paragraph(s, "质检详情显示设备、配方、参数快照与来源工序，可按工件编号回看加工过程。", 56, 574, 1168, light);
+  ], [284, 188, 480, 216], 211, 317, dark, 22);
+  paragraph(s, "质检详情显示设备、配方、参数快照与来源工序，可按工件编号回看加工过程。", 56, 574, 1168, dark);
 }
 {
   const s = page(2, "隔离、返工与报废补投", "超差件可暂存等待人工处置。去毛刺返工保留原编号和失败首检。",
@@ -400,60 +396,60 @@ function paragraph(s, value, x, y, w, p = dark, options = {}) {
   const { benchmark } = validation;
   const s = page(3, "同批量下的能耗与工期", "40 件法兰、两单元、关闭随机不良，逐秒模拟至订单全部合格入库。",
     "数据来源  |  v1.3-final-validation.json / benchmark",
-    "来源：deliverables/v1.3-final-validation.json 的 benchmark；设备功率和工序倍率为模拟设定。", light);
+    "来源：deliverables/v1.3-final-validation.json 的 benchmark；设备功率和工序倍率为模拟设定。", dark);
   const names = { standard: "标准", performance: "高性能", eco: "节能" };
   table(s, [
     ["运行模式", "完工用时 / 模拟秒", "合格入库 / 件", "累计模拟能耗 / kWh"],
     ...benchmark.map(b => [names[b.mode], String(b.seconds), String(b.stored), b.energyKwh.toFixed(4)]),
-  ], [223, 310, 245, 390], 212, 279, light, 23);
+  ], [223, 310, 245, 390], 212, 279, dark, 23);
   rules(s, [
     ["工期与能耗的取舍", "能耗页按设备功率对模拟时间积分，显示产线趋势和分设备用电。\n同一批次中，高性能模式工期最短，节能模式累计用电最低。"],
-  ], 56, 517, 1168, 132, light);
+  ], 56, 517, 1168, 132, dark);
 }
 {
   const s = page(3, "验证方法与覆盖范围", "用逻辑单元、浏览器业务流程和布局组合覆盖关键路径。",
     "验证环境  |  Windows、Chrome、SwiftShader 软件 WebGL",
-    "来源：docs/03-系统验证.md、v1.3-final-validation.json、tests/、deliverables/ar-synthetic-result.json。", light);
-  summary(s, "单元测试通过", String(validation.unitTests), 56, 205, 320, light);
-  summary(s, "浏览器用例通过", String(validation.browserTests), 464, 205, 320, light);
-  summary(s, "页面与宽度组合", String(validation.productionLayouts.length), 872, 205, 352, light);
+    "来源：docs/03-系统验证.md、v1.3-final-validation.json、tests/、deliverables/ar-synthetic-result.json。", dark);
+  summary(s, "单元测试通过", String(validation.unitTests), 56, 205, 320, dark);
+  summary(s, "浏览器用例通过", String(validation.browserTests), 464, 205, 320, dark);
+  summary(s, "页面与宽度组合", String(validation.productionLayouts.length), 872, 205, 352, dark);
   table(s, [
     ["核验场景", "观察结果"],
     ["暂停、故障与回放", "在制工件与阶段进度保留，回放不会改变生产状态"],
     ["超差、返工、换型与物流", "结果可复现，首检保留，兼容约束及满仓规则有效"],
     ["布局与 AR", "三种宽度无页面横向溢出，目标识别与摄像头释放有记录"],
-  ], [367, 801], 332, 274, light, 21);
+  ], [367, 801], 332, 274, dark, 21);
 }
 {
   const b = validation.batch;
   const s = page(3, "默认订单完成与工件数量守恒", "从 370 件合格需求出发，运行完整默认批次，核对工件去向与订单完成记录。",
     "数据来源  |  v1.3-final-validation.json / batch，模拟运行窗口 12,000 秒",
-    "来源：deliverables/v1.3-final-validation.json 的 batch；tests/flow.test.ts 与 tests/flow.spec.ts。", light);
+    "来源：deliverables/v1.3-final-validation.json 的 batch；tests/flow.test.ts 与 tests/flow.spec.ts。", dark);
   const metrics = [
     ["释放工件", b.released], ["合格入库", b.stored], ["隔离报废", b.scrapped], ["最终在制", b.wip],
   ];
   for (const [i, [label, value]] of metrics.entries()) {
     const x = 56 + i * 292;
-    rect(s, x, 209, 264, 2, light.line);
-    summary(s, label, String(value), x, 230, 264, light);
+    rect(s, x, 209, 264, 2, dark.line);
+    summary(s, label, String(value), x, 230, 264, dark);
   }
   text(s, `${b.released}  =  ${b.stored}  +  ${b.scrapped}`, 56, 365, 1168, 86, {
-    size: 61, color: light.ink, bold: true,
+    size: 61, color: dark.ink, bold: true,
   });
-  paragraph(s, `每件有唯一编号。全部 ${b.traceCount} 件均保存 19 个已完成的工序区间。`, 56, 482, 1168, light);
-  paragraph(s, `末单在 ${b.completionTime.toLocaleString("en-US")} 模拟秒完工。存档约 ${(b.storageBytes / 2 ** 20).toFixed(2)} MiB，刷新可恢复批次记录。`, 56, 550, 1168, light);
+  paragraph(s, `每件有唯一编号。全部 ${b.traceCount} 件均保存 19 个已完成的工序区间。`, 56, 482, 1168, dark);
+  paragraph(s, `末单在 ${b.completionTime.toLocaleString("en-US")} 模拟秒完工。存档约 ${(b.storageBytes / 2 ** 20).toFixed(2)} MiB，刷新可恢复批次记录。`, 56, 550, 1168, dark);
 }
 {
   const s = page(3, "仿真边界与证据口径", "验证聚焦浏览器原型的流程一致性、规则复现和界面操作。",
     "评估范围  |  当前结论适用于已记录的原型、运行环境与模拟条件",
-    "来源：docs/03-系统验证.md、docs/05-AR实机测试清单.md、v1.3-final-validation.json；用户补充 AR 验证反馈。", light);
+    "来源：docs/03-系统验证.md、docs/05-AR实机测试清单.md、v1.3-final-validation.json；用户补充 AR 验证反馈。", dark);
   table(s, [
     ["方面", "模型或测试条件", "可支持的结论"],
     ["加工与质量", "简化几何、刀路与规则测量", "工序联锁、参数映射和超差处置可复现"],
     ["生产与能耗", "模拟订单、时钟、设定功率与倍率", "同条件可比较用时、能耗和批次工件去向"],
     ["AR 识别", "同一目标图绑定所选设备，叠加简化模型", "已确认目标识别成功。桌面自动化记录媒体轨道释放"],
     ["运行与数据", "浏览器本地规则引擎及存档", "本地运行、恢复和导出。现场设备接入需 PLC 与工业接口"],
-  ], [220, 452, 496], 206, 386, light, 22);
+  ], [220, 452, 496], 206, 386, dark, 22);
 }
 
 // Handoff
@@ -468,7 +464,7 @@ function paragraph(s, value, x, y, w, p = dark, options = {}) {
   rect(s, 56, 466, 1168, 2, dark.line);
   text(s, "已推送至作者个人 GitHub 仓库", 56, 488, 1168, 41, { size: 29, bold: true });
   text(s, repo, 56, 545, 1168, 45, { size: 28, color: dark.accent, link: repo });
-  caption(s, "仓库所有者 LonglongStarry-web  |  私有仓库，访问需要授权", 56, 609, 1168);
+  caption(s, "GitHub 公开仓库  |  源码、测试与演示材料", 56, 609, 1168);
 }
 
 const output = path.join(work, "review-draft.pptx");

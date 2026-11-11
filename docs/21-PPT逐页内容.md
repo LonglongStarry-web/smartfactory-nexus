@@ -1,4 +1,4 @@
-# 智造未来 系统架构与验证逐页正文
+# 智造未来数字孪生与 AR 柔性制造车间逐页正文
 
 ## 第 1 页 智造未来
 
@@ -490,4 +490,4 @@ Windows 安装 Node.js 22.12+，双击「启动系统.cmd」，浏览器访问�
 
 https://github.com/LonglongStarry-web/smartfactory-nexus
 
-仓库所有者 LonglongStarry-web  |  私有仓库，访问需要授权
+GitHub 公开仓库  |  源码、测试与演示材料

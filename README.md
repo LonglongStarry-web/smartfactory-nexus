@@ -4,8 +4,8 @@
 
 ## 给老师的阅读材料
 
-- [智造未来系统架构与验证](deliverables/智造未来-系统架构与验证.pptx) 为 23 页可编辑演示文稿，涵盖需求、架构、业务操作和验证结果，可独立阅读。
-- 同名 PDF：用于直接阅读；原 `智造未来-课程答辩.pptx` 是历史版本，不作为本次提交材料。
+- [智造未来数字孪生与 AR 柔性制造车间](deliverables/智造未来-数字孪生与AR柔性制造车间.pptx) 为 23 页可编辑演示文稿，涵盖需求、架构、业务操作和验证结果，可独立阅读。
+- [同名 PDF](deliverables/智造未来-数字孪生与AR柔性制造车间.pdf) 可直接阅读。
 - [课程对应关系与最终验收](docs/19-课程提交说明与最终验收.md)、[需求分析](docs/01-需求分析.md)、[初步设计](docs/02-初步设计.md)、[系统验证](docs/03-系统验证.md)。
 
 ## 启动与构建
@@ -17,7 +17,7 @@ npm ci
 npm run dev -- --port 5174
 ```
 
-访问 <http://127.0.0.1:5174>。源码和 GitHub 版本归档在私有仓库；原型未公开部署。不要以 file 协议直接打开 HTML。
+访问 <http://127.0.0.1:5174>。源码和 GitHub 版本归档在公开仓库；原型未公开部署。不要以 file 协议直接打开 HTML。
 
 ```powershell
 npm run build
@@ -84,7 +84,7 @@ npm run test:e2e
 
 ## 版本与文件
 
-历史v1.0.0/v1.1.0/v1.1.1保持不变，v1.2.0为工艺/质量阶段版本，v1.3.0为最终课程提交版；通过Git标签和私有GitHub Releases取回。
+历史v1.0.0/v1.1.0/v1.1.1保持不变，v1.2.0为工艺/质量阶段版本，v1.3.0为最终课程提交版；通过 Git 标签和 GitHub Releases 取回源码版本。
 
 `src/domain`数据模型；`src/simulation`引擎；`src/store`状态和存档；`src/pages`业务页面；`src/features`三维、质量和调度；`public/ar`识别生命周期；`docs`课程文档；`deliverables`PPT/PDF与证据。
 
