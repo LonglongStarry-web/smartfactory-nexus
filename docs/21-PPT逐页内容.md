@@ -1,4 +1,4 @@
-# 课程提交版逐页正文
+# 系统设计与初步验证逐页正文
 
 ## 第1页
 
@@ -8,8 +8,10 @@
 柔性制造协同管控系统
 
 智能制造系统设计及初步验证
-课程提交版 · v1.3.0
+系统原型 v1.3.0
 Web 交互原型 · 工序仿真 · 质量追溯
+
+GitHub: https://github.com/LonglongStarry-web/smartfactory-nexus
 
 ## 第2页
 
@@ -446,3 +448,5 @@ AR 一栏记录桌面浏览器的合成视频流识别与媒体释放结果。
 能力约束参与排产，故障后可转运未开工毛坯。合格件经 AGV 入库并计入订单完成量。
 
 默认批次仿真共投料 389 件，合格入库 370 件，报废 19 件。
+
+GitHub: https://github.com/LonglongStarry-web/smartfactory-nexus

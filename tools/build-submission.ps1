@@ -8,10 +8,18 @@ New-Item -ItemType Directory -Force -Path $renderDir | Out-Null
 $plan=Get-Content -LiteralPath (Join-Path $PSScriptRoot 'submission-plan.json') -Raw -Encoding UTF8|ConvertFrom-Json
 function Color([string]$hex){$h=$hex.TrimStart('#');return [int]([Convert]::ToInt32($h.Substring(0,2),16)+256*[Convert]::ToInt32($h.Substring(2,2),16)+65536*[Convert]::ToInt32($h.Substring(4,2),16))}
 $bg=Color '#0B1220';$ink=Color '#E8EEF7';$muted=Color '#9EB0C5';$accent=Color '#22D3EE';$line=Color '#3B5066'
+$repositoryUrl='https://github.com/LonglongStarry-web/smartfactory-nexus'
 function Text($sl,[string]$txt,[single]$x,[single]$y,[single]$w,[single]$h,[single]$size=18,[int]$color=$ink,[bool]$bold=$false){
  $sh=$sl.Shapes.AddTextbox(1,$x,$y,$w,$h);$sh.TextFrame.MarginLeft=0;$sh.TextFrame.MarginRight=0;$sh.TextFrame.MarginTop=0;$sh.TextFrame.MarginBottom=0;$sh.TextFrame.WordWrap=-1
  $sh.TextFrame.TextRange.Text=$txt;$sh.TextFrame.TextRange.Font.Name='Microsoft YaHei';$sh.TextFrame.TextRange.Font.NameFarEast='Microsoft YaHei';$sh.TextFrame.TextRange.Font.Size=$size;$sh.TextFrame.TextRange.Font.Color.RGB=$color;$sh.TextFrame.TextRange.Font.Bold=([int]$bold*-1);$sh.TextFrame.TextRange.ParagraphFormat.SpaceAfter=0
  return $sh
+}
+function RepositoryLink($sl,[single]$y){
+ $sh=Text $sl ('GitHub: '+$repositoryUrl) 46 $y 868 25 16 $accent
+ $action=$sh.TextFrame.TextRange.ActionSettings.Item(1)
+ $action.Action=7
+ $action.Hyperlink.Address=$repositoryUrl
+ $sh.TextFrame.TextRange.Font.Color.RGB=$accent
 }
 function Node($sl,[string]$txt,[single]$x,[single]$y,[single]$w,[single]$h,[single]$font=19){$sh=$sl.Shapes.AddShape(1,$x,$y,$w,$h);$sh.Fill.ForeColor.RGB=$bg;$sh.Line.ForeColor.RGB=$line;$sh.TextFrame.MarginLeft=12;$sh.TextFrame.MarginRight=12;$sh.TextFrame.MarginTop=8;$sh.TextFrame.MarginBottom=8;$sh.TextFrame.WordWrap=-1;$sh.TextFrame.TextRange.Text=$txt;$sh.TextFrame.TextRange.Font.Name='Microsoft YaHei';$sh.TextFrame.TextRange.Font.NameFarEast='Microsoft YaHei';$sh.TextFrame.TextRange.Font.Size=$font;$sh.TextFrame.TextRange.Font.Color.RGB=$ink;$sh.TextFrame.TextRange.ParagraphFormat.Alignment=2;$sh.TextFrame.VerticalAnchor=3;return $sh}
 function Arrow($sl,[single]$x1,[single]$y1,[single]$x2,[single]$y2){$a=$sl.Shapes.AddConnector(1,$x1,$y1,$x2,$y2);$a.Line.ForeColor.RGB=$accent;$a.Line.Weight=1.5;$a.Line.EndArrowheadStyle=3;[void]$a.ZOrder(1)}
@@ -49,13 +57,14 @@ $deck=$app.Presentations.Add(0);$deck.PageSetup.SlideWidth=960;$deck.PageSetup.S
 try{
  for($i=0;$i -lt $plan.Count;$i++){
   $d=$plan[$i];$sl=$deck.Slides.Add($i+1,12);$sl.FollowMasterBackground=0;$sl.Background.Fill.ForeColor.RGB=$bg
-  [void](Text $sl 'SmartFactory Nexus · 课程提交版' 44 20 600 20 12 $muted)
+  [void](Text $sl 'SmartFactory Nexus' 44 20 600 20 12 $muted)
   [void](Text $sl ([string]($i+1)) 879 20 35 20 12 $muted)
   if($d.kind -eq 'cover'){
    [void](Text $sl $d.title 44 118 380 70 46 $ink $true)
    [void](Text $sl $d.lead 46 218 370 102 26 $ink)
    [void](Text $sl ($d.points -join "`n") 46 371 390 94 17 $muted)
    Picture $sl 'final-plate.png' 443 117 474 351
+   RepositoryLink $sl 495
   }else{
    [void](Text $sl $d.title 44 64 872 55 32 $ink $true)
    [void](Text $sl $d.lead 46 123 868 53 18 $muted)
@@ -90,13 +99,18 @@ try{
      Picture $sl $d.image 350 185 565 292 $d.crop_top $d.crop_bottom
     }
    }
-   [void](Text $sl $d.caption 46 495 868 39 14 $muted)
+   if($i -eq $plan.Count-1){
+    [void](Text $sl $d.caption 46 478 868 25 14 $muted)
+    RepositoryLink $sl 509
+   }else{
+    [void](Text $sl $d.caption 46 495 868 39 14 $muted)
+   }
   }
   try{$sl.NotesPage.Shapes.Placeholders.Item(2).TextFrame.TextRange.Text=$d.notes}catch{}
  }
  $draft=Join-Path $buildDir 'submission-draft.pptx';$deck.SaveAs($draft,24)
  $checks=@();foreach($page in $deck.Slides){foreach($shape in $page.Shapes){if($shape.HasTextFrame -eq -1 -and $shape.TextFrame.HasText -eq -1){$checks+=@{slide=$page.SlideIndex;text=$shape.TextFrame.TextRange.Text;outOfSlide=($shape.Left -lt -1 -or $shape.Top -lt -1 -or $shape.Left+$shape.Width -gt 961 -or $shape.Top+$shape.Height -gt 541);overflow=($shape.TextFrame.TextRange.BoundHeight -gt $shape.Height+3)}}if($shape.HasTable -eq -1){for($r=1;$r -le $shape.Table.Rows.Count;$r++){for($c=1;$c -le $shape.Table.Columns.Count;$c++){$cell=$shape.Table.Cell($r,$c).Shape;$checks+=@{slide=$page.SlideIndex;cell="$r,$c";text=$cell.TextFrame.TextRange.Text;overflow=($cell.TextFrame.TextRange.BoundHeight -gt $cell.Height-$cell.TextFrame.MarginTop-$cell.TextFrame.MarginBottom+3);outOfSlide=$false}}}}}}
- @{slideCount=$deck.Slides.Count;font='Microsoft YaHei';fontPolicy=@{basis='design';families=@('Microsoft YaHei')};checks=$checks;method='Native PowerPoint COM; every slide exported to PNG; editable text, tables and diagrams; artifact runtime unavailable'}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $deckDir 'submission-ppt-validation.json') -Encoding UTF8
+ @{slideCount=$deck.Slides.Count;font='Microsoft YaHei';fontPolicy=@{basis='design';families=@('Microsoft YaHei')};checks=$checks;method='Native PowerPoint COM; every slide exported to PNG; editable text, tables, diagrams and repository hyperlinks'}|ConvertTo-Json -Depth 6|Set-Content -LiteralPath (Join-Path $deckDir 'submission-ppt-validation.json') -Encoding UTF8
  foreach($sl in $deck.Slides){$sl.Export((Join-Path $renderDir ('slide-{0:00}.png' -f $sl.SlideIndex)),'PNG',1600,900)}
  $pdf=Join-Path $buildDir 'submission-draft.pdf';$deck.SaveAs($pdf,32)
  Write-Output "Created $($deck.Slides.Count) editable slides, PDF and all PNG previews."

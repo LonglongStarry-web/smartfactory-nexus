@@ -10,7 +10,7 @@
     {
       "slide": 1,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -34,13 +34,19 @@
     {
       "slide": 1,
       "overflow": false,
-      "text": "智能制造系统设计及初步验证\n课程提交版 · v1.3.0\nWeb 交互原型 · 工序仿真 · 质量追溯",
+      "text": "智能制造系统设计及初步验证\n系统原型 v1.3.0\nWeb 交互原型 · 工序仿真 · 质量追溯",
+      "outOfSlide": false
+    },
+    {
+      "slide": 1,
+      "overflow": false,
+      "text": "GitHub: https://github.com/LonglongStarry-web/smartfactory-nexus",
       "outOfSlide": false
     },
     {
       "slide": 2,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -56,9 +62,9 @@
       "outOfSlide": false
     },
     {
+      "text": "围绕生产调度、质量追溯和设备维护，设计两组加工单元协同的车间原型。",
       "slide": 2,
       "overflow": false,
-      "text": "围绕生产调度、质量追溯和设备维护，设计两组加工单元协同的车间原型。",
       "outOfSlide": false
     },
     {
@@ -160,11 +166,11 @@
       "outOfSlide": false
     },
     {
-      "text": "第 20–25 页",
       "slide": 2,
       "overflow": false,
-      "cell": "5,3",
-      "outOfSlide": false
+      "text": "第 20–25 页",
+      "outOfSlide": false,
+      "cell": "5,3"
     },
     {
       "slide": 2,
@@ -175,7 +181,7 @@
     {
       "slide": 3,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -241,7 +247,7 @@
     {
       "slide": 4,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -257,9 +263,9 @@
       "outOfSlide": false
     },
     {
+      "text": "优先保证跨页面状态一致和完整业务流程，再扩展可解释加工。",
       "slide": 4,
       "overflow": false,
-      "text": "优先保证跨页面状态一致和完整业务流程，再扩展可解释加工。",
       "outOfSlide": false
     },
     {
@@ -382,11 +388,11 @@
       "outOfSlide": false
     },
     {
-      "text": "本地存档；桌面/平板/手机尺寸无横向溢出",
       "slide": 4,
       "overflow": false,
-      "cell": "6,3",
-      "outOfSlide": false
+      "text": "本地存档；桌面/平板/手机尺寸无横向溢出",
+      "outOfSlide": false,
+      "cell": "6,3"
     },
     {
       "slide": 4,
@@ -397,7 +403,7 @@
     {
       "slide": 5,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -475,7 +481,7 @@
     {
       "slide": 6,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -541,7 +547,7 @@
     {
       "slide": 7,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -589,7 +595,7 @@
     {
       "slide": 8,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -643,7 +649,7 @@
     {
       "slide": 9,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -691,7 +697,7 @@
     {
       "slide": 10,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -739,7 +745,7 @@
     {
       "slide": 11,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -755,9 +761,9 @@
       "outOfSlide": false
     },
     {
+      "text": "产品切换会改变外形、刀路、工序时长和检测名义值。",
       "slide": 11,
       "overflow": false,
-      "text": "产品切换会改变外形、刀路、工序时长和检测名义值。",
       "outOfSlide": false
     },
     {
@@ -880,11 +886,11 @@
       "outOfSlide": false
     },
     {
-      "text": "变更工装需 6 模拟秒",
       "slide": 11,
       "overflow": false,
-      "cell": "6,3",
-      "outOfSlide": false
+      "text": "变更工装需 6 模拟秒",
+      "outOfSlide": false,
+      "cell": "6,3"
     },
     {
       "slide": 11,
@@ -895,7 +901,7 @@
     {
       "slide": 12,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -943,7 +949,7 @@
     {
       "slide": 13,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -959,9 +965,9 @@
       "outOfSlide": false
     },
     {
+      "text": "投料时保存参数，检测值按明确规则生成，再与规格比较。",
       "slide": 13,
       "overflow": false,
-      "text": "投料时保存参数，检测值按明确规则生成，再与规格比较。",
       "outOfSlide": false
     },
     {
@@ -1070,11 +1076,11 @@
       "outOfSlide": false
     },
     {
-      "text": "可去毛刺返工后复测",
       "slide": 13,
       "overflow": false,
-      "cell": "4,4",
-      "outOfSlide": false
+      "text": "可去毛刺返工后复测",
+      "outOfSlide": false,
+      "cell": "4,4"
     },
     {
       "slide": 13,
@@ -1085,7 +1091,7 @@
     {
       "slide": 14,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1133,7 +1139,7 @@
     {
       "slide": 15,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1181,7 +1187,7 @@
     {
       "slide": 16,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1229,7 +1235,7 @@
     {
       "slide": 17,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1271,7 +1277,7 @@
     {
       "slide": 18,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1287,9 +1293,9 @@
       "outOfSlide": false
     },
     {
+      "text": "40 件法兰、两单元、无随机不良；各模式运行至订单全部合格入库，逐秒推进。",
       "slide": 18,
       "overflow": false,
-      "text": "40 件法兰、两单元、无随机不良；各模式运行至订单全部合格入库，逐秒推进。",
       "outOfSlide": false
     },
     {
@@ -1398,11 +1404,11 @@
       "outOfSlide": false
     },
     {
-      "text": "3.8321",
       "slide": 18,
       "overflow": false,
-      "cell": "4,4",
-      "outOfSlide": false
+      "text": "3.8321",
+      "outOfSlide": false,
+      "cell": "4,4"
     },
     {
       "slide": 18,
@@ -1413,7 +1419,7 @@
     {
       "slide": 19,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1461,7 +1467,7 @@
     {
       "slide": 20,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1527,7 +1533,7 @@
     {
       "slide": 21,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1543,9 +1549,9 @@
       "outOfSlide": false
     },
     {
+      "text": "默认订单需求为 370 件，批次仿真运行 12000 个模拟秒。",
       "slide": 21,
       "overflow": false,
-      "text": "默认订单需求为 370 件，批次仿真运行 12000 个模拟秒。",
       "outOfSlide": false
     },
     {
@@ -1668,11 +1674,11 @@
       "outOfSlide": false
     },
     {
-      "text": "低于已验证浏览器的 5 MiB 配额",
       "slide": 21,
       "overflow": false,
-      "cell": "6,3",
-      "outOfSlide": false
+      "text": "低于已验证浏览器的 5 MiB 配额",
+      "outOfSlide": false,
+      "cell": "6,3"
     },
     {
       "slide": 21,
@@ -1683,7 +1689,7 @@
     {
       "slide": 22,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1699,9 +1705,9 @@
       "outOfSlide": false
     },
     {
+      "text": "测试覆盖设备中断、工序回放、质量返工、替代路线和 AR 识别。",
       "slide": 22,
       "overflow": false,
-      "text": "测试覆盖设备中断、工序回放、质量返工、替代路线和 AR 识别。",
       "outOfSlide": false
     },
     {
@@ -1824,11 +1830,11 @@
       "outOfSlide": false
     },
     {
-      "text": "ar-synthetic-result.json",
       "slide": 22,
       "overflow": false,
-      "cell": "6,3",
-      "outOfSlide": false
+      "text": "ar-synthetic-result.json",
+      "outOfSlide": false,
+      "cell": "6,3"
     },
     {
       "slide": 22,
@@ -1839,7 +1845,7 @@
     {
       "slide": 23,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1905,7 +1911,7 @@
     {
       "slide": 24,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -1921,9 +1927,9 @@
       "outOfSlide": false
     },
     {
+      "text": "质量分流后，合格件经 AGV 入库。订单按合格入库量完成。",
       "slide": 24,
       "overflow": false,
-      "text": "质量分流后，合格件经 AGV 入库。订单按合格入库量完成。",
       "outOfSlide": false
     },
     {
@@ -2025,11 +2031,11 @@
       "outOfSlide": false
     },
     {
-      "text": "库存减少，历史订单完成量保留",
       "slide": 24,
       "overflow": false,
-      "cell": "5,3",
-      "outOfSlide": false
+      "text": "库存减少，历史订单完成量保留",
+      "outOfSlide": false,
+      "cell": "5,3"
     },
     {
       "slide": 24,
@@ -2040,7 +2046,7 @@
     {
       "slide": 25,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -2106,7 +2112,7 @@
     {
       "slide": 26,
       "overflow": false,
-      "text": "SmartFactory Nexus · 课程提交版",
+      "text": "SmartFactory Nexus",
       "outOfSlide": false
     },
     {
@@ -2164,12 +2170,18 @@
       "outOfSlide": false
     },
     {
-      "slide": 26,
       "overflow": false,
-      "text": "默认批次仿真共投料 389 件，合格入库 370 件，报废 19 件。",
-      "outOfSlide": false
+      "outOfSlide": false,
+      "slide": 26,
+      "text": "默认批次仿真共投料 389 件，合格入库 370 件，报废 19 件。"
+    },
+    {
+      "overflow": false,
+      "outOfSlide": false,
+      "slide": 26,
+      "text": "GitHub: https://github.com/LonglongStarry-web/smartfactory-nexus"
     }
   ],
-  "method": "Native PowerPoint COM; every slide exported to PNG; editable text, tables and diagrams; artifact runtime unavailable",
+  "method": "Native PowerPoint COM; every slide exported to PNG; editable text, tables, diagrams and repository hyperlinks",
   "font": "Microsoft YaHei"
 }

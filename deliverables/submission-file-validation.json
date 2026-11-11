@@ -13,13 +13,13 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 621,
+      "checked_text_script_count": 597,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Microsoft YaHei"
       ],
       "observed_font_use_counts": {
-        "Microsoft YaHei": 621
+        "Microsoft YaHei": 597
       },
       "passed": true,
       "performed": true
@@ -32,22 +32,33 @@
     "warning_count": 0,
     "warnings": []
   },
-  "pptx": "智造未来-课程提交版-修订.pptx",
-  "pdf": "智造未来-课程提交版-修订.pdf",
-  "pptxSha256": "cb0c80b57bdeea1a7d6ca08988ee4751fe663d39db98f93ab904fbd58a2bbae4",
-  "pdfSha256": "ba40995c936ec2aa6e8910f4dc013c1154f2b4c9b4370314863f4df804ec97cb",
+  "pptx": "智造未来-系统设计与初步验证.pptx",
+  "pdf": "智造未来-系统设计与初步验证.pdf",
+  "pptxSha256": "1996cc78eec6b2d330c76a5e6659d7cfda14ceb1dc1e816e95a07f24f0cf5f8b",
+  "pdfSha256": "2f0976c80b99239af0a1646d50b5e2097d67ade47b3b25010701a7bd54ef8c05",
   "pdfPageMarkers": 26,
   "nativePowerPoint": true,
-  "textReview": "All slide and note XML passed the wording scan.",
+  "textReview": "All slide and note XML passed the wording scan; submission-version branding removed.",
   "visualReview": {
     "changedSlides": [
       1,
       2,
       3,
       4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
       15,
       16,
       17,
+      18,
       19,
       20,
       21,
@@ -57,6 +68,15 @@
       25,
       26
     ],
-    "method": "PowerPoint PNG previews for all slides, compared with existing renderings, with visual review of each changed slide."
+    "method": "Native PowerPoint rendered all 26 slides. Cover and final slide visually reviewed at full size. Slides 2-25 are pixel-identical below the header; deck overview inspected."
+  },
+  "repository": {
+    "url": "https://github.com/LonglongStarry-web/smartfactory-nexus",
+    "visibleLinkSlides": [
+      1,
+      26
+    ],
+    "pptxHyperlinksVerified": true,
+    "pdfHyperlinkVerified": true
   }
 }
