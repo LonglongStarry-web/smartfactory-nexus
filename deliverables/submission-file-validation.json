@@ -13,13 +13,13 @@
     "finding_count": 0,
     "findings": [],
     "font_policy": {
-      "checked_text_script_count": 647,
+      "checked_text_script_count": 621,
       "native_font_rendering_verified": false,
       "observed_font_families": [
         "Microsoft YaHei"
       ],
       "observed_font_use_counts": {
-        "Microsoft YaHei": 647
+        "Microsoft YaHei": 621
       },
       "passed": true,
       "performed": true
@@ -32,32 +32,22 @@
     "warning_count": 0,
     "warnings": []
   },
-  "pptxSha256": "86ae42c2c05e0ff4c0e10ccd29e3975da4a7f3dbe5923d933394da9b7d3ddbd4",
-  "pdfSha256": "6399d8c1dd217f105ed712e4570500e70c5ec8ef25ae66247370a688ecebd031",
+  "pptx": "智造未来-课程提交版-修订.pptx",
+  "pdf": "智造未来-课程提交版-修订.pdf",
+  "pptxSha256": "cb0c80b57bdeea1a7d6ca08988ee4751fe663d39db98f93ab904fbd58a2bbae4",
+  "pdfSha256": "ba40995c936ec2aa6e8910f4dc013c1154f2b4c9b4370314863f4df804ec97cb",
   "pdfPageMarkers": 26,
-  "artifactImport": "unavailable: failed to write kernel assets",
   "nativePowerPoint": true,
-  "editable": "native text, tables and diagrams; screenshots remain raster evidence",
+  "textReview": "All slide and note XML passed the wording scan.",
   "visualReview": {
-    "slides": [
+    "changedSlides": [
       1,
       2,
       3,
       4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
       15,
       16,
       17,
-      18,
       19,
       20,
       21,
@@ -67,7 +57,6 @@
       25,
       26
     ],
-    "method": "Individual full-slide PNG review; final changed slides reviewed again",
-    "outcome": "No unintended overlap, clipping or broken connector found"
+    "method": "PowerPoint PNG previews for all slides, compared with existing renderings, with visual review of each changed slide."
   }
 }

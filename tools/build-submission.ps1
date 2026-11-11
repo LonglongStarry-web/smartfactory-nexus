@@ -15,7 +15,30 @@ function Text($sl,[string]$txt,[single]$x,[single]$y,[single]$w,[single]$h,[sing
 }
 function Node($sl,[string]$txt,[single]$x,[single]$y,[single]$w,[single]$h,[single]$font=19){$sh=$sl.Shapes.AddShape(1,$x,$y,$w,$h);$sh.Fill.ForeColor.RGB=$bg;$sh.Line.ForeColor.RGB=$line;$sh.TextFrame.MarginLeft=12;$sh.TextFrame.MarginRight=12;$sh.TextFrame.MarginTop=8;$sh.TextFrame.MarginBottom=8;$sh.TextFrame.WordWrap=-1;$sh.TextFrame.TextRange.Text=$txt;$sh.TextFrame.TextRange.Font.Name='Microsoft YaHei';$sh.TextFrame.TextRange.Font.NameFarEast='Microsoft YaHei';$sh.TextFrame.TextRange.Font.Size=$font;$sh.TextFrame.TextRange.Font.Color.RGB=$ink;$sh.TextFrame.TextRange.ParagraphFormat.Alignment=2;$sh.TextFrame.VerticalAnchor=3;return $sh}
 function Arrow($sl,[single]$x1,[single]$y1,[single]$x2,[single]$y2){$a=$sl.Shapes.AddConnector(1,$x1,$y1,$x2,$y2);$a.Line.ForeColor.RGB=$accent;$a.Line.Weight=1.5;$a.Line.EndArrowheadStyle=3;[void]$a.ZOrder(1)}
-function Picture($sl,[string]$name,[single]$x,[single]$y,[single]$w,[single]$h){$path=Join-Path $deckDir ('screenshots\'+$name);if(-not(Test-Path -LiteralPath $path)){throw "Missing image $name"};$im=$sl.Shapes.AddPicture($path,0,-1,$x,$y,-1,-1);$ratio=[Math]::Min($w/$im.Width,$h/$im.Height);$ow=$im.Width;$oh=$im.Height;$im.LockAspectRatio=0;$im.Width=$ow*$ratio;$im.Height=$oh*$ratio;$im.Left=$x+($w-$im.Width)/2;$im.Top=$y+($h-$im.Height)/2}
+function Picture($sl,[string]$name,[single]$x,[single]$y,[single]$w,[single]$h,[double]$cropTop=0,[double]$cropBottom=0){
+ $path=Join-Path $deckDir ('screenshots\'+$name)
+ if(-not(Test-Path -LiteralPath $path)){throw "Missing image $name"}
+ $im=$sl.Shapes.AddPicture($path,0,-1,$x,$y,-1,-1)
+ $originalWidth=$im.Width
+ $originalHeight=$im.Height
+ $visibleHeight=$originalHeight*(1-$cropTop-$cropBottom)
+ $ratio=[Math]::Min($w/$originalWidth,$h/$visibleHeight)
+ $im.LockAspectRatio=0
+ if($cropTop -gt 0 -or $cropBottom -gt 0){
+  $crop=$im.PictureFormat.Crop
+  $crop.ShapeWidth=$originalWidth*$ratio
+  $crop.ShapeHeight=$visibleHeight*$ratio
+  $crop.PictureWidth=$originalWidth*$ratio
+  $crop.PictureHeight=$originalHeight*$ratio
+  $crop.PictureOffsetX=0
+  $crop.PictureOffsetY=$originalHeight*($cropBottom-$cropTop)*$ratio/2
+ }else{
+  $im.Width=$originalWidth*$ratio
+  $im.Height=$originalHeight*$ratio
+ }
+ $im.Left=$x+($w-$im.Width)/2
+ $im.Top=$y+($h-$im.Height)/2
+}
 function Table($sl,$rows,$widths){
  $nr=$rows.Count;$nc=$widths.Count;$tb=$sl.Shapes.AddTable($nr,$nc,46,187,868,288).Table
  for($c=1;$c -le $nc;$c++){$tb.Columns.Item($c).Width=$widths[$c-1]}
@@ -64,7 +87,7 @@ try{
     'twoimages'{for($j=0;$j -lt 2;$j++){Picture $sl $d.images[$j] (46+$j*444) 187 424 270;[void](Text $sl $d.labels[$j] (46+$j*444) 459 424 28 17 $ink $true)}}
     default{
      for($j=0;$j -lt $d.points.Count;$j++){[void](Text $sl $d.points[$j] 46 (200+$j*89) 278 82 18 $ink)}
-     Picture $sl $d.image 350 185 565 292
+     Picture $sl $d.image 350 185 565 292 $d.crop_top $d.crop_bottom
     }
    }
    [void](Text $sl $d.caption 46 495 868 39 14 $muted)
