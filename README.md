@@ -2,7 +2,7 @@
 
 基于数字孪生与增强现实的智能柔性制造车间协同管控系统。课程可交互原型，当前版本 **v1.3.0**。系统、需求分析、初步设计、初步技术评估及课程提交版 PPT/PDF 一并交付。
 
-## 给老师的阅读材料
+## 项目演示与文档
 
 - [智造未来数字孪生与 AR 柔性制造车间](deliverables/智造未来-数字孪生与AR柔性制造车间.pptx) 为 23 页可编辑演示文稿，涵盖需求、架构、业务操作和验证结果，可独立阅读。
 - [同名 PDF](deliverables/智造未来-数字孪生与AR柔性制造车间.pdf) 可直接阅读。
@@ -26,7 +26,7 @@ npm test
 npm run test:e2e
 ```
 
-生产预览为 <http://127.0.0.1:4173>。交付包含 `dist/`。浏览器测试使用本机 Chrome 路径，换电脑需修改 `playwright.config.ts` 或安装 Playwright Chromium。
+生产预览为 <http://127.0.0.1:4173>。课程提交源码包附带 `dist/`。浏览器测试默认使用 Windows 上已安装的 Chrome。若安装位置不同，在 `playwright.config.ts` 中修改 `executablePath`。
 
 ## 实际功能
 
@@ -84,7 +84,7 @@ npm run test:e2e
 
 ## 版本与文件
 
-历史v1.0.0/v1.1.0/v1.1.1保持不变，v1.2.0为工艺/质量阶段版本，v1.3.0为最终课程提交版；通过 Git 标签和 GitHub Releases 取回源码版本。
+v1.0.0、v1.1.0、v1.1.1 分别记录首版与两次早期迭代，v1.2.0 对应工艺与质量阶段，v1.3.0 对应最终课程原型。各阶段源码可通过 Git 标签和 [GitHub Releases](https://github.com/LonglongStarry-web/smartfactory-nexus/releases) 获取。
 
 `src/domain`数据模型；`src/simulation`引擎；`src/store`状态和存档；`src/pages`业务页面；`src/features`三维、质量和调度；`public/ar`识别生命周期；`docs`课程文档；`deliverables`PPT/PDF与证据。
 
